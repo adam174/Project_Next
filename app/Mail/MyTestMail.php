@@ -21,15 +21,13 @@ class MyTestmail extends Mailable
     public function build()
     {
         $address = 'royalhotel@nachattube.com';
-        $subject = 'This is a demo!';
-        $name = 'Jane Doe';
+        $subject = 'Confirmation de reservation';
+        $name = 'Royal Hotel';
 
         return $this->view('emails.myTestMail')
                     ->from($address, $name)
-                    ->cc($address, $name)
-                    ->bcc($address, $name)
                     ->replyTo($address, $name)
                     ->subject($subject)
-                    ->with([ 'test_message' => $this->data['body'] ]);
+                    ->with([ 'price' => $this->data['price'],'client' => $this->data['client'],'arrival' => $this->data['arrival'],'departure' => $this->data['departure'],'room_type' => $this->data['room_type'] ]);
     }
 }

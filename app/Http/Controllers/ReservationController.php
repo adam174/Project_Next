@@ -80,6 +80,7 @@ class ReservationController extends Controller
        
         //get the price of the room
         $price = Room::select('price')->where('id',$room_id)->first();
+        $room_type = Room::select('type')->where('id',$room_id)->first();
         // security check 
         if(!$price || !$arrival || !$departure){ // if 
             return redirect('/reserver');
@@ -120,8 +121,13 @@ class ReservationController extends Controller
         // send request
         Reservation::create($request->all());
         // send Reservation Confirmation to user
-        $details = ['title' => 'confirmation de réservation','body' => 'Bonjour <br> réservation enregisté'];
-        \Mail::to('abdel@mhanni.dev')->send(new \App\Mail\MyTestMail($details));
+        $details = ['price' => $price,
+                    'client' => $name,
+                    'arrival' => $arrival,
+                    'departure' => $departure,
+                    'room_type' => $room_type,
+                ];
+        \Mail::to($email)->send(new \App\Mail\MyTestMail($details));
     
         return redirect('/')->with('success', 'Reservation created!');
     }
@@ -203,12 +209,12 @@ class ReservationController extends Controller
      */
     public function destroy(Reservation $reservation)
     {
-        $reservation = Reservation::find($reservation->id);
-
-        if ($reservation->user_id == Auth::user()->id && $reservation->arrival > date('Y-m-d',strtotime("+1 day"))) {
+     
+        if (1 == Auth::user()->id ) { // check if admin then delete reservation
+            $reservation = Reservation::find($reservation->id);
             $reservation->delete(); 
             return redirect('dashboard/reservations')->with('success', 'Successfully deleted your reservation!');
-        } elseif (1 == Auth::user()->id) { $reservation->delete(); return redirect('dashboard/reservations')->with('success', 'Successfully deleted your reservation!'); } else
+        } else
             return redirect('dashboard/reservations')->with('error', 'You are not authorized to delete this reservation');
     }
 }
