@@ -1,0 +1,500 @@
+   34  <s> [webpack.Progress] 13% building 31/34 modules 3 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\core\buildFullPath.js
+   35  <s> [webpack.Progress] 13% building 31/35 modules 4 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\core\createError.js
+   36  <s> [webpack.Progress] 13% building 31/36 modules 5 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\helpers\parseHeaders.js
+   37  <s> [webpack.Progress] 13% building 31/37 modules 6 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\helpers\isURLSameOrigin.js
+   38  <s> [webpack.Progress] 13% building 31/38 modules 7 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\helpers\cookies.js
+   39  <s> [webpack.Progress] 13% building 32/38 modules 6 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\helpers\cookies.js
+   40  <s> [webpack.Progress] 13% building 33/38 modules 5 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\helpers\cookies.js
+   41  <s> [webpack.Progress] 14% building 34/38 modules 4 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\helpers\cookies.js
+   42  <s> [webpack.Progress] 14% building 35/38 modules 3 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\helpers\cookies.js
+   43  <s> [webpack.Progress] 14% building 36/38 modules 2 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\helpers\isURLSameOrigin.js
+   44  <s> [webpack.Progress] 14% building 37/38 modules 1 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\core\settle.js
+   45  <s> [webpack.Progress] 14% building 37/39 modules 2 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\helpers\isAbsoluteURL.js
+   46  <s> [webpack.Progress] 14% building 37/40 modules 3 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\helpers\combineURLs.js
+   47  <s> [webpack.Progress] 14% building 37/41 modules 4 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\core\enhanceError.js
+   48  <s> [webpack.Progress] 14% building 38/41 modules 3 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\core\enhanceError.js
+   49  <s> [webpack.Progress] 14% building 39/41 modules 2 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\helpers\combineURLs.js
+   50  <s> [webpack.Progress] 14% building 40/41 modules 1 active D:\xampp\htdocs\final\travel-planet-crud\node_modules\axios\lib\helpers\combineURLs.js
+   51  <s> [webpack.Progress] 14% building 41/41 modules 0 active
+   52  <s> [webpack.Progress] 70% building 41/41 modules 0 active
+   53  <s> [webpack.Progress] 70% finish module graph
+   54  <s> [webpack.Progress] 70% finish module graph FlagDependencyExportsPlugin
+   55  <s> [webpack.Progress] 70% sealing
+   56  <s> [webpack.Progress] 70% sealing WarnCaseSensitiveModulesPlugin
+   57  <s> [webpack.Progress] 72% basic dependencies optimization
+   58  <s> [webpack.Progress] 72% dependencies optimization
+   59  <s> [webpack.Progress] 73% advanced dependencies optimization
+   60  <s> [webpack.Progress] 73% after dependencies optimization
+   61  <s> [webpack.Progress] 71% chunk graph
+   62  <s> [webpack.Progress] 71% after chunk graph
+   63  <s> [webpack.Progress] 71% after chunk graph WebAssemblyModulesPlugin
+   64  <s> [webpack.Progress] 74% optimizing
+   65  <s> [webpack.Progress] 74% basic module optimization
+   66  <s> [webpack.Progress] 75% module optimization
+   67  <s> [webpack.Progress] 75% advanced module optimization
+   68  <s> [webpack.Progress] 76% after module optimization
+   69  <s> [webpack.Progress] 76% basic chunk optimization
+   70  <s> [webpack.Progress] 76% basic chunk optimization EnsureChunkConditionsPlugin
+   71  <s> [webpack.Progress] 76% basic chunk optimization RemoveEmptyChunksPlugin
+   72  <s> [webpack.Progress] 76% basic chunk optimization MergeDuplicateChunksPlugin
+   73  <s> [webpack.Progress] 77% chunk optimization
+   74  <s> [webpack.Progress] 77% advanced chunk optimization
+   75  <s> [webpack.Progress] 77% advanced chunk optimization SplitChunksPlugin
+   76  <s> [webpack.Progress] 77% advanced chunk optimization RemoveEmptyChunksPlugin
+   77  <s> [webpack.Progress] 77% after chunk optimization
+   78  <s> [webpack.Progress] 78% module and chunk tree optimization
+   79  <s> [webpack.Progress] 78% module and chunk tree optimization ExtractTextPlugin
+   80  <s> [webpack.Progress] 70% building 42/42 modules 0 active
+   81  <s> [webpack.Progress] 78% after module and chunk tree optimization
+   82  <s> [webpack.Progress] 79% basic chunk modules optimization
+   83  <s> [webpack.Progress] 80% chunk modules optimization
+   84  <s> [webpack.Progress] 80% advanced chunk modules optimization
+   85  <s> [webpack.Progress] 81% after chunk modules optimization
+   86  <s> [webpack.Progress] 81% module reviving
+   87  <s> [webpack.Progress] 81% module reviving RecordIdsPlugin
+   88  <s> [webpack.Progress] 82% module order optimization
+   89  <s> [webpack.Progress] 82% advanced module order optimization
+   90  <s> [webpack.Progress] 83% before module ids
+   91  <s> [webpack.Progress] 83% before module ids NamedModulesPlugin
+   92  <s> [webpack.Progress] 83% module ids
+   93  <s> [webpack.Progress] 84% module id optimization
+   94  <s> [webpack.Progress] 84% module id optimization
+   95  <s> [webpack.Progress] 85% chunk reviving
+   96  <s> [webpack.Progress] 85% chunk reviving RecordIdsPlugin
+   97  <s> [webpack.Progress] 85% chunk order optimization
+   98  <s> [webpack.Progress] 85% chunk order optimization OccurrenceOrderChunkIdsPlugin
+   99  <s> [webpack.Progress] 86% before chunk ids
+  100  <s> [webpack.Progress] 86% before chunk ids NamedChunksPlugin
+  101  <s> [webpack.Progress] 86% chunk id optimization
+  102  <s> [webpack.Progress] 87% after chunk id optimization
+  103  <s> [webpack.Progress] 87% record modules
+  104  <s> [webpack.Progress] 87% record modules RecordIdsPlugin
+  105  <s> [webpack.Progress] 87% record chunks
+  106  <s> [webpack.Progress] 87% record chunks RecordIdsPlugin
+  107  <s> [webpack.Progress] 88% hashing
+  108  <s> [webpack.Progress] 88% after hashing
+  109  <s> [webpack.Progress] 89% record hash
+  110  <s> [webpack.Progress] 89% module assets processing
+  111  <s> [webpack.Progress] 90% chunk assets processing
+  112  <s> [webpack.Progress] 90% additional chunk assets processing
+  113  <s> [webpack.Progress] 91% recording
+  114  <s> [webpack.Progress] 92% additional asset processing
+  115  <s> [webpack.Progress] 92% additional asset processing ExtractTextPlugin
+  116  <s> [webpack.Progress] 92% chunk asset optimization
+  117  <s> [webpack.Progress] 93% after chunk asset optimization
+  118  <s> [webpack.Progress] 93% asset optimization
+  119  <s> [webpack.Progress] 94% after asset optimization
+  120  <s> [webpack.Progress] 94% after seal
+  121  <s> [webpack.Progress] 95% emitting
+  122  <s> [webpack.Progress] 95% emitting unnamed compat plugin
+  123  <s> [webpack.Progress] 98% after emitting
+  124  <s> [webpack.Progress] 98% after emitting SizeLimitsPlugin
+  125   DONE  Compiled successfully in 5732ms16:08:11
+  126  <s> [webpack.Progress] 100%
+  127         Asset      Size   Chunks             Chunk Names
+  128  /css/app.css   177 KiB  /js/app  [emitted]  /js/app
+  129    /js/app.js  1.07 MiB  /js/app  [emitted]  /js/app
+  130  adam1@LAPTOP-2VDT8121 MINGW64 /d/xampp/htdocs/final/travel-planet-crud
+  131  $ composer require auth0/login
+  132  Using version ^6.0 for auth0/login
+  133  ./composer.json has been updated
+  134  Loading composer repositories with package information
+  135  Updating dependencies (including require-dev)
+  136  Package operations: 8 installs, 0 updates, 0 removals
+  137    - Installing lcobucci/jwt (3.3.1): Loading from cache
+  138    - Installing ralouphie/getallheaders (3.0.3): Loading from cache
+  139    - Installing psr/http-message (1.0.1): Loading from cache
+  140    - Installing guzzlehttp/psr7 (1.6.1): Loading from cache
+  141    - Installing guzzlehttp/promises (v1.3.1): Loading from cache
+  142    - Installing guzzlehttp/guzzle (6.5.3): Loading from cache
+  143    - Installing auth0/auth0-php (7.1.0): Downloading (100%)
+  144    - Installing auth0/login (6.0.0): Downloading (100%)
+  145  guzzlehttp/psr7 suggests installing zendframework/zend-httphandlerrunner (Emit PSR-7 responses)
+  146  Writing lock file
+  147  Generating optimized autoload files
+  148  > Illuminate\Foundation\ComposerScripts::postAutoloadDump
+  149  > @php artisan package:discover --ansi
+  150  Discovered Package: auth0/login
+  151  Discovered Package: facade/ignition
+  152  Discovered Package: fideloper/proxy
+  153  Discovered Package: laravel/tinker
+  154  Discovered Package: laravel/ui
+  155  Discovered Package: nesbot/carbon
+  156  Discovered Package: nunomaduro/collision
+  157  Package manifest generated successfully.
+  158  10 packages you are using are looking for funding.
+  159  Use the `composer fund` command to find out more!
+  160  adam1@LAPTOP-2VDT8121 MINGW64 /d/xampp/htdocs/final/travel-planet-crud
+  161  $
+  162  php artisan vendor:publish
+  163  clear
+  164  php artisan make:controller Auth/Auth0IndexController
+  165  php artisan key:generate
+  166  php artisan ui vue --auth
+  167  composer install
+  168  npm install
+  169  php artisan key:generate
+  170  php artisan migrate
+  171  php artisan db:seed
+  172  node
+  173  node
+  174  node
+  175  node index
+  176  node mainNode
+  177  node mainNode
+  178  php artisan route:list
+  179  mongo
+  180  mongo
+  181  mongod
+  182  mongo
+  183  mongo
+  184  mongo
+  185  mongod
+  186  mongo
+  187  show dbs
+  188  composer create-project --prefer-dist laravel/laravel new
+  189  composer require laravel/ui
+  190  php artisan ui bootstrap
+  191  php artisan ui bootstrap
+  192  cd new
+  193  php artisan ui bootstrap
+  194  composer require laravel/ui
+  195  php artisan ui bootstrap
+  196  npm install && npm run dev
+  197  php artisan ui bootstrap --auth
+  198  npm install && npm run dev
+  199  composer create-project --prefer-dist laravel/laravel new
+  200  php artisan ui bootstrap
+  201  composer require laravel/ui
+  202  php artisan ui bootstrap
+  203  npm install && npm run dev
+  204  php artisan ui bootstrap --auth
+  205  php artisan key:generate
+  206  php artisan view:clear
+  207  npm init
+  208  npm install mdbootstrap
+  209  npm install --save-dev @babel/cli @babel/core @babel/plugin-proposal-class-properties @babel/plugin-proposal-decorators @babel/plugin-proposal-do-expressions @babel/plugin-proposal-export-default-from @babel/plugin-proposal-export-namespace-from @babel/plugin-proposal-function-bind @babel/plugin-proposal-function-sent @babel/plugin-proposal-json-strings @babel/plugin-proposal-logical-assignment-operators @babel/plugin-proposal-nullish-coalescing-operator @babel/plugin-proposal-numeric-separator @babel/plugin-proposal-optional-chaining @babel/plugin-proposal-pipeline-operator @babel/plugin-proposal-throw-expressions @babel/plugin-syntax-dynamic-import @babel/plugin-syntax-import-meta @babel/plugin-transform-arrow-functions @babel/preset-env babel-eslint babel-loader clean-webpack-plugin copy-webpack-plugin css-loader eslint eslint-config-airbnb-base eslint-loader eslint-plugin-import file-loader html-loader html-webpack-plugin mini-css-extract-plugin node-sass optimize-css-assets-webpack-plugin sass-loader style-loader terser terser-webpack-plugin webpack webpack-cli webpack-dev-server
+  210  npm install --save @fortawesome/fontawesome-free bootstrap datatables.net es6-promise hammerjs jquery node-waves popper.js underscore wow.js
+  211  npm init
+  212  npm install mdbootstrap
+  213  npm install --save-dev @babel/cli @babel/core @babel/plugin-proposal-class-properties @babel/plugin-proposal-decorators @babel/plugin-proposal-do-expressions @babel/plugin-proposal-export-default-from @babel/plugin-proposal-export-namespace-from @babel/plugin-proposal-function-bind @babel/plugin-proposal-function-sent @babel/plugin-proposal-json-strings @babel/plugin-proposal-logical-assignment-operators @babel/plugin-proposal-nullish-coalescing-operator @babel/plugin-proposal-numeric-separator @babel/plugin-proposal-optional-chaining @babel/plugin-proposal-pipeline-operator @babel/plugin-proposal-throw-expressions @babel/plugin-syntax-dynamic-import @babel/plugin-syntax-import-meta @babel/plugin-transform-arrow-functions @babel/preset-env babel-eslint babel-loader clean-webpack-plugin copy-webpack-plugin css-loader eslint eslint-config-airbnb-base eslint-loader eslint-plugin-import file-loader html-loader html-webpack-plugin mini-css-extract-plugin node-sass optimize-css-assets-webpack-plugin sass-loader style-loader terser terser-webpack-plugin webpack webpack-cli webpack-dev-server
+  214  npm install --save @fortawesome/fontawesome-free bootstrap datatables.net es6-promise hammerjs jquery node-waves popper.js underscore wow.js
+  215  mongodb
+  216  mongodb
+  217  md \data\db
+  218  "C:\Program Files\MongoDB\Server\4.0\bin\mongod.exe"
+  219  mongo
+  220  mongodb
+  221  mongo
+  222  mongo
+  223  npm install
+  224  npm init
+  225  npm install css-loader sass-loader file-loader url-loader node-sass extract-text-webpack-plugin transfer-webpack-plugin image-webpack-loader jquery --save-dev
+  226  npm install bootstrap@4.0.0-beta tether popper.js autoprefixer precss exports-loader imports-loader postcss-loader --save
+  227  npm install --save-dev webpack
+  228  npm init
+  229  npm i webpack-mix
+  230  npm init -y
+  231  npm install webpack-mix --save-dev
+  232  cp node_modules/webpack-mix/setup/webpack.mix.js ./
+  233  mkdir src && touch src/app.{js,scss}
+  234  node_modules/.bin/webpack
+  235  node_modules/.bin/webpack
+  236  npm install webpack webpack-cli --save-dev
+  237  node_modules/.bin/webpack
+  238  mkdir webpack-demo
+  239  cd webpack-demo
+  240  npm init -y
+  241  npm install webpack webpack-cli --save-dev
+  242  npm install --save lodash
+  243  npm install --save
+  244  npx webpack
+  245  npx webpack --config webpack.config.js
+  246  npm run build
+  247  npm install --save-dev @fortawesome/fontawesome-free
+  248  npm install --save-dev @fortawesome/fontawesome-svg-core @fortawesome/free-brands-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-solid-svg-icons
+  249  npm run build
+  250  npm install
+  251  npm start
+  252  git clone git@github.com:scaff/formation-node.git
+  253  npm i
+  254  npm i
+  255  npm start
+  256  npm start
+  257  npx create-react-app my-app
+  258  cd my-app
+  259  npm install --save redux
+  260  npm install --save react-redux
+  261  npm install --save-dev redux-devtools
+  262  npm i
+  263  npm start
+  264  npm start
+  265  npm start
+  266  npm start
+  267  npm start
+  268  npm start
+  269  npm start
+  270  npm install express cors mongoose
+  271  node server.js
+  272  node server.js
+  273  node server.js
+  274  npm install express --save
+  275  npm install body-parser --save
+  276  npm install mongoose --save
+  277  toch app.js
+  278  touch app.js
+  279  touch index.html
+  280  touch signup_success.html
+  281  touch style.css
+  282  node app.js
+  283  node app.js
+  284  npm i
+  285  npm audit fix
+  286  npm audit fix --force
+  287  node app.js
+  288  composer update
+  289  php artisan vendor:publish --tag=laravelroles && php artisan vendor:publish --tag=laravel2step
+  290  php artisan key:generate
+  291  php artisan migrate
+  292  composer dump-autoload
+  293  php artisan db:seed
+  294  npm install
+  295  npm i
+  296  ls
+  297  npm start
+  298  npm i
+  299  npm audit fix
+  300  npm audit fix --force
+  301  npm start
+  302  npm audit fix
+  303  npm start
+  304  npm i
+  305  npm audit
+  306  npm i webpack-cli
+  307  npm i webpack
+  308  npm i
+  309  npm start
+  310  npm i webpack
+  311  npm i webpack-dev-server
+  312  npm i react-addons-test-utils
+  313  npm start
+  314  npm i
+  315  npm start
+  316  npm i "webpack-dev-server
+  317  "
+  318  npm i webpack-dev-server
+  319  npm i
+  320  npm i core-js@3
+  321  npm start
+  322  npm start
+  323  npm start
+  324  npm i
+  325  npm start
+  326  npm i
+  327  npm start
+  328  npm i
+  329  npm start
+  330  code .
+  331  npm install -g expo-cli
+  332  expo init Myproject
+  333  expo init Myproject --template blank
+  334   cd Myproject
+  335  npm run web
+  336  npm start
+  337  exit
+  338  npm i
+  339  expo start
+  340  code .
+  341  code .
+  342  npm i
+  343  expo start
+  344  expo start
+  345  npm i
+  346  expo start
+  347  npm install -g expo-cli
+  348  expo start
+  349  npm start
+  350  npm uninstall -g react-native
+  351  npm install -g react-native-cli
+  352  npm start
+  353  git clone https://github.com/flatlogic/react-native-starter.git
+  354  cd react-native-starter && npm install
+  355  cd ios && pod install
+  356  npm start
+  357  npm run:android
+  358  code .
+  359  code .
+  360  git clone --depth 1 <https://github.com/boadude/React-Native-Expo-Starter.git>
+  361  git clone --depth 1 <https://github.com/boadude/React-Native-Expo-Starter.git>
+  362  git clone --depth 1 https://github.com/boadude/React-Native-Expo-Starter.git
+  363  cd React-Native-Expo-Starter
+  364  npm install
+  365  expo start
+  366  code .
+  367  expo start
+  368  npm install -g create-react-native-app
+  369  npm install -g expo-cli
+  370  expo init Project7
+  371  npm -V
+  372  npm -v
+  373  npm install -g expo-cli
+  374  expo init Project7
+  375  exp -v
+  376  expo -v
+  377  npm install -g expo-cli
+  378  run npm
+  379  npm
+  380  npm i
+  381  npm cache clean
+  382  expo start
+  383  npm install -g react-native
+  384  npm install core-js@3
+  385  npm uninstall -g 
+  386  npm cache clean --force
+  387  expo start
+  388  npm install -g expo-cli
+  389  sudo npm install --unsafe-perm -g expo-cli
+  390  npm install --unsafe-perm -g expo-cli
+  391  npm list -g
+  392  expo-cli start
+  393  npm install -g expo-cli
+  394  npm i -g npm
+  395  code .
+  396  expo init AwesomeProject
+  397  expo init Project1 --template blank
+  398  expo start
+  399  ls
+  400  cd Pro*
+  401  expo start
+  402  react-native init AwesomeNativeBase
+  403  npm install -g react-native
+  404  react-native init AwesomeNativeBase
+  405  npm install -g react-native-cli
+  406  npm uninstall -g react-native-cli
+  407  npm uninstall -g react-native
+  408  npm install -g react-native-cli
+  409  react-native init AwesomeNativeBase
+  410  npm install -g react-native
+  411  npm uninstall -g react-native-cli
+  412  npm install -g react-native
+  413  expo init AwesomeNativeBase
+  414  expo init AwesomeNativeBase --template blank
+  415  cd AwesomeNativeBase
+  416  npm install native-base --save
+  417  expo start
+  418  git clone https://github.com/thecodingmachine/react-native-boilerplate
+  419  cd react*
+  420  rm -rf .git/
+  421  yarn
+  422  yarn
+  423  yarn
+  424  react-native run-android
+  425  sdkmanager –list
+  426  sdkmanager
+  427  react-native run-web
+  428  react-native run
+  429  react-native -h
+  430  react-native start
+  431  react-native
+  432  react-native config
+  433  react-native start
+  434  code .
+  435  react-native start
+  436  react-native config
+  437  react-native start
+  438  git clone https://github.com/galio-org/galio-starter-kit.git
+  439  yarn install
+  440  npm start
+  441  npm i
+  442  npm start
+  443  yarn upgrade
+  444  npm start
+  445  yarn upgrade --latest
+  446  npm start
+  447  expo r -c 
+  448  exit
+  449  npm i
+  450  npm start
+  451  expo r -c
+  452  expo start
+  453  npm start
+  454  npm i react-native
+  455  npm start
+  456  npm start
+  457  code .
+  458  expo start
+  459  exit
+  460  npm i --save react-native-accordion
+  461  npm install react-native-vector-icons
+  462  react-native link react-native-vector-icons
+  463  npm i @bit/mienviomx.components.colors
+  464  expo start
+  465  expo start
+  466  expo start
+  467  code .
+  468  expo init reactmysql
+  469  expo init reactmysql --template blank
+  470  cd reactmysql
+  471  expo start
+  472  npm install express body-parser mysql
+  473  node routes.js
+  474  node routes.js
+  475  node routes.js
+  476  node routes.js
+  477  node routes.js
+  478  node routes.js
+  479  node routes.js
+  480  node routes.js
+  481  node routes.js
+  482  node routes.js
+  483  node routes.js
+  484  node routes.js
+  485  node routes.js
+  486  node routes.js
+  487  node routes.js
+  488  node routes.js
+  489  node routes.js
+  490  node routes.js
+  491  node routes.js
+  492  node routes.js
+  493  node routes.js
+  494  code .
+  495  expo init my-project --template blank
+  496  ls -la
+  497  composer global require laravel/installer
+  498  laravel new nextproject
+  499  ls
+  500  cd nextproject
+  501  ls
+  502  npm install
+  503  code .
+  504  php artisan migrate
+  505  mkdir app/Models
+  506  php artisan make:model Models/Hotel -m
+  507  php artisan make:model Models/Room -m
+  508  php artisan make:model Models/Reservation -m
+  509  php artisan migrate
+  510  php artisan migrate
+  511  php artisan migrate
+  512  php artisan db:seed
+  513  php artisan db:seed
+  514  php artisan db:seed
+  515  composer dumpautoload
+  516  php artisan db:seed
+  517  composer dumpautoload
+  518  composer dumpautoload
+  519  php artisan migrate
+  520  php artisan migrate
+  521  php artisan make:controller HotelController
+  522  php artisan make:controller ReservationController --resource
+  523  composer require laravel/ui
+  524  php artisan ui bootstrap
+  525  npm install && npm run dev
+  526  php artisan make:middleware Language
+  527  php artisan make:auth
+  528  php artisan ui vue --auth
+  529  composer require laravel/socialite
+  530  composer dumpautoload
+  531  Get-History -ID 22 -Count 5 | Export-Csv History.csv
+  532  ~/.bash_history
+  533  history > history.text
