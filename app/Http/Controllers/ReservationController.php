@@ -138,7 +138,7 @@ class ReservationController extends Controller
         //         ];
         // \Mail::to($email)->send(new \App\Mail\MyTestMail($details));
     
-        return redirect('/')->with('success', 'Reservation created!');
+        return redirect('home')->with('success', 'Reservation created!');
     }
 
     /**

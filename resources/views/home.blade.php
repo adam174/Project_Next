@@ -48,6 +48,12 @@
   <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
 <!--slide end--> 
 <!-- *********************/main/************************* -->
+@if(!empty(Session::get('success')))
+          <h1>thank you!</h1>
+          <p> Thank you for choosing to stay with us at the Sample Hotel. We are pleased to confirm your reservation as follows:</p>
+          
+        <div class="alert alert-success"> {{ Session::get('success') }}</div>
+    @endif
 <!-- Services section -->
 <div class="row m-5">
   <div class="col-md-12 col-lg-6 " >

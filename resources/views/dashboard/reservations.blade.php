@@ -4,6 +4,12 @@
 @section('content')
 <div class="container table-responsive mt-5">
     <h2>Your Reservations</h2>
+    @if(!empty(Session::get('success')))
+        <div class="alert alert-success"> {{ Session::get('success') }}</div>
+    @endif
+    @if(!empty(Session::get('error')))
+        <div class="alert alert-danger"> {{ Session::get('error') }}</div>
+    @endif
     <table class="table mt-3">
         <thead>
             <tr>
@@ -45,12 +51,7 @@
             
         </tbody>
     </table>
-    @if(!empty(Session::get('success')))
-        <div class="alert alert-success"> {{ Session::get('success') }}</div>
-    @endif
-    @if(!empty(Session::get('error')))
-        <div class="alert alert-danger"> {{ Session::get('error') }}</div>
-    @endif
+    
 </div>
 
 @endsection
