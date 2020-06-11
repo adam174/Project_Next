@@ -51,7 +51,11 @@ class ReservationController extends Controller
         // get dates from stored session
         $arrival = $request->session()->get('arrival');
         $departure = $request->session()->get('departure');
-        return view('dashboard.reservationCheckout', compact('arrival', 'room_id','departure'));
+        if (Auth::user() && Auth::user()->id ==1) { 
+           return view('admin.checkout', compact('arrival', 'room_id','departure'));
+       }else{
+           return view('dashboard.reservationCheckout', compact('arrival', 'room_id','departure'));
+       }
     }
 
     /**
@@ -64,70 +68,75 @@ class ReservationController extends Controller
     {
         // include functions we need
         include(app_path() . '\functions\n_rooms.php');
-        //validation
-        if (Auth::guest()) {
-          $validator = Validator::make($request->all(), [
-            'email' => 'required|unique:users,email',
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'mobile' => 'required|unique:users,mobile',
-            'name' => ['required','string'],
-        ])->validate();
-        }
+    
         //get info stored in sessions then Convert date format to Y-m-d (supported by mysql)
-        $arrival = Carbon::createFromFormat('m/d/Y', $request->session()->get('arrival'))->format('Y-m-d');
-        $departure = Carbon::createFromFormat('m/d/Y', $request->session()->get('departure'))->format('Y-m-d');
+        $arrival = Carbon::createFromFormat('Y-m-d', $request->session()->get('arrival'))->format('Y-m-d');
+        $departure = Carbon::createFromFormat('Y-m-d', $request->session()->get('departure'))->format('Y-m-d');
         $room_id = $request->session()->get('room_id');
        
         //get the price of the room
         $price = Room::select('price')->where('id',$room_id)->first();
-        $room_type = Room::select('type')->where('id',$room_id)->first();
-        // security check 
-        if(!$price || !$arrival || !$departure){ // if 
-            return redirect('/reserver');
-            }
+        if(!$price){
+        }
         // calculate price of total days of stay
         $price = $price->price * dateDifference($arrival, $departure);
-    
-         // store data to request 
-        $request->request->add(['arrival' => $arrival]);
-        $request->request->add(['departure' => $departure]);
-        $request->request->add(['price' => $price]);
-        $request->request->add(['num_of_guests' => 2]);
-        $request->request->add(['room_id' => $room_id]);
-        // Create the request
-        if (Auth::check()) {
-            // The user is logged in...
-            $user_id = Auth::user()->id;
-            $name = Auth::user()->name;
-            $email = Auth::user()->email;
-        }else{// if Guest 
-            $name = $request->name;
-            $email = $request->email;
-            $mobile = $request->mobile;
-            $country = $request->country;
-            $password = Hash::make($request->password);
-            $user_id = User::insertGetId(['name' => $name, 'mobile' => $mobile,'country' => $country,'email' => $email, 'password' => $password]);
-        }
-        $request->request->add(['user_id' => $user_id]);
-        // using Stripe to make transaction
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        Stripe\Charge::create ([
+        $room_type = Room::select('type')->where('id',$room_id)->first();
+        // Create the request  
+        if ( Auth::guest() || 1 == Auth::user()->id) {
+            $validator = Validator::make($request->all(), [
+                'email' => 'required',
+                'password' => ['required', 'string', 'min:8'],
+                'mobile' => 'required',
+                'name' => ['required','string'],
+                ])->validate();
+                $user = User::firstOrNew(['email' =>  $request->email]);
+                $user->name = $request->name;
+                $user->mobile = $request->mobile;
+                $user->country = $request->country;
+                $user->password = Hash::make($request->password);
+                $user->save();
+                $user_id = User::where('email',$request->email)->pluck('id')->toArray()[0];
+                $email = $request->email;
+                
+            }else{  // store to variables to send email confirmation
+                $user_id = Auth::user()->id;
+                $name = Auth::user()->name;
+                $email = Auth::user()->email;
+            }
+            // store data to request 
+           $request->request->add(['user_id' => $user_id]);
+           $request->request->add(['arrival' => $arrival]);
+           $request->request->add(['departure' => $departure]);
+           $request->request->add(['price' => $price]);
+           $request->request->add(['num_of_guests' => 2]);
+           $request->request->add(['room_id' => $room_id]);
+            // using Stripe to make transaction and make optional for admin
+            if (Auth::user()){
+                $admin_id = Auth::user()->id;
+            }else{ $admin_id = null;}
+            if(1 == $admin_id  && !$request->stripeToken){
+                Reservation::create($request->all());
+            }else{
+                Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+                Stripe\Charge::create ([
                 "amount" => $price * 100,
                 "currency" => "eur",
                 "source" => $request->stripeToken,
                 "description" => "Test payment from RoyalHotel.",
                 "receipt_email" => $email,
-        ]);
+                            ]);
         // send request
         Reservation::create($request->all());
+            }
+            
         // send Reservation Confirmation to user
-        $details = ['price' => $price,
-                    'client' => $name,
-                    'arrival' => $arrival,
-                    'departure' => $departure,
-                    'room_type' => $room_type,
-                ];
-        \Mail::to($email)->send(new \App\Mail\MyTestMail($details));
+        // $details = ['price' => $price,
+        //             'client' => $name,
+        //             'arrival' => $arrival,
+        //             'departure' => $departure,
+        //             'room_type' => $room_type,
+        //         ];
+        // \Mail::to($email)->send(new \App\Mail\MyTestMail($details));
     
         return redirect('/')->with('success', 'Reservation created!');
     }

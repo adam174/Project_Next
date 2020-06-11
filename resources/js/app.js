@@ -44,7 +44,7 @@ $( document ).ready(function() {
     $( function() {
       var dateToday = new Date();
       var dates = $("#start-date, #end-date").datepicker({
-          format: "MM/DD/YYYY",
+          dateFormat: "yy-mm-dd",
           defaultDate: "+2d",
           changeMonth: true,
           numberOfMonths: 1,
@@ -62,11 +62,12 @@ $( document ).ready(function() {
           }
       });
     });
-    });
+});
+    
 
-window.Vue = require('vue');
+// window.Vue = require('vue');
 
-Vue.component('example-component', require('./components/views/Home.vue').default);
-const app = new Vue({
-    el: '#app',
- });
+// Vue.component('example-component', require('./components/views/Home.vue').default);
+// const app = new Vue({
+//     el: '#app',
+//  });
