@@ -49,9 +49,47 @@
 <!--slide end--> 
 <!-- *********************/main/************************* -->
 @if(!empty(Session::get('success')))
-          <h1>thank you!</h1>
-          <p> Thank you for choosing to stay with us at the Sample Hotel. We are pleased to confirm your reservation as follows:</p>
-          
+            <!-- Start success message -->
+            <section class="section-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Start Section Title -->
+                            <div class="section-title text-center text-info">
+                        
+                                <h4>Booking Confirmed</h4>
+                                <h2>THANK YOU!</h2>
+                            </div>
+                            <!-- End Section Title -->
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="thanks-content text-center text-dark">
+                                <h1 class="text-success"><i class="fa fa-check fa-5x"></i></h1>
+                                <h2 class="text-success"> Awesome! </h2>
+                                <h3 class="text-danger">Your Booking has been confirmed.</h3>
+                                <p><strong>Hi,</strong></p>
+                                <p>We have received your Booking Details.<br> You will Receive a confirmation email shortly</p>
+                                <p>Your Booking ID: <strong class="text-info">9428575331</strong></p>
+                                <a class="btn btn-info text-uppercase" href="/"> <i class="fa fa-sign-in fa-2x" aria-hidden="true"></i> Login to manage your reservations</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+      
+            <section class="section-wrapper call-to-action my-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12">
+                            <h3>Do You Have any Questions?</h3>
+                        </div>
+                        <div class="col-md-4 col-sm-12 text-center">
+                            <a name="" id="" class="btn btn-primary" href="#" role="button">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End success message -->
         <div class="alert alert-success"> {{ Session::get('success') }}</div>
     @endif
 <!-- Services section -->
