@@ -23,11 +23,16 @@ class MyTestmail extends Mailable
         $address = 'royalhotel@nachattube.com';
         $subject = 'Confirmation de reservation';
         $name = 'Royal Hotel';
-
         return $this->view('emails.myTestMail')
                     ->from($address, $name)
                     ->replyTo($address, $name)
                     ->subject($subject)
-                    ->with([ 'price' => $this->data['price'],'client' => $this->data['client'],'arrival' => $this->data['arrival'],'departure' => $this->data['departure'],'room_type' => $this->data['room_type'] ]);
+                    ->with([ 'price' => $this->data['price'],
+                             'client' => $this->data['client'],
+                             'arrival' => $this->data['arrival'],
+                             'departure' => $this->data['departure'],
+                             'room_type' => $this->data['room_type'],
+                             'password' => $this->data['password']
+                             ]);
     }
 }

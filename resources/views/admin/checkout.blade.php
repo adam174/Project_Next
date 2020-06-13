@@ -109,7 +109,7 @@ function generate() {
        </div>
    </div>
 
-   <div class="form-group row">
+   {{-- <div class="form-group row">
        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('auth.password') }}</label>
 
        <div class="col-md-6">
@@ -122,7 +122,8 @@ function generate() {
                </span>
            @enderror
        </div>
-   </div>
+   </div> --}}
+
       <div class="form-group row">
                         <label class="col-md-4 col-form-label text-md-right">{{ __('auth.cc_holder') }}</label> 
                         <div class="col-md-6 form-group required">
@@ -193,7 +194,7 @@ function generate() {
     >
       @csrf
 
-        <input type="hidden" name="length" value="10">
+    <input type="hidden" name="length" value="10">
       <div class="form-group row">
        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('auth.name') }}</label>
 
@@ -249,7 +250,7 @@ function generate() {
        </div>
    </div>
 
-   <div class="form-group row">
+   {{-- <div class="form-group row">
        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('auth.password') }}</label>
 
        <div class="col-md-6">
@@ -262,7 +263,7 @@ function generate() {
                </span>
            @enderror
        </div>
-   </div>
+   </div> --}}
       <div class="row">
                <div class="col-md-12">
                         <button class="btn btn-primary btn-lg btn-block" type="submit">{{ __('auth.checkout') }}</button>

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Validator;
 use Stripe;
 use App\Mail\MyTestMail;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 class ReservationController extends Controller
 {
     /**
@@ -26,7 +27,7 @@ class ReservationController extends Controller
         if (1 == Auth::user()->id) { //if Admin show all reservations
             $reservations = Reservation::with('room', 'room.hotel')
                     ->orderBy('arrival', 'asc')
-                    ->get();
+                    ->paginate(15);
                     
         }else{ // if normal user show only his reservations
                 $reservations = Reservation::with('room', 'room.hotel')
@@ -84,16 +85,19 @@ class ReservationController extends Controller
         // Create the request  
         if ( Auth::guest() || 1 == Auth::user()->id) {
             $validator = Validator::make($request->all(), [
-                'email' => 'required',
-                'password' => ['required', 'string', 'min:8'],
-                'mobile' => 'required',
+                'email' => ['required','unique:users'],
+                //'password' => ['required', 'string', 'min:8'],
+                'mobile' => ['required','numeric'],
+                'country' => ['required','string'],
                 'name' => ['required','string'],
                 ])->validate();
+                $password = Str::random(8);
                 $user = User::firstOrNew(['email' =>  $request->email]);
                 $user->name = $request->name;
+                $name = $request->name;
                 $user->mobile = $request->mobile;
                 $user->country = $request->country;
-                $user->password = Hash::make($request->password);
+                $user->password = Hash::make($password);
                 $user->save();
                 $user_id = User::where('email',$request->email)->pluck('id')->toArray()[0];
                 $email = $request->email;
@@ -102,6 +106,7 @@ class ReservationController extends Controller
                 $user_id = Auth::user()->id;
                 $name = Auth::user()->name;
                 $email = Auth::user()->email;
+                $password = null;
             }
             // store data to request 
            $request->request->add(['user_id' => $user_id]);
@@ -110,7 +115,7 @@ class ReservationController extends Controller
            $request->request->add(['price' => $price]);
            $request->request->add(['num_of_guests' => 2]);
            $request->request->add(['room_id' => $room_id]);
-            // using Stripe to make transaction and make optional for admin
+            // using Stripe to make transaction and make it optional for admin
             if (Auth::user()){
                 $admin_id = Auth::user()->id;
             }else{ $admin_id = null;}
@@ -129,16 +134,19 @@ class ReservationController extends Controller
         Reservation::create($request->all());
             }
             
-        // send Reservation Confirmation to user
-        // $details = ['price' => $price,
-        //             'client' => $name,
-        //             'arrival' => $arrival,
-        //             'departure' => $departure,
-        //             'room_type' => $room_type,
-        //         ];
-        // \Mail::to($email)->send(new \App\Mail\MyTestMail($details));
+       // send Reservation Confirmation to user
+        $details = ['price' => $price,
+                    'client' => $name,
+                    'arrival' => $arrival,
+                    'departure' => $departure,
+                    'room_type' => $room_type,
+                    'password' => $password,
+                ];
+
+        \Mail::to($email)->send(new \App\Mail\MyTestMail($details));
     
-        return redirect('home')->with('success', 'Reservation created!');
+        return redirect('home')->with('success', 'Your Booking has been confirmed')
+                               ->with('name', $name);
     }
 
     /**
@@ -153,7 +161,7 @@ class ReservationController extends Controller
         $reservation = Reservation::with('room', 'room.hotel')
           ->get()
           ->find($reservation->id);
-        // security check : show only user's reservations except admin can see all
+        // security check : show only user's reservations || admin can see all
         if ($reservation->user_id === Auth::user()->id || 1 === Auth::user()->id ) {
           $hotel_id = $reservation->room->hotel_id;
           $hotelInfo = Hotel::with('rooms')->get()->find($hotel_id);

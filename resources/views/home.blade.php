@@ -66,8 +66,8 @@
                             <div class="thanks-content text-center text-dark">
                                 <h1 class="text-success"><i class="fa fa-check fa-5x"></i></h1>
                                 <h2 class="text-success"> Awesome! </h2>
-                                <h3 class="text-danger">Your Booking has been confirmed.</h3>
-                                <p><strong>Hi,</strong></p>
+                                <h3 class="text-danger">{{ Session::get('success') }}</h3>
+                                <p><strong>Hi, {{ Session::get('name') }}</strong></p>
                                 <p>We have received your Booking Details.<br> You will Receive a confirmation email shortly</p>
                                 <p>Your Booking ID: <strong class="text-info">9428575331</strong></p>
                                 <a class="btn btn-info text-uppercase" href="/"> <i class="fa fa-sign-in fa-2x" aria-hidden="true"></i> Login to manage your reservations</a>
@@ -90,7 +90,7 @@
                 </div>
             </section>
             <!-- End success message -->
-        <div class="alert alert-success"> {{ Session::get('success') }}</div>
+        
     @endif
 <!-- Services section -->
 <div class="row m-5">
