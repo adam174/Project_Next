@@ -2,7 +2,7 @@
 @section('title', 'Reserver')
 
 @section('content')
-
+<h1>Welcome Admin</h1>
 <div id="booking" class="section">
     <div class="section-center">
         <div class="container">
@@ -31,11 +31,11 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <span class="form-label">Adults</span>
-                                    <select class="form-control" name="num_of_adults">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
+                                    <span class="form-label">moyens de paiement</span>
+                                    <select class="form-control" name="payment">
+                                        <option value="cc" selected>Carte bancaire</option>
+                                        <option value="cash">espèces</option>
+                                        <option value="check">Chèques</option>
                                     </select>
                                     <span class="select-arrow"></span>
                                 </div>

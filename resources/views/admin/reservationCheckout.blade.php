@@ -4,6 +4,7 @@
 @section('title', 'Create reservation')
 
 @section('content')
+<h1>Welcome Admin</h1>
 <div class="container">
     
 
@@ -13,7 +14,7 @@
 
 <form 
     role="form" 
-    action="{{ route('reservations.save') }}" 
+    action="{{ route('bookings.store') }}" 
     method="post" 
     class="require-validation"
     data-cc-on-file="false"

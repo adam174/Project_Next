@@ -13,7 +13,7 @@
               <h4>{{ __('home.header_title-1') }} </h4>
               <p>{{ __('home.header_body-1') }}</p>
               <!-- <a href="#">BUY NOW</a>--> </div> 
-            <div class="col-md-7 col-12 order-md-2 order-1"><img src="https://www.royal-hotel.com/_files/_cache/1/resize/1920-.ratio/00b2220430af282d345b1f9a7963a732.jpg" class="mx-auto" alt="slide"></div>
+            <div class="col-md-7 col-12 order-md-2 order-1"><img src="/img/00b2220430af282d345b1f9a7963a732.jpg" class="mx-auto" alt="slide"></div>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
               <h4>{{ __('home.header_title-2') }}</h4>
               <p>{{ __('home.header_body-2') }}</p>
                </div> 
-            <div class="col-md-7 col-12 order-md-2 order-1"><img src="https://www.royal-hotel.com/_files/_media/1/Hotel/Maranatha_09552.jpg" class="mx-auto" alt="slide"></div>
+            <div class="col-md-7 col-12 order-md-2 order-1"><img src="/img/Maranatha_09552.jpg" class="mx-auto" alt="slide"></div>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
               <h4>{{ __('home.header_title-3') }}</h4>
               <p>{{ __('home.header_body-3') }}</p>
                </div> 
-            <div class="col-md-7 col-12 order-md-2 order-1"><img src="https://info.phonesuite.com/hubfs/images/thumbnail-18.jpg" class="mx-auto" alt="slide"></div>
+            <div class="col-md-7 col-12 order-md-2 order-1"><img src="/img/thumbnail-18.jpg" class="mx-auto" alt="slide"></div>
           </div>
         </div>
       </div>
@@ -48,6 +48,9 @@
   <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
 <!--slide end--> 
 <!-- *********************/main/************************* -->
+@if (!empty(Session::get('error')))
+    <h3 class="text-danger">{{ Session::get('error') }}</h3>
+@endif
 @if(!empty(Session::get('success')))
             <!-- Start success message -->
             <section class="section-wrapper">
@@ -92,6 +95,9 @@
             <!-- End success message -->
         
     @endif
+    <!--                -->
+    <!--Grid column-->
+
 <!-- Services section -->
 <div class="row m-5">
   <div class="col-md-12 col-lg-6 " >

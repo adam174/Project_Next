@@ -13,6 +13,8 @@ class Reservation extends Model
         'arrival',
         'departure',
         'price',
+        'is_paid',
+        'payment_type',
     ];
 
     public function room() {

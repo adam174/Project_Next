@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
 			$table->string('email')->unique();
 			$table->timestamp('email_verified_at')->nullable();
 			$table->text('mobile');
-			$table->text('country');
+            $table->unsignedInteger('country')->index('users_country_foreign');
 			$table->string('password');
 			$table->rememberToken();
 			$table->timestamps();

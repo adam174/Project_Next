@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\Reservation;
 use App\Models\Hotel;
 use App\Models\Room;
@@ -16,28 +14,31 @@ use App\Mail\MyTestMail;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Models\Country;
-class ReservationController extends Controller
+
+class AdminController extends Controller
 {
+
+    // public function __construct()
+    //  {
+    //      $this->middleware('admin');
+    //  }
     /**
-     * Display a listing of the reservations.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        $users = User::get();
-         // show only his reservations
-                $reservations = Reservation::with('room', 'room.hotel')
-                    ->where('user_id', Auth::user()->id)
+    public function index()
+    {
+       $users = User::get();
+       $reservations = Reservation::with('room', 'room.hotel')
                     ->orderBy('arrival', 'asc')
-                    ->get();
-            
-        return view('dashboard.reservations', compact('reservations','users'));
+                    ->paginate(15);
+        return view('admin.reservations', compact('reservations','users'));
     }
 
     /**
-     * Show the form for creating a new reservation.
+     * Show the form for creating a new resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
@@ -50,25 +51,26 @@ class ReservationController extends Controller
         // get dates from stored session
         $arrival = $request->session()->get('arrival');
         $departure = $request->session()->get('departure');
-       
-           return view('dashboard.reservationCheckout', compact('arrival', 'room_id','departure','countries'));
+        $payment = $request->session()->get('payment');
+        return view('admin.checkout', compact('arrival', 'room_id','departure','countries','payment'));
     }
 
     /**
-     * Store a newly created reservation in storage.
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        // include functions we need
+         // include functions we need
         include(app_path() . '\functions\n_rooms.php');
     
         //get info stored in sessions then Convert date format to Y-m-d (supported by mysql)
         $arrival = Carbon::createFromFormat('Y-m-d', $request->session()->get('arrival'))->format('Y-m-d');
         $departure = Carbon::createFromFormat('Y-m-d', $request->session()->get('departure'))->format('Y-m-d');
         $room_id = $request->session()->get('room_id');
+        $payment = $request->session()->get('payment');
        
         //get the price of the room
         $price = Room::select('price')->where('id',$room_id)->first();
@@ -77,9 +79,7 @@ class ReservationController extends Controller
         // calculate price of total days of stay
         $price = $price->price * dateDifference($arrival, $departure);
         $room_type = Room::select('type')->where('id',$room_id)->first();
-        // Create the request  
-        if ( Auth::guest()) {
-            $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
                 'email' => ['required','unique:users'],
                 //'password' => ['required', 'string', 'min:8'],
                 'mobile' => ['required','numeric'],
@@ -96,103 +96,99 @@ class ReservationController extends Controller
                 $user->save();
                 $user_id = User::where('email',$request->email)->pluck('id')->toArray()[0];
                 $email = $request->email;
-                
-            }else{  // store to variables to send email confirmation
-                $user_id = Auth::user()->id;
-                $name = Auth::user()->name;
-                $email = Auth::user()->email;
-                $password = null;
-            }
-            // store data to request 
-           $request->request->add(['user_id' => $user_id]);
-           $request->request->add(['arrival' => $arrival]);
-           $request->request->add(['departure' => $departure]);
-           $request->request->add(['price' => $price]);
-           $request->request->add(['num_of_guests' => 2]);
-           $request->request->add(['room_id' => $room_id]);
-            // using Stripe to make transaction and make it optional for admin
+                 // store data to request 
+                $request->request->add(['user_id' => $user_id]);
+                $request->request->add(['arrival' => $arrival]);
+                $request->request->add(['departure' => $departure]);
+                $request->request->add(['price' => $price]);
+                $request->request->add(['num_of_guests' => 2]);
+                $request->request->add(['room_id' => $room_id]);
+                 if($payment == "esp" || $payment == "check"){
+                Reservation::create($request->all());
+                 }else{
                 Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-                Stripe\Charge::create ([
+                $stripe = Stripe\Charge::create ([
                 "amount" => $price * 100,
                 "currency" => "eur",
                 "source" => $request->stripeToken,
                 "description" => "Test payment from RoyalHotel.",
                 "receipt_email" => $email,
                             ]);
-        // send request
-        Reservation::create($request->all());
-            
-       // send Reservation Confirmation to user
-        $details = ['price' => $price,
-                    'client' => $name,
-                    'arrival' => $arrival,
-                    'departure' => $departure,
-                    'room_type' => $room_type,
-                    'password' => $password,
-                ];
-
-        \Mail::to($email)->send(new \App\Mail\MyTestMail($details));
-    
+                // send request 
+                     $request->request->add(['is_paid' => $stripe->status]);
+                     $request->request->add(['payment_type' => $stripe->payment_method_details->card->brand]);
+                Reservation::create($request->all());
+            }
         return redirect('home')->with('success', 'Your Booking has been confirmed')
                                ->with('name', $name);
     }
 
     /**
-     * Display the specified reservation.
+     * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Reservation $reservation) 
+    public function show($id)
     {
-        // get reservations from database to edit
-        $reservation = Reservation::with('room', 'room.hotel')
+         $reservation = Reservation::with('room', 'room.hotel')
           ->get()
-          ->find($reservation->id);
+          ->find($id);
         // security check : show only user's reservations || admin can see all
-        if ($reservation->user_id === Auth::user()->id) {
-          $hotel_id = $reservation->room->hotel_id;
+       
+          $hotel_id = 1;
           $hotelInfo = Hotel::with('rooms')->get()->find($hotel_id);
       
           return view('dashboard.reservationSingle', compact('reservation', 'hotelInfo'));
-        } else 
-          return redirect('dashboard/reservations')->with('error', 'You are not authorized to see that.');
     }
 
     /**
-     * Show the form for editing the specified reservation.
+     * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Reservation $reservation)
+    public function edit($id)
     {
-            return redirect('dashboard/reservations')->with('error', 'You are not authorized to do that');
+         $reservation = Reservation::with('room', 'room.hotel')
+            ->get()
+            ->find($id);
+            $hotelInfo = Hotel::with('rooms')->get()->find(1);
+
+            return view('admin.reservationEdit', compact('reservation', 'hotelInfo'));
     }
 
     /**
-     * Update the specified reservation in storage.
+     * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reservation $reservation) {
-
-           return redirect('dashboard/reservations')->with('error', 'You are not authorized to update this reservation'); 
-        
-        
+    public function update(Request $request, $id)
+    {
+        $reservation = Reservation::with('room', 'room.hotel')
+            ->get()
+            ->find($id);
+        $reservation->price = $request->price;
+        $reservation->arrival = $request->arrival;
+        $reservation->departure = $request->departure;
+        $reservation->room_id = $request->room_id;
+        $reservation->save();
+      
+        return redirect('bookings')->with('success', 'Successfully updated your reservation!');
     }
 
     /**
-     * Remove the specified reservation from storage.
+     * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reservation $reservation)
+    public function destroy($id)
     {
-    
-            return redirect('dashboard/reservations')->with('error', 'You are not authorized to delete this reservation');
+            $reservation = Reservation::find($id);
+            $reservation->delete(); 
+            return redirect('bookings')->with('success', 'Successfully deleted your reservation!');
     }
 }

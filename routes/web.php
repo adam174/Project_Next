@@ -19,12 +19,10 @@ Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
-    Route::view('/', 'dashboard/dashboard');
-  //  Route::get('reservations/create/{id}', 'ReservationController@create');
-  
+    Route::view('/', 'dashboard/dashboard'); 
     Route::resource('reservations', 'ReservationController');
 });
-// Route::post('dashboard/reservations/create/', 'ReservationController@create');
+
 Route::get('reservations/checkout', 'ReservationController@create');
 Route::post('reservations/add', 'HotelController@create')->name('reservations.add');
 Route::post('reservations/checkout', 'ReservationController@create')->name('reservations.checkout');
@@ -32,3 +30,8 @@ Route::post('reservations/save', 'ReservationController@store')->name('reservati
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'admin'], function () {
+    Route::resource('bookings', 'AdminController');
+    Route::post('bookings/checkout', 'AdminController@create')->name('bookings.checkout');
+});
