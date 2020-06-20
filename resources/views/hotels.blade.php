@@ -16,14 +16,14 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <span class="form-label">Check In</span>
+                                    <span class="form-label">{{ __('bookingCreate.Checkin') }}</span>
                                     <input type="text"  id="start-date"  name="arrival" required>
                                 </div>
                                 
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <span class="form-label">Check out</span>
+                                    <span class="form-label">{{ __('bookingCreate.Checkout') }}</span>
                                     <input type="text"  id="end-date"  name="departure" required>
                                 </div>
                             </div>
@@ -31,7 +31,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <span class="form-label">Adults</span>
+                                    <span class="form-label">{{ __('bookingCreate.Adults') }}</span>
                                     <select class="form-control" name="num_of_adults">
                                         <option>1</option>
                                         <option>2</option>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <span class="form-label">Children</span>
+                                    <span class="form-label">{{ __('bookingCreate.Children') }}</span>
                                     <select class="form-control" name="num_of_children">
                                         <option>0</option>
                                         <option>1</option>
@@ -53,7 +53,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-btn">
-                                    <button class="submit-btn">Check availability</button>
+                                    <button class="submit-btn">{{ __('bookingCreate.Checkavailability') }}</button>
                                 </div>
                             </div>
                         </div>
