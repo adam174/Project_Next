@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/app_booking.css": "/css/app_booking.css",
+    "/css/admin.css": "/css/admin.css",
     "/css/booking-form.css": "/css/booking-form.css"
 }

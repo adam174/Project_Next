@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Room;
+use App\Models\Hotel;
 use Auth;
 
 
 class HotelController extends Controller
 {
     public function index() {
-      //  $hotels = Hotel::all();
        if (Auth::user() && Auth::user()->id == 1) {
            return view('admin.hotels');
        }
@@ -44,5 +44,37 @@ class HotelController extends Controller
         }
 
         return view('dashboard.reservationCreate', compact('arrival', 'hotelInfo','departure'));
+    }
+
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Hotel $hotel)
+    {   
+
+           $hotel = Hotel::find(1);
+             return view('admin.hotelEdit',compact('hotel'));
+    }
+
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Hotel $hotel)
+    {
+        $request->validate([
+            'name' => 'required',
+        ]);
+            $hotel = Hotel::find(1);
+            $hotel->update($request->all());
+    
+        return redirect()->route('rooms.index')
+                        ->with('success','Hotel updated successfully');
     }
 }

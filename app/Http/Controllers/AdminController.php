@@ -67,8 +67,8 @@ class AdminController extends Controller
         include(app_path() . '\functions\n_rooms.php');
     
         //get info stored in sessions then Convert date format to Y-m-d (supported by mysql)
-        $arrival = Carbon::createFromFormat('Y-m-d', $request->session()->get('arrival'))->format('Y-m-d');
-        $departure = Carbon::createFromFormat('Y-m-d', $request->session()->get('departure'))->format('Y-m-d');
+        $arrival = $request->session()->get('arrival');
+        $departure = $request->session()->get('departure');
         $room_id = $request->session()->get('room_id');
         $payment = $request->session()->get('payment');
        
@@ -103,8 +103,9 @@ class AdminController extends Controller
                 $request->request->add(['price' => $price]);
                 $request->request->add(['num_of_guests' => 2]);
                 $request->request->add(['room_id' => $room_id]);
-                 if($payment == "esp" || $payment == "check"){
-                Reservation::create($request->all());
+                 if($payment == "cash" || $payment == "check"){
+                     $request->request->add(['payment_type' => $payment]);
+                $BookingId = Reservation::create($request->all());
                  }else{
                 Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
                 $stripe = Stripe\Charge::create ([
@@ -117,10 +118,10 @@ class AdminController extends Controller
                 // send request 
                      $request->request->add(['is_paid' => $stripe->status]);
                      $request->request->add(['payment_type' => $stripe->payment_method_details->card->brand]);
-                Reservation::create($request->all());
+               $BookingId = Reservation::create($request->all());
             }
-        return redirect('home')->with('success', 'Your Booking has been confirmed')
-                               ->with('name', $name);
+        return redirect()->route('bookings.index')
+                        ->with('success','Reservation created successfully.');
     }
 
     /**
@@ -139,7 +140,7 @@ class AdminController extends Controller
           $hotel_id = 1;
           $hotelInfo = Hotel::with('rooms')->get()->find($hotel_id);
       
-          return view('dashboard.reservationSingle', compact('reservation', 'hotelInfo'));
+          return view('admin.reservationSingle', compact('reservation', 'hotelInfo'));
     }
 
     /**

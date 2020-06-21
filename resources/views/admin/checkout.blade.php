@@ -1,6 +1,6 @@
 
 
-@extends('layouts.book')
+@extends('admin.index') 
 @section('title', 'Create reservation')
 
 @section('content')

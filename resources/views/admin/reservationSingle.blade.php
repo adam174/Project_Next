@@ -1,4 +1,4 @@
-@extends('index')
+@extends('admin.index')
 @section('title', 'Edit Reservation')
 
 @section('content')
@@ -26,8 +26,8 @@
                     </div>                    
                 </div>
                 <div class="text-center mt-3">
-                    <a href="/dashboard/reservations/{{ $reservation->id }}/edit" class="btn btn-lg btn-success">Edit this reservation</a>
-                    <a href="/dashboard/reservations/{{ $reservation->id }}/delete" class="btn btn-lg btn-danger">Delete</a> 
+                    <a href="/admin/bookings/{{ $reservation->id }}/edit" class="btn btn-lg btn-success">Edit this reservation</a>
+                    <a href="/admin/bookings/{{ $reservation->id }}/delete" class="btn btn-lg btn-danger">Delete</a> 
                 </div>
             </div>
             

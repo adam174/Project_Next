@@ -1,4 +1,4 @@
-@extends('layouts.book')
+@extends('admin.index')
 @section('title', 'Reserver')
 
 @section('content')

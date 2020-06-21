@@ -1,4 +1,4 @@
-@extends('index')
+@extends('admin.index')
 @section('title', 'Dashboard')
 
 @section('content')
@@ -10,7 +10,7 @@
             <div class="card-body">
                 <h4 class="card-title">{{ __('dashboard.Dashboard') }}</h4>
                 <p class="card-text">{{ __('dashboard.Bookings') }}</p>
-                <a href="/bookings" class="btn btn-primary">{{ __('dashboard.Reservations') }}</a>
+                <a href="/admin/bookings" class="btn btn-primary">{{ __('dashboard.Reservations') }}</a>
             </div>
             </div>
         </div>

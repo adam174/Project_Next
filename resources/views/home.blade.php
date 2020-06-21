@@ -48,9 +48,6 @@
   <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
 <!--slide end--> 
 <!-- *********************/main/************************* -->
-@if (!empty(Session::get('error')))
-    <h3 class="text-danger">{{ Session::get('error') }}</h3>
-@endif
 @if(!empty(Session::get('success')))
             <!-- Start success message -->
             <section class="section-wrapper">
@@ -69,10 +66,9 @@
                             <div class="thanks-content text-center text-dark">
                                 <h1 class="text-success"><i class="fa fa-check fa-5x"></i></h1>
                                 <h2 class="text-success"> Awesome! </h2>
-                                <h3 class="text-danger">{{ Session::get('success') }}</h3>
                                 <p><strong>Hi, {{ Session::get('name') }}</strong></p>
                                 <p>We have received your Booking Details.<br> You will Receive a confirmation email shortly</p>
-                                <p>Your Booking ID: <strong class="text-info">9428575331</strong></p>
+                                <p>Your Booking ID: <strong class="text-info">{{ Session::get('success') }}</strong></p>
                                 <a class="btn btn-info text-uppercase" href="/"> <i class="fa fa-sign-in fa-2x" aria-hidden="true"></i> Login to manage your reservations</a>
                             </div>
                         </div>

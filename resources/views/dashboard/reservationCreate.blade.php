@@ -6,7 +6,7 @@
 <div class="fluid mx-2">
     @foreach ($hotelInfo as $option)
     <div class="room border border-info my-5">
-        <form action="{{ route('bookings.checkout') }}" method="POST">
+        <form action="{{ route('reservations.checkout') }}" method="POST">
             @csrf
             <input type="hidden" name="room_id" value="{{$option->id}}">
             <input type="hidden" name="num_of_guests" value="{{ $option->occupants }}">
