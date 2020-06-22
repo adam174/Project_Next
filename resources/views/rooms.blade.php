@@ -39,7 +39,7 @@
       </div>
       <div class="col-md-6">
           <h4>{{$room->type}}</h4>
-                      <h4 class="subheading">{{ __('rooms.price') }} 137€.</h4>
+                      <h4 class="subheading">{{ __('rooms.price') }} {{$room->price}}€.</h4>
       <p class="text-muted">@lang('rooms.'.$room->type)</p>
       </div>
   </div>

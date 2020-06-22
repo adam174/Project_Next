@@ -21,14 +21,23 @@
       <ul class="navbar-nav ml-md-auto d-md-flex">
         @if (Route::has('login'))
         @auth
-        <li class="nav-item">
+        @if (Auth::user()->id == 1)
+             <li class="nav-item">
+          <a class="nav-link" href="/admin" target="_blank">{{ __('nav.Dashboard') }}
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        @else
+            <li class="nav-item">
           <a class="nav-link" href="/dashboard">{{ __('nav.Dashboard') }}
             <span class="sr-only">(current)</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/dashboard/reservations">{{ __('nav.Reservations') }}</a>
-        </li>
+        </li> 
+        @endif
+       
         <li class="nav-item">
           <a class="nav-link" href="/logout">{{ __('nav.Logout') }}</a>
         </li>
