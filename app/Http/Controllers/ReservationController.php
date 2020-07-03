@@ -66,8 +66,8 @@ class ReservationController extends Controller
         include(app_path() . '\functions\n_rooms.php');
     
         //get info stored in sessions then Convert date format to Y-m-d (supported by mysql)
-        $arrival = $request->session()->get('arrival')->format('Y-m-d');
-        $departure = $request->session()->get('departure')->format('Y-m-d');
+        $arrival = $request->session()->get('arrival');
+        $departure = $request->session()->get('departure');
         $room_id = $request->session()->get('room_id');
        
         //get the price of the room
