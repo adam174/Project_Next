@@ -38,7 +38,7 @@ class AdminController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
@@ -79,13 +79,7 @@ class AdminController extends Controller
         // calculate price of total days of stay
         $price = $price->price * dateDifference($arrival, $departure);
         $room_type = Room::select('type')->where('id',$room_id)->first();
-        $validator = Validator::make($request->all(), [
-                'email' => ['required','unique:users'],
-                //'password' => ['required', 'string', 'min:8'],
-                'mobile' => ['required','numeric'],
-                'country' => ['required','numeric'],
-                'name' => ['required','string'],
-                ])->validate();
+       
                 $password = Str::random(8);
                 $user = User::firstOrNew(['email' =>  $request->email]);
                 $user->name = $request->name;
@@ -177,7 +171,7 @@ class AdminController extends Controller
         $reservation->room_id = $request->room_id;
         $reservation->save();
       
-        return redirect('bookings')->with('success', 'Successfully updated your reservation!');
+        return redirect('admin/bookings')->with('success', 'Successfully updated your reservation!');
     }
 
     /**
@@ -190,6 +184,6 @@ class AdminController extends Controller
     {
             $reservation = Reservation::find($id);
             $reservation->delete(); 
-            return redirect('bookings')->with('success', 'Successfully deleted your reservation!');
+            return redirect('admin/bookings')->with('success', 'Successfully deleted your reservation!');
     }
 }

@@ -7,7 +7,7 @@
    <h1>welcome Admin</h1>
    </div>
    <a name="" id="" class="btn btn-info" href="{{ route('rooms.create') }}" role="button">Add a room</a>
-   <a name="" id="" class="btn btn-primary" href="{{ route('hotel.edit') }}" role="button">Edit Hotel information</a>
+   <a name="" id="" class="btn btn-primary" href="/admin/hotel/1/edit" role="button">Edit Hotel information</a>
 </div>
 
 <div class="container table-responsive mt-5">

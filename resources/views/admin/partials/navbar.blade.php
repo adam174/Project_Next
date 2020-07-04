@@ -10,7 +10,7 @@
                 <a class="nav-link" href="/admin">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('hotel.edit') }}">Edit Hotel Informations</a>
+                <a class="nav-link" href="/admin/hotel/1/edit">Edit Hotel Informations</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('rooms.index') }}">Rooms</a>

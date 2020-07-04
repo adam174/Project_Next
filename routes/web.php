@@ -34,8 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin','middleware' => 'admin'], function () {
     Route::view('/', 'admin/dashboard');
     Route::resource('rooms', 'AdminRoomController');
-    Route::get('hotel', 'HotelController@edit')->name('hotel.edit');
-    Route::put('hotel','HotelController@update')->name('hotel.update');
+    Route::resource('hotel', 'Admin\AdminHotelController');
     Route::resource('bookings', 'AdminController');
     Route::post('bookings/checkout', 'AdminController@create')->name('bookings.checkout');
 });
