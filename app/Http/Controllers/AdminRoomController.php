@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Room;
+use App\Models\Translation;
 
 class AdminRoomController extends Controller
 {
@@ -45,6 +46,12 @@ class AdminRoomController extends Controller
             'superficie' => ['required','string'],
             'couchage' => ['required','string'],
             'occupants' => ['required','numeric'],
+            'description_en' => ['required','string'],
+            'description_fr' => ['required','string']
+        ]);
+        Translation::insertOrIgnore([
+            ['language_id' => 1, 'group' => 'rooms', 'key' => $request->type, 'value' => $request->description_en],
+            ['language_id' => 2, 'group' => 'rooms', 'key' => $request->type, 'value' => $request->description_fr]
         ]);
         Room::create($request->all());
         return redirect()->route('rooms.index')

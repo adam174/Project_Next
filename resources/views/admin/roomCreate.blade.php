@@ -79,6 +79,18 @@
                 <input type="number" name="occupants" class="form-control" placeholder="2">
             </div>
         </div>
+        <div class="col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Description Anglais:</strong>
+                <textarea class="form-control" rows="5" name="description_en"></textarea>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Description francais:</strong>
+                <textarea class="form-control" rows="5" name="description_fr"></textarea>
+            </div>
+        </div>
         <div class=" col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
         </div>
