@@ -38,3 +38,5 @@ Route::group(['prefix' => 'admin','middleware' => 'admin'], function () {
     Route::resource('bookings', 'AdminController');
     Route::post('bookings/checkout', 'AdminController@create')->name('bookings.checkout');
 });
+Route::get('/contact', 'ContactUsController@index');
+Route::post('/contact', 'ContactUsController@store')->name('contact');

@@ -11,7 +11,7 @@
                   <div class="copyright-menu">
                       <ul>
                           <li>
-                              <a href="#">Home</a>
+                              <a href="/">Home</a>
                           </li>
                           <li>
                               <a href="#">Terms</a>
@@ -20,7 +20,7 @@
                               <a href="#">Privacy Policy</a>
                           </li>
                           <li>
-                              <a href="#">Contact</a>
+                              <a href="/contact">Contact</a>
                           </li>
                       </ul>
                   </div>

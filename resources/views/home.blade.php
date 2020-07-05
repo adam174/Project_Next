@@ -48,6 +48,9 @@
   <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
 <!--slide end--> 
 <!-- *********************/main/************************* -->
+ @if(!empty(Session::get('sent'))) 
+<h1 class="text-success text-center">{{ Session::get('sent') }}</h1>
+ @endif 
 @if(!empty(Session::get('success')))
             <!-- Start success message -->
             <section class="section-wrapper">
@@ -93,6 +96,9 @@
     @endif
     <!--                -->
     <!--Grid column-->
+    <div class="text-center">
+    <iframe width="70%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=2.3104012012481694%2C48.866031033314144%2C2.317482233047486%2C48.869143366027984&amp;layer=mapnik&amp;marker=48.86758722386852%2C2.313941717147827" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=48.86759&amp;mlon=2.31394#map=18/48.86759/2.31394" class="text-secondary">Afficher une carte plus grande</a></small>
+    </div>
 
 <!-- Services section -->
 <div class="row m-5">
