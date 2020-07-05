@@ -25,7 +25,7 @@
         </div>
     @endif
   
-    <form action="{{ route('hotel.update',$hotel->id) }}" method="POST">
+    <form action="{{ route('hotel.update',$hotel->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
    
@@ -40,7 +40,7 @@
         <div class=" col-md-12">
             <div class="form-group">
                 <strong>image:</strong>
-                <input type="text" name="image" value="{{ $hotel->image }}" class="form-control" placeholder="image">
+               <input type="file" name="picture" class="form-control" placeholder="image">
             </div>
         </div>
         <div class=" col-md-12">

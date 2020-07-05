@@ -67,6 +67,15 @@ class AdminHotelController extends Controller
         // $request->validate([
         //     'name' => 'required',
         // ]);
+        $request->validate([
+            'name' => ['required','string'],
+            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'location' => ['required','string'],
+            'description' => ['required','string']
+        ]);
+            $imageName = time().'.'.$request->picture->extension();  
+            $request->picture->move(public_path('images/hotel'), $imageName);
+            $request->request->add(['image' => '/images/hotel/' . $imageName]);
             $hotel = Hotel::find(1);
             $hotel->update($request->all());
     

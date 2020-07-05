@@ -26,7 +26,7 @@
     </div>
 @endif
  
-<form action="{{ route('rooms.store') }}" method="POST">
+<form action="{{ route('rooms.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
   
      <div class="row container">
@@ -40,7 +40,7 @@
         <div class=" col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>image:</strong>
-                <input type="text" name="image" class="form-control" placeholder="image">
+                <input type="file" name="picture" class="form-control" placeholder="image">
             </div>
         </div>
         <div class=" col-sm-12 col-md-12">
@@ -53,12 +53,6 @@
             <div class="form-group">
                 <strong>N° Rooms:</strong>
                 <input type="number" name="n_rooms" class="form-control" placeholder="1">
-            </div>
-        </div>
-        <div class=" col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Hotel:</strong>
-                <input type="text" name="hotel_id" class="form-control" placeholder="hotel_id">
             </div>
         </div>
         <div class=" col-sm-12 col-md-12">

@@ -39,16 +39,19 @@ class AdminRoomController extends Controller
     {
         $request->validate([
             'type' => ['required','string'],
-            'image' => ['required','string'],
+            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'price' => ['required','numeric'],
             'n_rooms' => ['required','numeric'],
-            'hotel_id' => ['required','numeric'],
             'superficie' => ['required','string'],
             'couchage' => ['required','string'],
             'occupants' => ['required','numeric'],
             'description_en' => ['required','string'],
             'description_fr' => ['required','string']
         ]);
+        $imageName = time().'.'.$request->picture->extension();  
+        $request->picture->move(public_path('images/rooms'), $imageName);
+        $request->request->add(['image' => '/images/rooms/' . $imageName]);
+        $request->request->add(['hotel_id' => 1]);
         Translation::insertOrIgnore([
             ['language_id' => 1, 'group' => 'rooms', 'key' => $request->type, 'value' => $request->description_en],
             ['language_id' => 2, 'group' => 'rooms', 'key' => $request->type, 'value' => $request->description_fr]

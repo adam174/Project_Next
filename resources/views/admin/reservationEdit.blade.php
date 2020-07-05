@@ -21,7 +21,7 @@
                             <label for="room">Room Type</label>
                             <select class="form-control" name="room_id" value="{{ old('room_id', $reservation->room_id) }}">
                                 @foreach ($hotelInfo->rooms as $option)
-                                    <option value="{{$option->id}}">{{ $option->type }}</option>
+                                    <option value="{{$option->id}}"{{ ($option->id == $reservation->room_id) ? "selected" : ""}} >{{ $option->type }}</option>
                                 @endforeach
                             </select>
                         </div>

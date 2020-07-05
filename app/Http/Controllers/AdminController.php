@@ -62,12 +62,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'email' => ['required','string'],
-            'mobile' => ['required','string'],
-            'price' => ['required','numeric'],
-
-        ]);
+    
          // include functions we need
         include(app_path() . '\functions\n_rooms.php');
     
