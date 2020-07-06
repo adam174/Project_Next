@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="float-left">
-                <h2>Edit Product</h2>
+                <h2>Modifier une chambre</h2>
             </div>
             <div class="float-right">
                 <a class="btn btn-primary" href="{{ route('rooms.index') }}"> Back</a>
@@ -16,7 +16,7 @@
    
     @if ($errors->any())
         <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <strong>Whoops!</strong> Il y a eu quelques problèmes avec votre saisie.<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -45,20 +45,14 @@
         </div>
         <div class=" col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>price:</strong>
+                <strong>Prix:</strong>
                 <input type="number" name="price" value="{{ $room->price }}" class="form-control" placeholder="price">
             </div>
         </div>
         <div class=" col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>N° Rooms:</strong>
+                <strong>Combien des chambres en ce category ?:</strong>
                 <input type="number" name="n_rooms" value="{{ $room->n_rooms }}" class="form-control" placeholder="1">
-            </div>
-        </div>
-        <div class=" col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Hotel:</strong>
-                <input type="text" name="hotel_id" value="{{ $room->hotel_id }}" class="form-control" placeholder="hotel_id">
             </div>
         </div>
         <div class=" col-sm-12 col-md-12">
@@ -75,12 +69,12 @@
         </div>
         <div class=" col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>occupants:</strong>
+                <strong>Combien des occupants maximum:</strong>
                 <input type="number" name="occupants" value="{{ $room->occupants }}" class="form-control" placeholder="2">
             </div>
         </div>
         <div class=" col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
         </div>
     </div>
    

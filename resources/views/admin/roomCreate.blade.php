@@ -17,7 +17,7 @@
    
 @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>Whoops!</strong>Il y a eu quelques problèmes avec votre saisie.<br><br>
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -45,13 +45,13 @@
         </div>
         <div class=" col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>price:</strong>
+                <strong>Prix:</strong>
                 <input type="number" name="price" class="form-control" placeholder="price">
             </div>
         </div>
         <div class=" col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>N° Rooms:</strong>
+                <strong>Combien des chambres en ce category ? : </strong>
                 <input type="number" name="n_rooms" class="form-control" placeholder="1">
             </div>
         </div>

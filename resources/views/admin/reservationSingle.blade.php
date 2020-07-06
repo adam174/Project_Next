@@ -27,7 +27,11 @@
                 </div>
                 <div class="text-center mt-3">
                     <a href="/admin/bookings/{{ $reservation->id }}/edit" class="btn btn-lg btn-success">Edit this reservation</a>
-                    <a href="/admin/bookings/{{ $reservation->id }}/delete" class="btn btn-lg btn-danger">Delete</a> 
+                     <form action="{{ route('bookings.destroy', $reservation->id) }}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                <button type="submit" class="btn btn-lg btn-danger">Delete</button>  
+                </form>
                 </div>
             </div>
             

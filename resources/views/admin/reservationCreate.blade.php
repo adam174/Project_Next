@@ -6,13 +6,13 @@
 <div class="fluid mx-2">
     @foreach ($hotelInfo as $option)
     <div class="room border border-info my-5">
-        <form action="{{ route('bookings.checkout') }}" method="POST">
+        <form action="{{ route('bookings.create') }}" method="GET">
             @csrf
             <input type="hidden" name="room_id" value="{{$option->id}}">
             <input type="hidden" name="num_of_guests" value="{{ $option->occupants }}">
     <div class="row">
         <div class="col-lg-7">
-            <img src="{{ $option->image }}" width="100%" alt="">
+            <img src="{{ $option->image }}" width="80%" alt="">
         </div>
         <div class="col-lg-5">
             <h3 class="text-primary text-uppercase">{{ __('bookingCreate.Room') }} {{ $option->type }}</h3>

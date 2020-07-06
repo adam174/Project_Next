@@ -1,5 +1,3 @@
-
-
 @extends('admin.index') 
 @section('title', 'Create reservation')
 
@@ -8,7 +6,16 @@
 <div>
    {{$arrival}} - {{$departure}} -{{$room_id}} 
 </div>
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong>Il y a quelques problèmes avec votre saisie.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 @if ($payment == "cc")
           <form 
     role="form" 
@@ -24,13 +31,9 @@
        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('auth.name') }}</label>
 
        <div class="col-md-6">
-           <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+           <input id="name" type="text" class="form-control " name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-           @error('name')
-               <span class="invalid-feedback" role="alert">
-                   <strong>{{ $message }}</strong>
-               </span>
-           @enderror
+          
        </div>
    </div>
    
@@ -38,30 +41,20 @@
        <label for="mobile" class="col-md-4 col-form-label text-md-right">{{ __('auth.mobile') }}</label>
 
        <div class="col-md-6">
-           <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" autofocus>
+           <input id="mobile" type="number" class="form-control" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" autofocus>
 
-           @error('mobile')
-               <span class="invalid-feedback" role="alert">
-                   <strong>{{ $message }}</strong>
-               </span>
-           @enderror
        </div>
    </div>
    <div class="form-group row">
        <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('auth.country') }}</label>
        <div class="col-md-6">
-        <select id="country" class=" browser-default custom-select @error('country') is-invalid @enderror" name="country">
+        <select id="country" class=" browser-default custom-select" name="country">
             @foreach ($countries as $country)
                 <option  value="{{$country->id}}">{{$country->name}}</option>  
             @endforeach
   
 
         </select>
-           @error('country')
-               <span class="invalid-feedback" role="alert">
-                   <strong>{{ $message }}</strong>
-               </span>
-           @enderror
        </div>
    </div>
 
@@ -69,13 +62,9 @@
        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('auth.email') }}</label>
 
        <div class="col-md-6">
-           <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+           <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-           @error('email')
-               <span class="invalid-feedback" role="alert">
-                   <strong>{{ $message }}</strong>
-               </span>
-           @enderror
+           
        </div>
    </div>
             <div class="text-center">

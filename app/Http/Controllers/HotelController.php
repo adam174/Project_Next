@@ -13,9 +13,9 @@ class HotelController extends Controller
 {
     public function index() {
        if (Auth::user() && Auth::user()->id == 1) {
-           return view('admin.hotels');
+           return view('admin.book');
        }
-        return view('hotels');
+        return view('book');
     }
      
     public function create(Request $request)

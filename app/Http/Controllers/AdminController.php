@@ -42,6 +42,7 @@ class AdminController extends Controller
      */
     public function create(Request $request)
     {
+       
         //get list of countries 
          $countries = Country::all();
         // keep room_id in session and store it in variable
@@ -62,15 +63,23 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-    
-         // include functions we need
-        include(app_path() . '\functions\n_rooms.php');
-    
         //get info stored in sessions then Convert date format to Y-m-d (supported by mysql)
         $arrival = $request->session()->get('arrival');
         $departure = $request->session()->get('departure');
         $room_id = $request->session()->get('room_id');
         $payment = $request->session()->get('payment');
+        $validator = $request->validate([
+            'mobile' => ['required','numeric'],
+            'name' => ['required','string'],
+            'country' => ['required','numeric'],
+            'email' => ['required','email']
+            
+
+        ]);
+         // include functions we need
+        include(app_path() . '\functions\n_rooms.php');
+    
+        
        
         //get the price of the room
         $price = Room::select('price')->where('id',$room_id)->first();
@@ -99,7 +108,7 @@ class AdminController extends Controller
                 $request->request->add(['room_id' => $room_id]);
                  if($payment == "cash" || $payment == "check"){
                      $request->request->add(['payment_type' => $payment]);
-                $BookingId = Reservation::create($request->all());
+                Reservation::create($request->all());
                  }else{
                 Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
                 $stripe = Stripe\Charge::create ([
@@ -112,7 +121,7 @@ class AdminController extends Controller
                 // send request 
                      $request->request->add(['is_paid' => $stripe->status]);
                      $request->request->add(['payment_type' => $stripe->payment_method_details->card->brand]);
-               $BookingId = Reservation::create($request->all());
+               Reservation::create($request->all());
             }
         return redirect()->route('bookings.index')
                         ->with('success','Reservation created successfully.');
@@ -124,11 +133,11 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($reservation)
     {
          $reservation = Reservation::with('room', 'room.hotel')
           ->get()
-          ->find($id);
+          ->find($reservation);
         // security check : show only user's reservations || admin can see all
        
           $hotel_id = 1;
@@ -184,6 +193,6 @@ class AdminController extends Controller
     {
             $reservation = Reservation::find($id);
             $reservation->delete(); 
-            return redirect('admin/bookings')->with('success', 'Successfully deleted your reservation!');
+            return redirect('/admin/bookings')->with('success', 'Successfully deleted your reservation!');
     }
 }

@@ -4,7 +4,7 @@
 @section('content')
 <h1>welcome Admin</h1>
 <div class="container table-responsive mt-5">
-    <h2>Your Reservations</h2>
+    <h2>Vos Reservations</h2>
     @if(!empty(Session::get('success')))
         <div class="alert alert-success"> {{ Session::get('success') }}</div>
     @endif
@@ -14,15 +14,15 @@
     <table class="table mt-3">
         <thead>
             <tr>
-            <th scope="col">name</th>
-            <th scope="col">Arrival</th>
-            <th scope="col">Departure</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Arrivée</th>
+            <th scope="col">Départ</th>
             <th scope="col">Type</th>
-            <th scope="col">Guests</th>
-            <th scope="col">Price</th>
-            <th scope="col">Manage</th> 
-            <th scope="col">Delete</th>
-           <th scope="col">Show</th>
+            <th scope="col">occupant(e)s</th>
+            <th scope="col">prix</th>
+            <th scope="col">Modifier</th> 
+            <th scope="col">Effacer</th>
+           <th scope="col">Voir</th>
 
             </tr>
         </thead>
@@ -35,13 +35,13 @@
                 <td>{{ $reservation->room['type'] }}</td>
                 <td>{{ $reservation->num_of_guests }}</td>
                 <td>€{{ $reservation->price }}</td> 
-                <td><a href="/admin/bookings/{{ $reservation->id }}/edit" class="btn btn-sm btn-success">Edit</a></td>
+                <td><a href="/admin/bookings/{{ $reservation->id }}/edit" class="btn btn-sm btn-success">Modifier</a></td>
                 <form action="{{ route('bookings.destroy', $reservation->id) }}" method="POST">
                     @method('DELETE')
                     @csrf
-               <td> <button type="submit" class="btn btn-sm btn-danger">Delete reservation</button></td>  
+               <td> <button type="submit" class="btn btn-sm btn-danger">Suprimer la reservation</button></td>  
                 </form>
-               <td><a name="" id="" class="btn btn-sm btn-primary" href="/admin/bookings/{{ $reservation->id }}" role="button">Show details</a></td> 
+               <td><a name="" id="" class="btn btn-sm btn-primary" href="/admin/bookings/{{ $reservation->id }}" role="button">Voir details</a></td> 
                 
             </tr>
             @endforeach

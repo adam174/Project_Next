@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Room;
 use App\Models\Hotel;
+use App\Models\Country;
 use Auth;
 
 class AdminHotelController extends Controller
 {
    public function index() {
       
-           return view('admin.hotels');
+           return view('admin.book');
      
     }
      
