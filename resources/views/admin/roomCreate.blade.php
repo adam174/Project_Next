@@ -34,7 +34,7 @@
         <div class=" col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>type:</strong>
-                <input type="text" name="type" class="form-control" placeholder="type">
+                <input type="text" name="type" class="form-control" placeholder="ex: Triple">
             </div>
         </div>
         <div class=" col-sm-12 col-md-12">
@@ -46,7 +46,7 @@
         <div class=" col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Prix:</strong>
-                <input type="number" name="price" class="form-control" placeholder="price">
+                <input type="number" name="price" class="form-control" placeholder="Prix">
             </div>
         </div>
         <div class=" col-sm-12 col-md-12">
@@ -75,18 +75,18 @@
         </div>
         <div class="col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Description Anglais:</strong>
+                <strong>Description en Anglais:</strong>
                 <textarea class="form-control" rows="5" name="description_en"></textarea>
             </div>
         </div>
         <div class="col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Description francais:</strong>
+                <strong>Description en francais:</strong>
                 <textarea class="form-control" rows="5" name="description_fr"></textarea>
             </div>
         </div>
         <div class=" col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Enregister</button>
         </div>
     </div>
    
