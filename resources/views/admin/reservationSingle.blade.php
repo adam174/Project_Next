@@ -18,19 +18,19 @@
                             {{ $hotelInfo->name }} - <small>{{ $hotelInfo->location }}</small>
                         </h3>
                         <p class="card-text">{{ $hotelInfo->description }}</p>
-                        <p class="card-text"><strong>Arrival: </strong>{{ $reservation->arrival }}</p>
-                        <p class="card-text"><strong>Departure: </strong>{{ $reservation->departure }}</p>
-                        <p class="card-text"><strong>Room: </strong>{{ $reservation->room['type'] }}</p>
-                        <p class="card-text"><strong>Guests: </strong>{{ $reservation->num_of_guests }}</p>
-                        <p class="card-text"><strong>Price: </strong>${{ $reservation->room['price'] }}</p>
+                        <p class="card-text"><strong>Arrivée: </strong>{{ $reservation->arrival }}</p>
+                        <p class="card-text"><strong>départ: </strong>{{ $reservation->departure }}</p>
+                        <p class="card-text"><strong>Type: </strong>{{ $reservation->room['type'] }}</p>
+                        <p class="card-text"><strong>Occupant(e)s: </strong>{{ $reservation->num_of_guests }}</p>
+                        <p class="card-text"><strong>Prix: </strong>${{ $reservation->room['price'] }}</p>
                     </div>                    
                 </div>
                 <div class="text-center mt-3">
-                    <a href="/admin/bookings/{{ $reservation->id }}/edit" class="btn btn-lg btn-success">Edit this reservation</a>
+                    <a href="/admin/bookings/{{ $reservation->id }}/edit" class="btn btn-lg btn-success">Modifier la reservation</a>
                      <form action="{{ route('bookings.destroy', $reservation->id) }}" method="POST">
                     @method('DELETE')
                     @csrf
-                <button type="submit" class="btn btn-lg btn-danger">Delete</button>  
+                <button type="submit" class="btn btn-lg btn-danger">Effacer</button>  
                 </form>
                 </div>
             </div>

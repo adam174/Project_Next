@@ -9,8 +9,6 @@
             <h2>{{ $hotelInfo->name }} - <small class="text-muted">{{ $hotelInfo->location }}</small></h2>
         </div> 
         <div class="card-body">
-            <h5 class="card-title"></h5>
-            <p class="card-text">Book your stay now at the most magnificent resort in the world!</p>
             <form action="{{ route('bookings.update', $reservation->id) }}" method="POST">
                 @csrf
                 @method('PUT')
@@ -18,7 +16,7 @@
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="form-group">
-                            <label for="room">Room Type</label>
+                            <label for="room">Type</label>
                             <select class="form-control" name="room_id" value="{{ old('room_id', $reservation->room_id) }}">
                                 @foreach ($hotelInfo->rooms as $option)
                                     <option value="{{$option->id}}"{{ ($option->id == $reservation->room_id) ? "selected" : ""}} >{{ $option->type }}</option>
@@ -28,24 +26,24 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label for="guests">Price</label>
+                            <label for="guests">Prix</label>
                             <input class="form-control" name="price" value="{{ old('price', $reservation->price) }}">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="arrival">Arrival</label>
+                            <label for="arrival">Arrivée</label>
                             <input type="date" class="form-control" name="arrival" placeholder="03/21/2020" value="{{ old('arrival', $reservation->arrival) }}">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="departure">Departure</label>
+                            <label for="departure">Départ</label>
                             <input type="date" class="form-control" name="departure" placeholder="03/23/2020" value="{{ old('departure', $reservation->departure) }}">
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                <button type="submit" class="btn btn-lg btn-primary">Modifer</button>
             </form>
         </div>
     </div>
@@ -53,7 +51,7 @@
         @method('DELETE')
         @csrf
         <p class="text-right">
-            <button type="submit" class="btn btn-sm text-danger">Delete reservation</button>
+            <button type="submit" class="btn btn-sm text-danger">Effacer la reservation</button>
         </p>
     </form>
 </div>

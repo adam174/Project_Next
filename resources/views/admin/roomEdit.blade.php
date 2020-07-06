@@ -9,7 +9,7 @@
                 <h2>Modifier une chambre</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-primary" href="{{ route('rooms.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('rooms.index') }}"> page précédente</a>
             </div>
         </div>
     </div>

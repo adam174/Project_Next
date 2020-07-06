@@ -6,17 +6,17 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="float-left">
-                <h2>Edit Product</h2>
+                <h2>Modifier les L'information de l'Hotel</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-primary" href="{{ route('rooms.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('rooms.index') }}"> page précédente</a>
             </div>
         </div>
     </div>
    
     @if ($errors->any())
         <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <strong>Whoops!</strong> Il y a eu quelques problèmes avec votre saisie.<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -33,7 +33,7 @@
         
         <div class=" col-md-12">
             <div class="form-group">
-                <strong>name:</strong>
+                <strong>Nom:</strong>
                 <input type="text" name="name" value="{{ $hotel->name }}" class="form-control" placeholder="type">
             </div>
         </div>
@@ -57,7 +57,7 @@
         </div>
         
         <div class=" col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Modifier</button>
         </div>
     </div>
    

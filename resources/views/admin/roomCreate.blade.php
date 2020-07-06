@@ -7,10 +7,10 @@
 <div class="row my-5">
     <div class="col-lg-12">
         <div class="float-left">
-            <h2>Add New room</h2>
+            <h2>Ajouter une chambre</h2>
         </div>
         <div class="float-right">
-            <a class="btn btn-primary" href="{{ route('rooms.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('rooms.index') }}"> page précédente</a>
         </div>
     </div>
 </div>

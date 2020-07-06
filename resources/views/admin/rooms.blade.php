@@ -6,12 +6,12 @@
    <div>
    <h1>welcome Admin</h1>
    </div>
-   <a name="" id="" class="btn btn-info" href="{{ route('rooms.create') }}" role="button">Add a room</a>
-   <a name="" id="" class="btn btn-primary" href="/admin/hotel/1/edit" role="button">Edit Hotel information</a>
+   <a name="" id="" class="btn btn-info" href="{{ route('rooms.create') }}" role="button">Ajouter une chambre</a>
+   <a name="" id="" class="btn btn-primary" href="/admin/hotel/1/edit" role="button">Modifier les informations de l'hotel</a>
 </div>
 
 <div class="container table-responsive mt-5">
-    <h2>Your Rooms</h2>
+    <h2>Vos Chambres</h2>
     @if(!empty(Session::get('success')))
         <div class="alert alert-success"> {{ Session::get('success') }}</div>
     @endif
@@ -21,12 +21,12 @@
     <table class="table mt-3">
         <thead>
             <tr>
-            <th scope="col">name</th>
+            <th scope="col">Nom</th>
             <th scope="col">Type</th>
-            <th scope="col">Price</th>
-            <th scope="col">Manage</th> 
-            <th scope="col">Delete</th>
-           <th scope="col">Show</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Modifier</th> 
+            <th scope="col">Effacer</th>
+           <th scope="col">Voir</th>
 
             </tr>
         </thead>
@@ -36,13 +36,13 @@
                 <td>{{ $room->type }}</td>
                 <td>{{ $room->image }}</td>
                 <td>€{{ $room->price }}</td> 
-                <td><a href="/admin/rooms/{{ $room->id }}/edit" class="btn btn-sm btn-success">Edit</a></td>
+                <td><a href="/admin/rooms/{{ $room->id }}/edit" class="btn btn-sm btn-success">Modifier</a></td>
                 <form action="{{ route('rooms.destroy', $room->id) }}" method="POST">
                     @method('DELETE')
                     @csrf
-               <td> <button type="submit" class="btn btn-sm btn-danger">Delete reservation</button></td>  
+               <td> <button type="submit" class="btn btn-sm btn-danger">Effacer la reservation</button></td>  
                 </form>
-               <td><a name="" id="" class="btn btn-sm btn-primary" href="/admin/rooms/{{ $room->id }}" role="button">Show details</a></td> 
+               <td><a name="" id="" class="btn btn-sm btn-primary" href="/admin/rooms/{{ $room->id }}" role="button">Voir les details</a></td> 
                 
             </tr>
             @endforeach

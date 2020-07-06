@@ -5,10 +5,10 @@
  <div class="row">
         <div class="col-lg-12">
             <div class="float-left">
-                <h2> Show Room</h2>
+                <h2> Voir les details</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-primary" href="{{ route('rooms.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('rooms.index') }}"> page précédente</a>
             </div>
         </div>
     </div>
@@ -24,10 +24,10 @@
                 <h2 class="text-success">Type:</h2>
                 <p class="text-info">{{ $room->type }}</p>
 
-                 <h2 class="text-success">price:</h2>
+                 <h2 class="text-success">Prix:</h2>
                 <p class="text-info">{{ $room->price }}</p>
 
-                 <h2 class="text-success">n_rooms:</h2>
+                 <h2 class="text-success">Combien des chambres en ce category ?:</h2>
                 <p class="text-info">{{ $room->n_rooms }}</p>
 
                  <h2 class="text-success">superficie:</h2>
@@ -36,7 +36,7 @@
                  <h2 class="text-success">couchage:</h2>
                 <p class="text-info">{{ $room->couchage }}</p>
 
-                 <h2 class="text-success">occupants:</h2>
+                 <h2 class="text-success">occupant(e)s:</h2>
                 <p class="text-info">{{ $room->occupants }}</p>
 
             </div>
