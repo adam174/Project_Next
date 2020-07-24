@@ -38,6 +38,7 @@
             </div>
         </div>
         <div class=" col-md-12">
+            <img src="{{ $hotel->image }}" class="img" style="width:50%" alt="">
             <div class="form-group">
                 <strong>image:</strong>
                <input type="file" name="picture" class="form-control" placeholder="image">

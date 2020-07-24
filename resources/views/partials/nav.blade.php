@@ -28,11 +28,16 @@
           </a>
         </li>
         @else
-            <li class="nav-item">
-          <a class="nav-link" href="/dashboard">{{ __('nav.Dashboard') }}
-            <span class="sr-only">(current)</span>
-          </a>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ __('nav.Dashboard') }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/dashboard">{{ __('nav.Dashboard') }}</a>
+          <a class="dropdown-item" href="{{ route('change.password') }}">Change Password</a>
+        </div>
         </li>
+            
         <li class="nav-item">
           <a class="nav-link" href="/dashboard/reservations">{{ __('nav.Reservations') }}</a>
         </li> 

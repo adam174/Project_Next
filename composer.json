@@ -60,6 +60,14 @@
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
         ],
+        "clear-all": [
+            "@php artisan clear-compiled",
+            "@php artisan cache:clear",
+            "@php artisan route:clear",
+            "@php artisan view:clear",
+            "@php artisan config:clear",
+            "composer dumpautoload -o"
+        ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],

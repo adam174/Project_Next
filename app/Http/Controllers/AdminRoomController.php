@@ -95,10 +95,21 @@ class AdminRoomController extends Controller
     public function update(Request $request, Room $room)
     {
         $request->validate([
-            'type' => 'required',
-            'price' => 'required',
+            'type' => ['required','string'],
+            'picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'price' => ['required','numeric'],
+            'n_rooms' => ['required','numeric'],
+            'superficie' => ['required','string'],
+            'couchage' => ['required','string'],
+            'occupants' => ['required','numeric']
+
         ]);
-  
+            if ($request->picture) {
+                $imageName = time().'.'.$request->picture->extension();  
+                $request->picture->move(public_path('images/rooms'), $imageName);
+                $request->request->add(['image' => '/images/rooms/' . $imageName]);
+            }
+            
         $room->update($request->all());
   
         return redirect()->route('rooms.index')

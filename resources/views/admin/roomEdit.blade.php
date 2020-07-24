@@ -25,7 +25,7 @@
         </div>
     @endif
   
-    <form action="{{ route('rooms.update',$room->id) }}" method="POST">
+    <form action="{{ route('rooms.update',$room->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
    
@@ -37,10 +37,11 @@
                 <input type="text" name="type" value="{{ $room->type }}" class="form-control" placeholder="type">
             </div>
         </div>
-        <div class=" col-sm-12 col-md-12">
+        <div class=" col-md-12">
+            <img src="{{ $room->image }}" class="img" style="width:50%" alt="">
             <div class="form-group">
                 <strong>image:</strong>
-                <input type="text" name="image" value="{{ $room->image }}" class="form-control" placeholder="image">
+               <input type="file" name="picture" class="form-control" placeholder="image">
             </div>
         </div>
         <div class=" col-sm-12 col-md-12">

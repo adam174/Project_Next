@@ -22,7 +22,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
     Route::view('/', 'dashboard/dashboard'); 
     Route::resource('reservations', 'ReservationController');
 });
-
+Route::get('change-password', 'ChangePasswordController@index');
+Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
 Route::get('reservations/checkout', 'ReservationController@create');
 Route::post('reservations/add', 'HotelController@create')->name('reservations.add');
 Route::post('reservations/checkout', 'ReservationController@create')->name('reservations.checkout');
