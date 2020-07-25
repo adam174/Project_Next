@@ -69,11 +69,10 @@ class AdminController extends Controller
         $room_id = $request->session()->get('room_id');
         $payment = $request->session()->get('payment');
         $validator = $request->validate([
-            'mobile' => ['required','numeric'],
-            'name' => ['required','string'],
-            'country' => ['required','numeric'],
+            'mobile' => ['nullable','numeric'],
+            'name' => ['nullable','string'],
+            'country' => ['nullable','exists:countries,id'],
             'email' => ['required','email']
-            
 
         ]);
          // include functions we need
@@ -83,20 +82,22 @@ class AdminController extends Controller
        
         //get the price of the room
         $price = Room::select('price')->where('id',$room_id)->first();
-        if(!$price){
-        }
         // calculate price of total days of stay
         $price = $price->price * dateDifference($arrival, $departure);
         $room_type = Room::select('type')->where('id',$room_id)->first();
        
                 $password = Str::random(8);
                 $user = User::firstOrNew(['email' =>  $request->email]);
-                $user->name = $request->name;
-                $name = $request->name;
-                $user->mobile = $request->mobile;
-                $user->country = $request->country;
-                $user->password = Hash::make($password);
-                $user->save();
+                if (!$user->exists) {
+                        // user created from 'new'; does not exist in database.
+                        $user->name = $request->name ?? 'guest';
+                        // $name = $request->name;
+                        $user->mobile = $request->mobile ?? '000000000';
+                        $user->country = $request->country ?? 43;
+                        $user->password = Hash::make($password);
+                        $user->save();
+                    }
+               
                 $user_id = User::where('email',$request->email)->pluck('id')->toArray()[0];
                 $email = $request->email;
                  // store data to request 

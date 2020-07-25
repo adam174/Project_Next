@@ -14,7 +14,7 @@
 
 #booking {
 	font-family: 'Josefin Sans', sans-serif;
-	background-image: url('../img/background.jpg');
+	background-image: url('/img/bg-booking.jpg');
 	background-size: cover;
 	background-position: center;
 }

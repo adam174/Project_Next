@@ -2,10 +2,6 @@
 @section('title', 'Create reservation')
 
 @section('content')
-<h1>welcome Admin</h1>
-<div>
-   {{$arrival}} - {{$departure}} -{{$room_id}} 
-</div>
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong>Il y a quelques problèmes avec votre saisie.<br><br>
@@ -124,11 +120,23 @@
       @csrf
 
     <input type="hidden" name="length" value="10">
-      <div class="form-group row">
+
+<div id="accordion2">
+  <div class="card">
+    <div class="card-header d-flex justify-content-center" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link text-info" data-toggle="collapse" data-target="#createnewuser" aria-expanded="false" aria-controls="createnewuser">
+        {{ __('bookingCreate.NewClient') }}
+        </button>
+      </h5>
+    </div>
+
+    <div id="createnewuser" class="collapse" aria-labelledby="headingOne" data-parent="#accordion2">
+              <div class="form-group row">
        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('auth.name') }}</label>
 
        <div class="col-md-6">
-           <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+           <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
 
            @error('name')
                <span class="invalid-feedback" role="alert">
@@ -142,7 +150,7 @@
        <label for="mobile" class="col-md-4 col-form-label text-md-right">{{ __('auth.mobile') }}</label>
 
        <div class="col-md-6">
-           <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" autofocus>
+           <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" autocomplete="mobile" autofocus>
 
            @error('mobile')
                <span class="invalid-feedback" role="alert">
@@ -155,8 +163,10 @@
        <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('auth.country') }}</label>
        <div class="col-md-6">
         <select id="country" class=" browser-default custom-select @error('country') is-invalid @enderror" name="country">
+           <option value="" selected disabled>----</option>
             @foreach ($countries as $country)
-                <option  value="{{$country->id}}">{{$country->name}}</option>  
+                
+                <option value="{{$country->id}}">{{$country->name}}</option>  
             @endforeach
   
 
@@ -168,9 +178,11 @@
            @enderror
        </div>
    </div>
-
+    </div>
+  </div>
+</div>
    <div class="form-group row">
-       <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('auth.email') }}</label>
+       <label for="email" class="col-md-4 col-form-label text-md-right"><span class="text-danger">*{{ __('validation.isrequired') }} </span>{{ __('auth.email') }}</label>
 
        <div class="col-md-6">
            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">

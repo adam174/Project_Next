@@ -2,7 +2,6 @@
 @section('title', 'Edit Reservation')
 
 @section('content')
-<h1>welcome Admin</h1>
 <div class="container">
     <div class="card my-5">
         <div class="card-header">

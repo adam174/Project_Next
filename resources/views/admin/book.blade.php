@@ -2,7 +2,6 @@
 @section('title', 'Reserver')
 
 @section('content')
-<h1>Welcome Admin</h1>
 <div id="booking" class="section">
     <div class="section-center">
         <div class="container">

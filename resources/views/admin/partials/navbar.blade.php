@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-info fixed-left">
-    <a class="navbar-brand" href="">Navbar</a>
+    <a class="navbar-brand" href="">Hotel Royal</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,26 +7,26 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/admin">Home</a>
+                <a class="nav-link" href="/admin">{{ __('nav.Home') }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/admin/hotel/1/edit">Edit Hotel Informations</a>
+                <a class="nav-link" href="/admin/hotel/1/edit">Modifier les informations de l'hôtel</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('rooms.index') }}">Rooms</a>
+                <a class="nav-link" href="{{ route('rooms.index') }}">Les Chambres</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Room Reservations</a>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Réservations de chambres</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{ route('bookings.index') }}">Manage Reservations</a>
-                    <a class="dropdown-item" href="/reserver">Add Reservation</a>
+                    <a class="dropdown-item" href="{{ route('bookings.index') }}">Gérer les réservations</a>
+                    <a class="dropdown-item" href="/reserver">Ajouter une réservation</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Room Manager</a>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion des chambres</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{ route('rooms.index') }}">Manage Rooms</a>
-                    <a class="dropdown-item" href="{{ route('rooms.create') }}">Add Room</a>
+                    <a class="dropdown-item" href="{{ route('rooms.index') }}">Gestion des chambres</a>
+                    <a class="dropdown-item" href="{{ route('rooms.create') }}">Ajouter une chambre</a>
                 </div>
             </li>
         </ul>

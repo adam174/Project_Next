@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="float-left">
-                <h2>Modifier les L'information de l'Hotel</h2>
+                <h2>Modifier les informations de l'Hotel</h2>
             </div>
             <div class="float-right">
                 <a class="btn btn-primary" href="{{ route('rooms.index') }}"> page précédente</a>

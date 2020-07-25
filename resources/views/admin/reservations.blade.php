@@ -2,9 +2,8 @@
 @section('title', 'Reservations')
 
 @section('content')
-<h1>welcome Admin</h1>
 <div class="container table-responsive mt-5">
-    <h2>Vos Reservations</h2>
+    <h2>Les Reservations</h2>
     @if(!empty(Session::get('success')))
         <div class="alert alert-success"> {{ Session::get('success') }}</div>
     @endif
@@ -29,10 +28,10 @@
         <tbody>
             @foreach ($reservations as $reservation)
             <tr>
-                <td>{{ $users->find($reservation->user_id)->name }}</td>
+                <td>{{ $users->find($reservation->user_id)->name }} </td>
                 <td>{{ $reservation->arrival }}</td>
                 <td>{{ $reservation->departure }}</td>
-                <td>{{ $reservation->room['type'] }}</td>
+                <td>{{ $reservation->room->type }}</td>
                 <td>{{ $reservation->num_of_guests }}</td>
                 <td>€{{ $reservation->price }}</td> 
                 <td><a href="/admin/bookings/{{ $reservation->id }}/edit" class="btn btn-sm btn-success">Modifier</a></td>

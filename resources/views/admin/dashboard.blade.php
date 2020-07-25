@@ -2,7 +2,6 @@
 @section('title', 'Dashboard')
 
 @section('content')
-<h1>Welcome Admin</h1>
 <div class="container text-center my-5">
     <div class="row">
         <div class="col-sm-6">
