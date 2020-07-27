@@ -9,6 +9,7 @@ use App\Models\Room;
 use App\Models\Hotel;
 use App\Models\Country;
 use Auth;
+use App\Models\Translation;
 
 class AdminHotelController extends Controller
 {
@@ -37,8 +38,9 @@ class AdminHotelController extends Controller
         foreach(array_count_values($arrr) as $val => $c)  if($c >= Room::where('id',$val)->pluck('n_rooms')->toArray()[0] ) $dups[] = $val;
         //Get available rooms
         $hotelInfo = Room::where('hotel_id',1)->whereNotIn('id', $dups)->get();
-       
-            return view('admin.reservationCreate', compact('arrival', 'hotelInfo','departure','payment'));
+        $services = Translation::where('group','services')->get();
+        dd($services);
+            return view('admin.reservationCreate', compact('arrival', 'hotelInfo','departure','payment','services'));
         
 
     }

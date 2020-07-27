@@ -16,8 +16,11 @@ class Room extends Model
         'superficie',
         'couchage',
         'occupants',
+        'services'
     ];
-
+    protected $casts = [
+    'services' => 'array',
+    ];
     public function hotel() {
         return $this->belongsTo('App\Models\Hotel');
     }

@@ -13,9 +13,6 @@
      <!-- Card image -->
      <div class="view overlay">
      <img class="card-img-top" src="{{ $room->image }}" alt="{{ $room->type }}">
-     <a href="#">
-     <div class="mask rgba-white-slight"></div>
-     </a>
      </div>
      
      <!-- Card content -->

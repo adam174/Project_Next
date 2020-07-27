@@ -26,20 +26,7 @@
                     <li class="list-group-item"><i class="fas fa-tv text-info mx-3"></i> {{ __('bookingCreate.Tv') }}</li>
                   </ul>
             </p>
-            <button type="button" name="" id="" class="btn btn-outline-info mx-auto" type="button" data-toggle="collapse" data-target="#roomdetails-{{ $option->id }}" aria-expanded="false" aria-controls="roomdetails-{{ $option->id }}" btn-lg btn-block"><i class="fa fa-arrow-down" aria-hidden="true"></i> {{ __('bookingCreate.More') }}</button>
-            <div class="collapse" id="roomdetails-{{ $option->id }}">
-                <div class="card card-body">
-                    <ul class="list-group">
-                        <li class="list-group-item"><i class="fas fa-vcard text-info mx-3"></i>{{ __('bookingCreate.FloorService') }}</li>
-                        <li class="list-group-item"><i class="fas fa-vcard text-info mx-3"></i>{{ __('bookingCreate.Breakfast') }}</li>
-                        <li class="list-group-item"><i class="fas fa-vcard text-info mx-3"></i> {{ __('bookingCreate.AirCon') }}</li>
-                        <li class="list-group-item"><i class="fas fa-vcard text-info mx-3"></i> Minibar</li>
-                        <li class="list-group-item"><i class="fas fa-vcard text-info mx-3"></i> {{ __('bookingCreate.PhoneService') }}</li>
-                        <li class="list-group-item"><i class="fas fa-vcard text-info mx-3"></i> {{ __('bookingCreate.Safe') }}</li>
-                        <li class="list-group-item"><i class="fas fa-vcard text-info mx-3"></i> {{ __('bookingCreate.Blowdryer') }}</li>
-                      </ul>
-                </div>
-              </div>
+          
         </div>
     </div>
     <div class="row border border-info bg-transparent">
@@ -53,16 +40,7 @@
               </div>
         </div>
         <div class="col-lg-2 my-4">
-            <div class="form-check ">
-                <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="breakfast" value="0">{{ __('bookingCreate.RoomOnly') }}
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="breakfast" value="1">{{ __('bookingCreate.Wbreakfast') }}
-                </label>
-              </div>
+           
               
         </div>
         <div class="col-lg-3 my-auto">

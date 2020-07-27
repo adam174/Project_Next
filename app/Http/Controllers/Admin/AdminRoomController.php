@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Translation;
@@ -81,8 +81,9 @@ class AdminRoomController extends Controller
     public function edit($id)
     {
         $room = Room::find($id);
+        $services = Translation::where('group','services')->get();
 
-            return view('admin.roomEdit', compact('room'));
+            return view('admin.roomEdit', compact('room','services'));
     }
 
     /**
@@ -95,21 +96,21 @@ class AdminRoomController extends Controller
     public function update(Request $request, Room $room)
     {
         $request->validate([
-            'type' => ['required','string'],
+            'type' => ['string'],
             'picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'price' => ['required','numeric'],
-            'n_rooms' => ['required','numeric'],
-            'superficie' => ['required','string'],
-            'couchage' => ['required','string'],
-            'occupants' => ['required','numeric']
+            'price' => ['numeric'],
+            'n_rooms' => ['numeric'],
+            'superficie' => ['string'],
+            'couchage' => ['string'],
+            'occupants' => ['numeric'],
+            'services' => ['array']
 
         ]);
             if ($request->picture) {
                 $imageName = time().'.'.$request->picture->extension();  
                 $request->picture->move(public_path('images/rooms'), $imageName);
                 $request->request->add(['image' => '/images/rooms/' . $imageName]);
-            }
-            
+            } 
         $room->update($request->all());
   
         return redirect()->route('rooms.index')

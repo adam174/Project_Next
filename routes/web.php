@@ -34,9 +34,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin','middleware' => 'admin'], function () {
     Route::view('/', 'admin/dashboard');
-    Route::resource('rooms', 'AdminRoomController');
+    Route::resource('rooms', 'Admin\AdminRoomController');
     Route::resource('hotel', 'Admin\AdminHotelController');
-    Route::resource('bookings', 'AdminController');
+    Route::resource('bookings', 'Admin\AdminController');
  //   Route::get('bookings/checkout', 'AdminController@create');
  //   Route::post('bookings/checkout', 'AdminController@create')->name('reservations.create');
 });

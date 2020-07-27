@@ -1,4 +1,4 @@
-<nav class="navbar header-top navbar-expand-lg  navbar-dark bg-dark mb-5">
+<nav class="navbar header-top navbar-expand-lg  navbar-dark bg-dark">
     <a class="navbar-brand" href="#"><img src="/img/logo.png" alt="logo" width="50px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
       aria-expanded="false" aria-label="Toggle navigation">

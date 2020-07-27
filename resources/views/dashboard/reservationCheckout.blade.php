@@ -5,11 +5,6 @@
 
 @section('content')
 <div class="container">
-    
-
-<div>
-   {{$arrival}} - {{$departure}} -{{$room_id}} 
-</div>
 
 <form 
     role="form" 

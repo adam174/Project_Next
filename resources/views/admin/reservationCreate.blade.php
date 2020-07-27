@@ -21,25 +21,16 @@
                <b>{{ __('bookingCreate.Bed') }}</b>  :	{{ $option->couchage }} <br>
                <b>Occupants</b>  :	{{ $option->occupants }} {{ __('bookingCreate.Person') }},  : <br>  
                 <ul class="list-group">
-                    <li class="list-group-item"><i class="fas fa-wifi text-info mx-3"></i>Wifi</li>
-                    <li class="list-group-item"><i class="fas fa-parking text-info mx-3"></i>{{ __('bookingCreate.Parking') }}</li>
-                    <li class="list-group-item"><i class="fas fa-tv text-info mx-3"></i> {{ __('bookingCreate.Tv') }}</li>
+                   @foreach ($services as $service)
+                   @if (in_array($service->id, $option->services))
+                       <li class="list-group-item"><i class="far fa-check-square text-success"></i> {{ __('services.'.$service->key) }}</li>
+                   @endif
+                       
+                   @endforeach
+                    
+                   
                   </ul>
             </p>
-            <button type="button" name="" id="" class="btn btn-outline-info mx-auto" type="button" data-toggle="collapse" data-target="#roomdetails-{{ $option->id }}" aria-expanded="false" aria-controls="roomdetails-{{ $option->id }}" btn-lg btn-block"><i class="fa fa-arrow-down" aria-hidden="true"></i> {{ __('bookingCreate.More') }}</button>
-            <div class="collapse" id="roomdetails-{{ $option->id }}">
-                <div class="card card-body">
-                    <ul class="list-group">
-                        <li class="list-group-item"><i class="fas fa-vcard text-info mx-3"></i>{{ __('bookingCreate.FloorService') }}</li>
-                        <li class="list-group-item"><i class="fas fa-vcard text-info mx-3"></i>{{ __('bookingCreate.Breakfast') }}</li>
-                        <li class="list-group-item"><i class="fas fa-vcard text-info mx-3"></i> {{ __('bookingCreate.AirCon') }}</li>
-                        <li class="list-group-item"><i class="fas fa-vcard text-info mx-3"></i> Minibar</li>
-                        <li class="list-group-item"><i class="fas fa-vcard text-info mx-3"></i> {{ __('bookingCreate.PhoneService') }}</li>
-                        <li class="list-group-item"><i class="fas fa-vcard text-info mx-3"></i> {{ __('bookingCreate.Safe') }}</li>
-                        <li class="list-group-item"><i class="fas fa-vcard text-info mx-3"></i> {{ __('bookingCreate.Blowdryer') }}</li>
-                      </ul>
-                </div>
-              </div>
         </div>
     </div>
     <div class="row border border-info bg-transparent">

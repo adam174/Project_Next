@@ -7,7 +7,7 @@ use App\Models\Reservation;
 use App\Models\Room;
 use App\Models\Hotel;
 use Auth;
-
+use App\Models\Translation;
 
 class HotelController extends Controller
 {
@@ -39,11 +39,13 @@ class HotelController extends Controller
         //$dups = array_values($arr_2);
         //Get available rooms
         $hotelInfo = Room::where('hotel_id',1)->whereNotIn('id', $dups)->get();
+        $services = Translation::where('group','services')->get();
+        //dd($services);
         if (Auth::user() && Auth::user()->id == 1) {
-            return view('admin.reservationCreate', compact('arrival', 'hotelInfo','departure','payment'));
+            return view('admin.reservationCreate', compact('arrival', 'hotelInfo','departure','payment','services'));
         }
-
-        return view('dashboard.reservationCreate', compact('arrival', 'hotelInfo','departure'));
+        
+        return view('dashboard.reservationCreate', compact('arrival', 'hotelInfo','departure','services'));
     }
 
      /**

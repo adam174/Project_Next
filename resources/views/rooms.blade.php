@@ -10,9 +10,7 @@
           <h1 class="display-3">Royal Hotel Paris</h1>
           <p class="lead">{{ __('rooms.header') }}</p>
           <div class="btn-group" role="group">
-              <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#registerModal">
-                Book Now!
-              </button>
+              <a name="" id="" class="btn btn-lighten-teal" href="/reserver" role="button">{{ __('bookingCreate.Checkavailability') }}</a>
           </div>
       </div>
   </div>
@@ -29,13 +27,13 @@
                       <p class="text-muted">@lang('rooms.'.$room->type)</p>
       </div>
       <div class="col-md-6 how-img">
-          <img src="{{$room->image}}" class="rounded-lg img-fluid" alt="Chambre Classique"/>
+          <img src="{{$room->image}}" class="rounded-lg img-fluid" alt="Chambre {{$room->type}}"/>
       </div>
   </div>
     @else
      <div class="row">
       <div class="col-md-6 how-img">
-          <img src="{{$room->image}}" class="rounded-lg img-fluid" alt="Chambre Single"/>
+          <img src="{{$room->image}}" class="rounded-lg img-fluid" alt="Chambre {{$room->type}}"/>
       </div>
       <div class="col-md-6">
           <h4>{{$room->type}}</h4>

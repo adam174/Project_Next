@@ -74,6 +74,16 @@
                 <input type="number" name="occupants" value="{{ $room->occupants }}" class="form-control" placeholder="2">
             </div>
         </div>
+        <div class=" col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Services:</strong>
+                @foreach ($services as $service)
+                <input class='form-control' type='checkbox' name='services[]' value='{{$service->id}}' @if (in_array($service->id, $room->services)) checked="checked" @endif>{{ __('services.'.$service->key) }} 
+                @endforeach
+                
+
+            </div>
+        </div>
         <div class=" col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Enregistrer</button>
         </div>

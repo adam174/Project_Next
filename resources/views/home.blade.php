@@ -12,7 +12,7 @@
             <div class="col-md-5 col-12 order-md-1 order-2">
               <h4>{{ __('home.header_title-1') }} </h4>
               <p>{{ __('home.header_body-1') }}</p>
-              <!-- <a href="#">BUY NOW</a>--> </div> 
+            </div> 
             <div class="col-md-7 col-12 order-md-2 order-1"><img src="/img/00b2220430af282d345b1f9a7963a732.jpg" class="mx-auto" alt="slide"></div>
           </div>
         </div>
@@ -86,7 +86,7 @@
                             <h3>Do You Have any Questions?</h3>
                         </div>
                         <div class="col-md-4 col-sm-12 text-center">
-                            <a name="" id="" class="btn btn-primary" href="#" role="button">Contact Us</a>
+                            <a name="" id="" class="btn btn-darken-teal" href="#" role="button">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -106,34 +106,34 @@
     <h2 class="text-success">{{ __('home.main_title') }}</h2>
     <p class="text-muted mt-4">{{ __('home.main_body') }}</p>
   </div>
-  <div class="col-6">
+  <div class="col-lg-6 col-md-12">
     <div class="row">
       <div class="col-6">
         <div class="text-center">
-          <p><img alt="" src="/img/img-17659759.jpg" class="img-icons"/></p>
-          <p><span style="color:#000000;">Champs-Elysées</span></p>
+          <p><img alt="Champs-Elysées" src="/img/img-17659759.jpg" class="img-icons"/></p>
+          <p><h6 class="text-darken-teal">Champs-Elysées</h6></p>
         </div>
         <div class="text-center">
-          <p><img alt="" src="/img/img-a05e76fd.jpg" class="img-icons"/></p>
-          <p><span style="color:#000000;">LA DÉFENSE</span></p>
+          <p><img alt="LA DÉFENSE" src="/img/img-a05e76fd.jpg" class="img-icons"/></p>
+          <p><h6 class="text-darken-teal">LA DÉFENSE</h6></p>
         </div>
         <div class="text-center">
-          <p><img alt="" src="/img/img-c939c3cc.jpg" class="img-icons"/></p>
-          <p><span style="color:#000000;">MÉTRO CHARLES DE GAULLE-ÉTOILE</span></p>
+          <p><img alt="MÉTRO CHARLES DE GAULLE-ÉTOILE" src="/img/img-c939c3cc.jpg" class="img-icons"/></p>
+          <p><h6 class="text-darken-teal">MÉTRO CHARLES DE GAULLE-ÉTOILE</h6></p>
         </div>
       </div>
       <div class="col-6">
         <div class="text-center">
-          <p><img alt="" src="/img/img-e743d32a.jpg" class="img-icons"/></p>
-          <p><span style="color:#000000;">ARC DE TRIOMPHE</span></p>
+          <p><img alt="ARC DE TRIOMPHE" src="/img/img-e743d32a.jpg" class="img-icons"/></p>
+          <p><h6 class="text-darken-teal">ARC DE TRIOMPHE</h6></p>
         </div>
         <div class="text-center">
-          <p><img alt="" src="/img/img-fd9ed1a5.jpg" class="img-icons"/></p>
-          <p><span style="color:#000000;">PARC MONCEAU</span></p>
+          <p><img alt="PARC MONCEAU" src="/img/img-fd9ed1a5.jpg" class="img-icons"/></p>
+          <p><h6 class="text-darken-teal">PARC MONCEAU</h6></p>
         </div>
         <div class="text-center">
-          <p><img alt="" src="/img/disney picto test.png" class="img-icons"/></p>
-          <p><span style="color:#000000;">DISNEYLAND PARIS</span></p>
+          <p><img alt="DISNEYLAND PARIS" src="/img/disney picto test.png" class="img-icons"/></p>
+          <p><h6 class="text-darken-teal">DISNEYLAND PARIS</h6></p>
         </div>
         
       </div>

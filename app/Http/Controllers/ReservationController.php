@@ -103,22 +103,25 @@ class ReservationController extends Controller
                 $email = Auth::user()->email;
                 $password = null;
             }
-            // store data to request 
-           $request->request->add(['user_id' => $user_id]);
-           $request->request->add(['arrival' => $arrival]);
-           $request->request->add(['departure' => $departure]);
-           $request->request->add(['price' => $price]);
-           $request->request->add(['num_of_guests' => 2]);
-           $request->request->add(['room_id' => $room_id]);
+           
             // using Stripe to make transaction and make it optional for admin
                 Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-                Stripe\Charge::create ([
+               $stripe = Stripe\Charge::create ([
                 "amount" => $price * 100,
                 "currency" => "eur",
                 "source" => $request->stripeToken,
                 "description" => "Test payment from RoyalHotel.",
                 "receipt_email" => $email,
                             ]);
+                             // store data to request 
+            $request->request->add(['user_id' => $user_id]);
+            $request->request->add(['arrival' => $arrival]);
+            $request->request->add(['departure' => $departure]);
+            $request->request->add(['price' => $price]);
+            $request->request->add(['num_of_guests' => 2]);
+            $request->request->add(['room_id' => $room_id]);
+            $request->request->add(['is_paid' => $stripe->status]);
+            $request->request->add(['payment_type' => $stripe->payment_method_details->card->brand]);
         // send request
         Reservation::create($request->all());
             

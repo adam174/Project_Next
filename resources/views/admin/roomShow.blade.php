@@ -2,7 +2,8 @@
 @section('title', 'Edit Reservation')
 
 @section('content')
- <div class="row">
+<div class="container">
+    <div class="row my-5">
         <div class="col-lg-12">
             <div class="float-left">
                 <h2> Voir les details</h2>
@@ -45,4 +46,6 @@
 
        
     </div>
+</div>
+ 
 @endsection

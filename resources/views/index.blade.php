@@ -7,7 +7,7 @@
         <title>@yield('title') - Royal Hotel</title>
         <link rel="stylesheet" href="{{asset('css/app.css')}}"> 
     </head>
-    <body>
+    <body class="bg-lighten-grey">
         @include('partials.nav')
         <main>@yield('content')</main>
         <footer>
