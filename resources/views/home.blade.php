@@ -105,6 +105,7 @@
   <div class="col-md-12 col-lg-6 " >
     <h2 class="text-success">{{ __('home.main_title') }}</h2>
     <p class="text-muted mt-4">{{ __('home.main_body') }}</p>
+    
   </div>
   <div class="col-lg-6 col-md-12">
     <div class="row">
@@ -140,6 +141,12 @@
     </div>
     
   </div>
+</div>
+<div class="row">
+  <div class="container col-5">
+     <div id="cont_NzUwNTZ8NXwzfDF8NHxjYWNhZTN8NHxGRkZGRkZ8Y3wx"><div id="spa_NzUwNTZ8NXwzfDF8NHxjYWNhZTN8NHxGRkZGRkZ8Y3wx"><a id="a_NzUwNTZ8NXwzfDF8NHxjYWNhZTN8NHxGRkZGRkZ8Y3wx" href="https://www.meteocity.com/france/paris_v75056/" target="_blank" style="color:#333;text-decoration:none;">Météo Paris</a> ©<a href="https://www.meteocity.com">meteocity.com</a></div><script type="text/javascript" src="//widget.meteocity.com/js/NzUwNTZ8NXwzfDF8NHxjYWNhZTN8NHxGRkZGRkZ8Y3wx"></script></div>
+  </div>
+  
 </div>
 <!-- /Services section -->
 

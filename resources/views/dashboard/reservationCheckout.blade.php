@@ -48,7 +48,9 @@
        <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('auth.country') }}</label>
        <div class="col-md-6">
         <select id="country" class=" browser-default custom-select @error('country') is-invalid @enderror" name="country">
-            @foreach ($countries as $country)
+          <option>-----</option> 
+           @foreach ($countries as $country)
+                
                 <option  value="{{$country->id}}">{{$country->name}}</option>  
             @endforeach
   

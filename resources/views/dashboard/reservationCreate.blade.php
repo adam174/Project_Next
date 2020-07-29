@@ -20,10 +20,15 @@
                <b>{{ __('bookingCreate.Area') }}</b>  :	{{ $option->superficie }} m² <br>
                <b>{{ __('bookingCreate.Bed') }}</b>  :	{{ $option->couchage }} <br>
                <b>Occupants</b>  :	{{ $option->occupants }} {{ __('bookingCreate.Person') }},  : <br>  
-                <ul class="list-group">
-                    <li class="list-group-item"><i class="fas fa-wifi text-info mx-3"></i>Wifi</li>
-                    <li class="list-group-item"><i class="fas fa-parking text-info mx-3"></i>{{ __('bookingCreate.Parking') }}</li>
-                    <li class="list-group-item"><i class="fas fa-tv text-info mx-3"></i> {{ __('bookingCreate.Tv') }}</li>
+                    <ul class="list-group">
+                   @foreach ($services as $service)
+                   @if (in_array($service->id, $option->services))
+                       <li class="list-group-item"><i class="far fa-check-square text-success"></i> {{ __('services.'.$service->key) }}</li>
+                   @endif
+                       
+                   @endforeach
+                    
+                   
                   </ul>
             </p>
           
