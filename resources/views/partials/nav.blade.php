@@ -15,6 +15,9 @@
           <a class="nav-link" href="/rooms">{{ __('nav.Rooms') }}</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="/nearby">{{ __('nav.nearby') }}</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/reserver">{{ __('nav.Book') }}</a>
         </li>
       </ul>
@@ -49,9 +52,9 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-flag-usa fa-1x text-success"></i> Language</a>
             <div class="dropdown-menu" aria-labelledby="dropdown09">
-              @foreach(config()->get('app.locales') as $code => $lang)
-                <a class="dropdown-item" href="http://{{$code}}.mhanni.next/"><span class="flag-icon flag-icon-fr"> </span> {{ $lang }}</a>
-              @endforeach
+              
+                <a class="dropdown-item" href="{{ url('locale/en') }}"><span class="flag-icon flag-icon-fr"> </span> English</a>
+                <a class="dropdown-item" href="{{ url('locale/fr') }}"><span class="flag-icon flag-icon-fr"> </span> Francais</a>
             </div>
         </li>
         @else
@@ -64,9 +67,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-flag-usa fa-1x text-success"></i> Language</a>
             <div class="dropdown-menu" aria-labelledby="dropdown09">
-              @foreach(config()->get('app.locales') as $code => $lang)
-                <a class="dropdown-item" href="http://{{$code}}.mhanni.next/"><span class="flag-icon flag-icon-fr"> </span> {{ $lang }}</a>
-              @endforeach
+              <a class="dropdown-item" href="{{ url('locale/en') }}"><span class="flag-icon flag-icon-fr"> </span> English</a>
+                <a class="dropdown-item" href="{{ url('locale/fr') }}"><span class="flag-icon flag-icon-fr"> </span> Francais</a>
             </div>
         </li>
           @endauth

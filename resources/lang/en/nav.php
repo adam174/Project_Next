@@ -8,5 +8,6 @@ return [
    'Logout'=>'Logout',
    'Login'=>'Login',
    'Signup'=>'Signup',
+   'testttt'=>'testtttgg'
 
 ];

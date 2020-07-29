@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>@yield('title') - Royal Hotel</title>
         <link rel="stylesheet" href="{{asset('css/app.css')}}"> 
+        @yield('csslinks')
     </head>
     <body class="bg-lighten-grey">
         @include('partials.nav')
@@ -20,6 +21,6 @@
     interval: 3000,
  })
 </script>
-        
+     @yield('jslinks')   
     </body>
 </html>

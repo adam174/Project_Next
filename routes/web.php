@@ -12,12 +12,17 @@
 */
 
 Route::view('/', 'home'); 
+Route::view('/nearby', 'nearby');
+Route::view('/photos', 'gallery');  
 Route::get('/reserver', 'HotelController@index');
 Route::get('/rooms', 'RoomController@index'); 
 Route::get('/rooms/{id}', 'RoomController@show'); 
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
-
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
     Route::view('/', 'dashboard/dashboard'); 
     Route::resource('reservations', 'ReservationController');
