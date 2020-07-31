@@ -80,7 +80,8 @@ class AdminRoomController extends Controller
      */
     public function edit($id)
     {
-        $room = Room::find($id);
+        //$room = Room::find($id);
+        $room = Room::with('photos')->find($id);
         $services = Translation::where('group','services')->where('language_id',1)->get();
 
             return view('admin.roomEdit', compact('room','services'));

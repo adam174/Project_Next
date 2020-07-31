@@ -39625,11 +39625,11 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\xampp\htdocs\final\nextproject\nextproject\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\xampp\htdocs\final\nextproject\nextproject\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! D:\xampp\htdocs\final\nextproject\nextproject\resources\sass\app_booking.scss */"./resources/sass/app_booking.scss");
-__webpack_require__(/*! D:\xampp\htdocs\final\nextproject\nextproject\resources\sass\admin.scss */"./resources/sass/admin.scss");
-module.exports = __webpack_require__(/*! D:\xampp\htdocs\final\nextproject\nextproject\resources\sass\booking-form.scss */"./resources/sass/booking-form.scss");
+__webpack_require__(/*! C:\laragon\www\royal\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\laragon\www\royal\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\royal\resources\sass\app_booking.scss */"./resources/sass/app_booking.scss");
+__webpack_require__(/*! C:\laragon\www\royal\resources\sass\admin.scss */"./resources/sass/admin.scss");
+module.exports = __webpack_require__(/*! C:\laragon\www\royal\resources\sass\booking-form.scss */"./resources/sass/booking-form.scss");
 
 
 /***/ })

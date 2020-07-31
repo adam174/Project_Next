@@ -15,82 +15,17 @@
 <div class="container-fluid text-darken-purple">
     <h2>Image Gallery</h2>
     <div class="row text-darken-purple">
+    @foreach ($photos as $photo)
+       
       <div class="col-md-3 mt-4">
-        <a href="\img\Chambre Classique 08.jpg" data-toggle="lightbox" data-gallery="image-gallery" data-title="Chambre Classique">
-          <img src="\img\Chambre Classique 08.jpg" class="img-fluid">
+      <a href="{{$photo->photo}}" data-toggle="lightbox" data-gallery="image-gallery" data-title="{{$photo->room->type}}">
+          <img src="{{$photo->photo}}" class="img-fluid fitness">
         </a>
       </div>
-      <div class="col-md-3 mt-4">
-        <a href="/img/Chambre Deluxe 01 2.jpg" data-toggle="lightbox" data-gallery="image-gallery" data-title="Chambre Deluxe">
-          <img src="/img/Chambre Deluxe 01 2.jpg" class="img-fluid" alt="Chambre Deluxe">
-        </a>
-      </div>
-      <div class="col-md-3 mt-4">
-        <a href="/img/Chambre Deluxe 04.jpg" data-toggle="lightbox" data-gallery="image-gallery" data-title="Chambre Deluxe">
-          <img src="/img/Chambre Deluxe 04.jpg" class="img-fluid" alt="Chambre Deluxe">
-        </a>
-      </div>
-      <div class="col-md-3 mt-4">
-        <a href="/img/Chambre Executive 405 2.jpg" data-toggle="lightbox" data-gallery="image-gallery" data-title="Chambre Executive">
-          <img src="/img/Chambre Executive 405 2.jpg" class="img-fluid" alt="Chambre Executive">
-        </a>
-      </div>
-      <div class="col-md-3 mt-4">
-        <a href="/img/Chambre Executive 405 3-web.jpg" data-toggle="lightbox" data-gallery="image-gallery" data-title="Chambre Executive">
-          <img src="/img/Chambre Executive 405 3-web.jpg" class="img-fluid" alt="Chambre Executive">
-        </a>
-      </div>
-      <div class="col-md-3 mt-4">
-        <a href="/img/Chambre Executive 405 4-web.jpg" data-toggle="lightbox" data-gallery="image-gallery" data-title="Chambre Executive">
-          <img src="/img/Chambre Executive 405 4-web.jpg" class="img-fluid" alt="Chambre Executive">
-        </a>
-      </div>
-      <div class="col-md-3 mt-4">
-        <a href="/img/Chambre Executive 405.jpg" data-toggle="lightbox" data-gallery="image-gallery" data-title="Chambre Executive">
-          <img src="/img/Chambre Executive 405.jpg" class="img-fluid" alt="Chambre Executive">
-        </a>
-      </div>
-      <div class="col-md-3 mt-4">
-        <a href="/img/Chambre Familiale 101-web.jpg" data-toggle="lightbox" data-gallery="image-gallery" data-title="Chambre Familiale">
-          <img src="/img/Chambre Familiale 101-web.jpg" class="img-fluid" alt="Chambre Familiale">
-        </a>
-      </div>
-      <div class="col-md-3 mt-4">
-        <a href="/img/Chambre Familiale 604 2-web.jpg" data-toggle="lightbox" data-gallery="image-gallery" data-title="Chambre Familiale">
-          <img src="/img/Chambre Familiale 604 2-web.jpg" class="img-fluid" alt="Chambre Familiale">
-        </a>
-      </div>
-      <div class="col-md-3 mt-4">
-        <a href="/img/Chambre Familiale Salon 101-web.jpg" data-toggle="lightbox" data-gallery="image-gallery" data-title="Chambre Familiale">
-          <img src="/img/Chambre Familiale Salon 101-web.jpg" class="img-fluid" alt="Chambre Familiale">
-        </a>
-      </div>
-      <div class="col-md-3 mt-4">
-        <a href="/img/Chambre Suprieure 02.jpg" data-toggle="lightbox" data-gallery="image-gallery" data-title="Chambre Suprieure">
-          <img src="/img/Chambre Suprieure 02.jpg" class="img-fluid" alt="Chambre Suprieure">
-        </a>
-      </div>
-      <div class="col-md-3 mt-4">
-        <a href="/img/Chambre Suprieure 103-web.jpg" data-toggle="lightbox" data-gallery="image-gallery" data-title="Chambre Suprieure">
-          <img src="/img/Chambre Suprieure 103-web.jpg" class="img-fluid" alt="Chambre Suprieure">
-        </a>
-      </div>
-      <div class="col-md-3 mt-4">
-        <a href="/img/SDB Classique 07.jpg" data-toggle="lightbox" data-gallery="image-gallery" data-title="SDB Classique">
-          <img src="/img/SDB Classique 07.jpg" class="img-fluid" alt="SDB Classique">
-        </a>
-      </div>
-      <div class="col-md-3 mt-4">
-        <a href="/img/SDB Deluxe 01.jpg" data-toggle="lightbox" data-gallery="image-gallery" data-title="SDB Deluxe">
-          <img src="/img/SDB Deluxe 01.jpg" class="img-fluid" alt="Deluxe">
-        </a>
-      </div>
-      <div class="col-md-3 mt-4">
-        <a href="/img/SDB Executive 405.jpg" data-toggle="lightbox" data-gallery="image-gallery" data-title="SDB Executive">
-          <img src="/img/SDB Executive 405.jpg" class="img-fluid" alt="SDB Executive">
-        </a>
-      </div>
-    </div>
+      
+    
+    @endforeach
+    </div> 
   </div>
 
 

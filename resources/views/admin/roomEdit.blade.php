@@ -1,6 +1,36 @@
 @extends('admin.index')
 @section('title', 'Rooms')
-
+@section('cssfiles')
+     <style type="text/css">
+   .img-wraps {
+    position: relative;
+    display: inline-block;
+   
+    font-size: 0;
+}
+.img-wraps .closes {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    z-index: 100;
+    background-color: #FFF;
+    padding: 4px 3px;
+    
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+   
+    text-align: center;
+    font-size: 22px;
+    line-height: 10px;
+    border-radius: 50%;
+    border:1px solid red;
+}
+.img-wraps:hover .closes {
+    opacity: 1;
+}
+    </style>
+@endsection
 @section('content')
 <div class="container">
     <div class="row">
@@ -44,6 +74,7 @@
                <input type="file" name="picture" class="form-control" placeholder="image">
             </div>
         </div>
+    
         <div class=" col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Prix:</strong>
@@ -90,5 +121,73 @@
     </div>
    
     </form>
+        <div class="row">
+    <div class='list-group gallery'>
+
+
+            @if($room->photos->count())
+                @foreach($room->photos as $image)
+                <div class="col-md-3 mt-4">
+                 <div  class="img-wraps">
+                        <form action="{{ route('photos.destroy', $image->id) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="closes">&times;</button>
+                        </form>
+                    <img src="{{$image->photo}}" class="img-fluid" >
+                </div>
+                </div>
+               
+                @endforeach
+            @endif
+            <div class="container">
+        @if(session('success'))
+   <div class="alert alert-success">
+      {{ session('success') }}
+   </div> 
+ @endif
+<form method="post" action="{{route('photos.store')}}" enctype="multipart/form-data">
+  @csrf
+
+          <div class="input-group control-group increment" >
+          <input type="file" name="filename[]" class="form-control">
+          <div class="input-group-btn"> 
+            <button id="add" class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
+          </div>
+        </div>
+        <div class="clone hide">
+          <div class="control-group input-group" style="margin-top:10px">
+            <input type="file" name="filename[]" class="form-control">
+          <input type="hidden" name="room_id" value="{{$room->id}}">
+            <div class="input-group-btn"> 
+              <button class="btn btn-danger" type="button"> Remove</button>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top:10px">Submit</button>
+
+  </form>     
+
+
+        </div> <!-- list-group / end -->
+    </div> <!-- row / end -->
 </div>
+@endsection
+@section('jsfiles')
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+      $("#add").click(function(){ 
+          var html = $(".clone").html();
+          $(".increment").after(html);
+      });
+
+      $("body").on("click",".btn-danger",function(){ 
+          $(this).parents(".control-group").remove();
+      });
+
+    });
+
+</script>
 @endsection

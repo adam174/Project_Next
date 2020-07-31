@@ -8,6 +8,7 @@
         <link type="text/css" rel="stylesheet" href="{{asset('css/booking.css')}}" />
         <link rel="stylesheet" href="{{asset('css/admin.css')}}"> 
         <link rel="stylesheet" href="https://mladenplavsic.github.io/bootstrap-navbar-sidebar/navbar-fixed-left.min.css">
+        @yield('cssfiles')
     </head>
     <body>
         @include('admin.partials.navbar')
@@ -19,6 +20,6 @@
         
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
  <script src="{{asset('js/app.js')}}"></script>
-    
+    @yield('jsfiles')
     </body>
 </html>

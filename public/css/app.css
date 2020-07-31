@@ -20903,9 +20903,12 @@ body {
   width: 90%;
 }
 
-/* ******************* footer ********************* */
-
-/* ******************* booking page ********************* */
+.fitness {
+  width: 100%;
+  height: 20vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 
 .copyright {
   padding: 28px 0;

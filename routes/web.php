@@ -13,7 +13,7 @@
 
 Route::view('/', 'home'); 
 Route::view('/nearby', 'nearby');
-Route::view('/photos', 'gallery');  
+Route::get('/gallery', 'Admin\AdminPhotoController@index');  
 Route::get('/reserver', 'HotelController@index');
 Route::get('/rooms', 'RoomController@index'); 
 Route::get('/rooms/{id}', 'RoomController@show'); 
@@ -42,6 +42,7 @@ Route::group(['prefix' => 'admin','middleware' => 'admin'], function () {
     Route::resource('rooms', 'Admin\AdminRoomController');
     Route::resource('hotel', 'Admin\AdminHotelController');
     Route::resource('bookings', 'Admin\AdminController');
+    Route::resource('photos', 'Admin\AdminPhotoController');
  //   Route::get('bookings/checkout', 'AdminController@create');
  //   Route::post('bookings/checkout', 'AdminController@create')->name('reservations.create');
 });
