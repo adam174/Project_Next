@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mail;
+use Auth;
 class ContactUsController extends Controller
 {
      /**
@@ -23,15 +24,21 @@ class ContactUsController extends Controller
      */
     public function store(Request $request)
     {
-
+         $request->validate([
+            'name' => 'string',
+            'email'=>'email',
+            'message' => 'required | string'
+        ]);
+         $name = $request->name ?? Auth::user()->name;
+         $email = $request->email ?? Auth::user()->email;
         Mail::send('emails.contactText',
        array(
-           'name' => $request->name,
-           'email' => $request->email,
+           'name' => $name ,
+           'email' => $email,
            'user_message' => $request->message
        ), function($message)
    {
-       $message->from(env('MAIL_FROM_ADDRESS', 'royalhotel@nachattube.com'));
+       $message->from('noreply@nachattube.com');
        $message->to(env('MAIL_FROM_ADDRESS', 'royalhotel@nachattube.com'), 'Admin')->subject('Feedback');
    });
 

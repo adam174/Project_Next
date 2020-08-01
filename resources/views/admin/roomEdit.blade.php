@@ -59,7 +59,7 @@
         @csrf
         @method('PUT')
    
-          <div class="row">
+          <div class="row border border-info p-2">
         
         <div class=" col-sm-12 col-md-12">
             <div class="form-group">
@@ -116,14 +116,14 @@
                  @endforeach
         </div>
         <div class=" col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                <button type="submit" class="btn btn-info">Enregistrer</button>
         </div>
     </div>
    
     </form>
-        <div class="row">
-    <div class='list-group gallery'>
-
+        
+    <div class='list-group gallery border border-info mt-5'>
+<div class="row">
 
             @if($room->photos->count())
                 @foreach($room->photos as $image)
@@ -134,7 +134,7 @@
                             @csrf
                             <button type="submit" class="closes">&times;</button>
                         </form>
-                    <img src="{{$image->photo}}" class="img-fluid" >
+                    <img src="{{$image->photo}}" class="img-fluid" style="width: 100%; height: 15vw; object-fit: cover;">
                 </div>
                 </div>
                
@@ -152,19 +152,19 @@
           <div class="input-group control-group increment" >
           <input type="file" name="filename[]" class="form-control">
           <div class="input-group-btn"> 
-            <button id="add" class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
+            <button id="add" class="btn btn-success" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
           </div>
         </div>
-        <div class="clone hide">
+        <div class="clone hide d-none">
           <div class="control-group input-group" style="margin-top:10px">
             <input type="file" name="filename[]" class="form-control">
           <input type="hidden" name="room_id" value="{{$room->id}}">
             <div class="input-group-btn"> 
-              <button class="btn btn-danger" type="button"> Remove</button>
+              <button class="btn btn-danger" type="button"> <i class="fa fa-minus" aria-hidden="true"></i></button>
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary" style="margin-top:10px">Submit</button>
+        <button type="submit" class="btn btn-info" style="margin-top:10px">Enregistrer</button>
 
   </form>     
 

@@ -16,6 +16,7 @@ use App\Mail\MyTestMail;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Models\Country;
+use Redirect;
 class ReservationController extends Controller
 {
     /**
@@ -42,6 +43,12 @@ class ReservationController extends Controller
      */
     public function create(Request $request)
     {
+        //security check available rooms
+        $notavailable = $request->session()->get('notavailable');
+        if ( in_array($request->room_id, $notavailable)) {
+         return redirect('reserver');
+        }
+      
         //get list of countries 
          $countries = Country::all();
         // keep room_id in session and store it in variable

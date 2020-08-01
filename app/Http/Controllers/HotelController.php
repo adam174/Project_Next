@@ -17,7 +17,12 @@ class HotelController extends Controller
        }
         return view('book');
     }
-     
+      /**
+     * Show the form for creating a new reservation.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function create(Request $request)
     {
         // inluding the function to calculate days of bookings 
@@ -35,10 +40,11 @@ class HotelController extends Controller
         // declare an empty array then store the roomsid which was booked more than available rooms ( n_rooms)
         $dups = array();
         foreach(array_count_values($arrr) as $val => $c)  if($c >= Room::where('id',$val)->pluck('n_rooms')->toArray()[0] ) $dups[] = $val;
+        $request->session()->put('notavailable', $dups);
         //$arr_2 = array_diff($arrr, $dups);
         //$dups = array_values($arr_2);
         //Get available rooms
-        $hotelInfo = Room::where('hotel_id',1)->whereNotIn('id', $dups)->get();
+        $hotelInfo = Room::with('photos')->where('hotel_id',1)->whereNotIn('id', $dups)->get();
         $services = Translation::where('group','services')->get();
         //dd($services);
         if (Auth::user() && Auth::user()->id == 1) {

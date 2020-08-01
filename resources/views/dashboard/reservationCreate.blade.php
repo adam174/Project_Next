@@ -2,7 +2,6 @@
 @section('title', 'Create reservation')
 
 @section('content')
-
 <div class="fluid mx-2">
     @foreach ($hotelInfo as $option)
     <div class="room border border-info my-5">
@@ -12,7 +11,33 @@
             <input type="hidden" name="num_of_guests" value="{{ $option->occupants }}">
     <div class="row">
         <div class="col-lg-7">
-            <img src="{{ $option->image }}" width="100%" alt="">
+            <div id="carousel-{{$option->id}}" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                 <div class="embed-responsive embed-responsive-4by3">
+                <img class="card-img-top embed-responsive-item" src="{{$option->image}}" alt="First slide">
+                </div>
+                </div>
+            @foreach ($option->photos as $gallery)
+               <div class="carousel-item">
+                   <div class="embed-responsive embed-responsive-4by3">
+                        <img alt="{{$option->type}}" class="card-img-top embed-responsive-item" src="{{$gallery->photo}}" />
+                    </div>
+                </div>
+            @endforeach
+    
+ 
+  </div>
+  <a class="carousel-control-prev" href="#carousel-{{$option->id}}" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel-{{$option->id}}" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+           
         </div>
         <div class="col-lg-5">
             <h3 class="text-primary text-uppercase">{{ __('bookingCreate.Room') }} {{ $option->type }}</h3>

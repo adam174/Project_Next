@@ -19,7 +19,7 @@
               <i class="fas fa-map-marker-alt mr-2 text-primary"></i> Avenue des Champs-Élysées, 75008 Paris  ·  FRANCE  </li>
           </ul>
 
-          <iframe width="70%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=2.3104012012481694%2C48.866031033314144%2C2.317482233047486%2C48.869143366027984&amp;layer=mapnik&amp;marker=48.86758722386852%2C2.313941717147827" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=48.86759&amp;mlon=2.31394#map=18/48.86759/2.31394" class="text-secondary">Afficher une carte plus grande</a></small>
+          <iframe width="70%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=2.3104012012481694%2C48.866031033314144%2C2.317482233047486%2C48.869143366027984&amp;layer=mapnik&amp;marker=48.86758722386852%2C2.313941717147827" style="border: 1px solid black"></iframe><br/><small></small>
 
           <form
             class="contact-form d-flex flex-column align-items-center"
@@ -27,7 +27,8 @@
             method="POST"
           >
           @csrf
-            <div class="form-group w-75">
+          @guest
+               <div class="form-group w-75">
               <input
                 type="name"
                 class="form-control"
@@ -45,6 +46,8 @@
                 required
               />
             </div>
+          @endguest
+           
 
             <div class="form-group w-75">
               <textarea
