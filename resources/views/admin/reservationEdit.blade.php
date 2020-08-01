@@ -3,6 +3,16 @@
 
 @section('content')
 <div class="container">
+    <div class="row">
+        <div class="col-lg-11 my-5">
+            <div class="float-left">
+                <h2>Modifier une reservation</h2>
+            </div>
+            <div class="float-right">
+                <a class="btn btn-darken-cyan" href="{{ route('bookings.index') }}"> page précédente</a>
+            </div>
+        </div>
+    </div>
     <div class="card my-5">
         <div class="card-header">
             <h2>{{ $hotelInfo->name }} - <small class="text-muted">{{ $hotelInfo->location }}</small></h2>
@@ -42,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-lg btn-primary">Modifer</button>
+                <button type="submit" class="btn btn-lg btn-info">Modifer</button>
             </form>
         </div>
     </div>
@@ -50,7 +60,7 @@
         @method('DELETE')
         @csrf
         <p class="text-right">
-            <button type="submit" class="btn btn-sm text-danger">Effacer la reservation</button>
+            <button type="submit" class="btn btn-sm text-primary">Effacer la reservation</button>
         </p>
     </form>
 </div>

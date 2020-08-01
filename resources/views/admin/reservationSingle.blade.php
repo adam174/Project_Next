@@ -5,7 +5,16 @@
 <div class="container">
     <div class="card my-5">
         <div class="card-header">
-            <h2>You're all booked for the {{ $hotelInfo->name }} in {{ $hotelInfo->location }}!</h2>
+           <div class="row">
+        <div class="col-lg-11 my-5">
+            <div class="float-left">
+                <h2>Détails de réservation</h2>
+            </div>
+            <div class="float-right">
+                <a class="btn btn-darken-cyan" href="{{ route('bookings.index') }}"> page précédente</a>
+            </div>
+        </div>
+    </div>
         </div>
         <div class="card-body">
             <div class="card-body">
@@ -30,7 +39,7 @@
                      <form action="{{ route('bookings.destroy', $reservation->id) }}" method="POST">
                     @method('DELETE')
                     @csrf
-                <button type="submit" class="btn btn-lg btn-danger">Effacer</button>  
+                <button type="submit" class="btn btn-lg btn-primary">Effacer</button>  
                 </form>
                 </div>
             </div>

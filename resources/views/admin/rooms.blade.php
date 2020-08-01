@@ -6,8 +6,8 @@
    <div>
    <h1>welcome Admin</h1>
    </div>
-   <a name="" id="" class="btn btn-info" href="{{ route('rooms.create') }}" role="button">Ajouter une chambre</a>
-   <a name="" id="" class="btn btn-primary" href="/admin/hotel/1/edit" role="button">Modifier les informations de l'hotel</a>
+   <a name="" id="" class="btn btn-darken-cyan" href="{{ route('rooms.create') }}" role="button">Ajouter une chambre</a>
+   <a name="" id="" class="btn btn-lighten-cyan" href="/admin/hotel/1/edit" role="button">Modifier les informations de l'hotel</a>
 </div>
 
 <div class="container table-responsive mt-5">
@@ -40,9 +40,9 @@
                 <form action="{{ route('rooms.destroy', $room->id) }}" method="POST">
                     @method('DELETE')
                     @csrf
-               <td> <button type="submit" class="btn btn-sm btn-danger">Effacer la reservation</button></td>  
+               <td> <button type="submit" class="btn btn-sm btn-primary">Effacer la reservation</button></td>  
                 </form>
-               <td><a name="" id="" class="btn btn-sm btn-primary" href="/admin/rooms/{{ $room->id }}" role="button">Voir les details</a></td> 
+               <td><a name="" id="" class="btn btn-sm btn-lighten-cyan" href="/admin/rooms/{{ $room->id }}" role="button">Voir les details</a></td> 
                 
             </tr>
             @endforeach

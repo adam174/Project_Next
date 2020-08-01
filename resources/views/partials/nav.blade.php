@@ -18,7 +18,7 @@
           <a class="nav-link" href="/nearby">{{ __('nav.nearby') }}</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="/photos">Photos</a>
+          <a class="nav-link" href="/gallery">Photos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/reserver">{{ __('nav.Book') }}</a>
@@ -48,13 +48,13 @@
           <a class="nav-link" href="/dashboard/reservations">{{ __('nav.Reservations') }}</a>
         </li> 
         @endif
-       
+       <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact & Accés</a>
+          </li>
         <li class="nav-item">
           <a class="nav-link" href="/logout">{{ __('nav.Logout') }}</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/contact">Contact & Accés</a>
-          </li>
+        
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-flag-usa fa-1x text-success"></i> Language</a>
             <div class="dropdown-menu" aria-labelledby="dropdown09">

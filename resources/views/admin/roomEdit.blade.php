@@ -34,12 +34,12 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-11 my-5">
             <div class="float-left">
                 <h2>Modifier une chambre</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-primary" href="{{ route('rooms.index') }}"> page précédente</a>
+                <a class="btn btn-darken-cyan" href="{{ route('rooms.index') }}"> page précédente</a>
             </div>
         </div>
     </div>
@@ -122,8 +122,8 @@
    
     </form>
         
-    <div class='list-group gallery border border-info mt-5'>
-<div class="row">
+    <div class='list-group gallery border border-info my-5'>
+<div class="row ">
 
             @if($room->photos->count())
                 @foreach($room->photos as $image)
@@ -164,7 +164,9 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-info" style="margin-top:10px">Enregistrer</button>
+       <div class=" col-sm-12 col-md-12 text-center">
+                <button type="submit" class="btn btn-info">Enregistrer</button>
+        </div>
 
   </form>     
 

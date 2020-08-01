@@ -38,9 +38,9 @@
                 <form action="{{ route('bookings.destroy', $reservation->id) }}" method="POST">
                     @method('DELETE')
                     @csrf
-               <td> <button type="submit" class="btn btn-sm btn-danger">Suprimer la reservation</button></td>  
+               <td> <button type="submit" class="btn btn-sm btn-primary">Suprimer la reservation</button></td>  
                 </form>
-               <td><a name="" id="" class="btn btn-sm btn-primary" href="/admin/bookings/{{ $reservation->id }}" role="button">Voir details</a></td> 
+               <td><a name="" id="" class="btn btn-sm btn-lighten-cyan" href="/admin/bookings/{{ $reservation->id }}" role="button">Voir details</a></td> 
                 
             </tr>
             @endforeach

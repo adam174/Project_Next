@@ -9,7 +9,7 @@
                 <h2>Modifier les informations de l'Hotel</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-primary" href="{{ route('rooms.index') }}"> page précédente</a>
+                <a class="btn btn-darken-cyan" href="{{ route('rooms.index') }}"> page précédente</a>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@
         </div>
         
         <div class=" col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Modifier</button>
+                <button type="submit" class="btn btn-darken-cyan px-5 my-5">Modifier</button>
         </div>
     </div>
    
