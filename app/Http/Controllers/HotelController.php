@@ -35,12 +35,26 @@ class HotelController extends Controller
         $request->session()->put('departure', $request->departure);
         $request->session()->put('payment', $request->payment);
         // get the rooms ids which is reserved in the requested dates  
-        $arrr = Reservation::select('room_id')->whereBetween('arrival',array($arrival,$departure))->orwhereBetween('departure',array($arrival,$departure))->get('room_id')->toArray();
+        $arrr = Reservation::select('room_id')->whereBetween('arrival',array($arrival,$departure))->orwhereBetween('departure',array($arrival,$departure))
+        ->orWhere(function($q) use($arrival, $departure) {
+        $q->where('arrival', '<', $arrival)->where('departure', '>', $departure);
+    })
+        ->get('room_id')->toArray();
         $arrr = array_column($arrr, 'room_id');
+        //dd($arrr);
         // declare an empty array then store the roomsid which was booked more than available rooms ( n_rooms)
         $dups = array();
         foreach(array_count_values($arrr) as $val => $c)  if($c >= Room::where('id',$val)->pluck('n_rooms')->toArray()[0] ) $dups[] = $val;
         $request->session()->put('notavailable', $dups);
+        //dd($dups);
+
+//     $bike = Reservation::whereBetween('arrival', [$arrival, $departure])
+//     ->orWhereBetween('departure', [$arrival, $departure])
+//     ->orWhere(function($q) use($arrival, $departure) {
+//         $q->where('arrival', '<', $arrival)->where('departure', '>', $departure);
+//     })->exists();
+// dd($bike);
+
         //$arr_2 = array_diff($arrr, $dups);
         //$dups = array_values($arr_2);
         //Get available rooms
