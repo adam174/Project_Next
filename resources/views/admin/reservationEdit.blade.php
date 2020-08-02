@@ -18,6 +18,9 @@
             <h2>{{ $hotelInfo->name }} - <small class="text-muted">{{ $hotelInfo->location }}</small></h2>
         </div> 
         <div class="card-body">
+           @error('error')
+            <p class="alert alert-danger">{{ __('validation.notavailable') }} : {{ $message }}</p>
+            @enderror
             <form action="{{ route('bookings.update', $reservation->id) }}" method="POST">
                 @csrf
                 @method('PUT')
@@ -39,16 +42,43 @@
                             <input class="form-control" name="price" value="{{ old('price', $reservation->price) }}">
                         </div>
                     </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="form-group">
+                              <label for="paid">Payé</label>
+                              <select class="form-control" name="paid">
+                                <option selected>----</option>
+                                <option value="0">Oui</option>
+                                <option value="1">Non</option>
+                              </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="form-group">
+                              <label for="paid">Moyens de paiement</label>
+                              <select class="form-control" name="payment">
+                                <option selected>----</option>
+                                <option value="0">Visa</option>
+                                <option value="1">Mastercard</option>
+                                <option value="2">Chèque</option>
+                                <option value="3">Virement bancaire</option>
+                                <option value="4">En espèces</option>
+                              </select>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="arrival">Arrivée</label>
-                            <input type="date" class="form-control" name="arrival" placeholder="03/21/2020" value="{{ old('arrival', $reservation->arrival) }}">
+                            <input type="date" class="form-control" name="arrival"  placeholder="{{ old('arrival', $reservation->arrival) }}">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="departure">Départ</label>
-                            <input type="date" class="form-control" name="departure" placeholder="03/23/2020" value="{{ old('departure', $reservation->departure) }}">
+                            <input type="date" class="form-control" name="departure" placeholder="{{ old('departure', $reservation->departure) }}">
                         </div>
                     </div>
                 </div>

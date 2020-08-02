@@ -32,7 +32,7 @@ class AdminController extends Controller
        $users = User::get();
        $reservations = Reservation::with('room', 'room.hotel')
                     ->orderBy('arrival', 'asc')
-                    ->paginate(15);
+                    ->paginate(10);
         return view('admin.reservations', compact('reservations','users'));
     }
 
@@ -176,9 +176,45 @@ class AdminController extends Controller
         $reservation = Reservation::with('room', 'room.hotel')
             ->get()
             ->find($id);
-        $reservation->price = $request->price;
+        if($request->arrival && $request->departure)
+        {
+        $arrival = $request->arrival;
+        $departure = $request->departure;
+         // get the rooms ids which is reserved in the requested dates  
+        $arrr = Reservation::select('room_id')->whereBetween('arrival',array($arrival,$departure))->orwhereBetween('departure',array($arrival,$departure))
+        ->orWhere(function($q) use($arrival, $departure) {
+        $q->where('arrival', '<', $arrival)->where('departure', '>', $departure);
+    })
+        ->get('room_id')->toArray();
+        $arrr = array_column($arrr, 'room_id');
+        // declare an empty array then store the roomsid which was booked more than available rooms ( n_rooms)
+        $dups = array();
+        foreach(array_count_values($arrr) as $val => $c)  if($c >= Room::where('id',$val)->pluck('n_rooms')->toArray()[0] ) $dups[] = $val;
+        //dd($dups);
+        if(in_array($request->room_id, $dups))
+        {
+        return redirect()->back()->withErrors(['error' => $reservation->room->type]);
+        }  
         $reservation->arrival = $request->arrival;
         $reservation->departure = $request->departure;
+        }
+        $reservation->price = $request->price;
+        $reservation->is_paid = $request->paid == '0' ? 'succeeded' : Null;
+        if ($request->payment == '0') {
+            $reservation->payment_type = 'visa';
+        } elseif($request->payment == '1') {
+            $reservation->payment_type = 'mastercard';
+        }elseif($request->payment == '2'){
+            $reservation->payment_type = 'par chèque';
+        }elseif($request->payment == '3')
+        {
+            $reservation->payment_type = 'virement bancaire';
+        }
+        elseif($request->payment == '4')
+        {
+            $reservation->payment_type = 'en espèces';
+        }
+        
         $reservation->room_id = $request->room_id;
         $reservation->save();
       

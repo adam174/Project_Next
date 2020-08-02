@@ -2,7 +2,7 @@
 @section('title', 'Reservations')
 
 @section('content')
-<div class="container table-responsive mt-5">
+<div class="container table-responsive mt-3">
     <h2>Les Reservations</h2>
     @if(!empty(Session::get('success')))
         <div class="alert alert-success"> {{ Session::get('success') }}</div>
@@ -17,22 +17,23 @@
             <th scope="col">Arrivée</th>
             <th scope="col">Départ</th>
             <th scope="col">Type</th>
-            <th scope="col">occupant(e)s</th>
-            <th scope="col">prix</th>
+            <th scope="col">Payé</th>
+            <th scope="col">Prix</th>
             <th scope="col">Modifier</th> 
             <th scope="col">Effacer</th>
-           <th scope="col">Voir</th>
+            <th scope="col">Voir</th>
 
             </tr>
         </thead>
         <tbody>
             @foreach ($reservations as $reservation)
             <tr>
+                
                 <td>{{ $users->find($reservation->user_id)->name }} </td>
                 <td>{{ $reservation->arrival }}</td>
                 <td>{{ $reservation->departure }}</td>
                 <td>{{ $reservation->room->type }}</td>
-                <td>{{ $reservation->num_of_guests }}</td>
+                <td>{!! $reservation->is_paid =="succeeded" ? '<i class="fas fa-check text-success fa-2x"></i>' : '<i class="fas fa-times text-primary fa-2x"></i>' !!}</td>
                 <td>€{{ $reservation->price }}</td> 
                 <td><a href="/admin/bookings/{{ $reservation->id }}/edit" class="btn btn-sm btn-success">Modifier</a></td>
                 <form action="{{ route('bookings.destroy', $reservation->id) }}" method="POST">
@@ -44,11 +45,15 @@
                 
             </tr>
             @endforeach
+          
+               
            
            
         </tbody>
     </table>
-    
+    <div class="container">
+        {{ $reservations->links() }}
+    </div>
 </div>
 
 @endsection
