@@ -3,7 +3,7 @@
 {{--  Set the "content" section, which will replace "@yield('content')" in the index file we're extending --}}
 @section('content')
 
-
+ 
 <section class="p-4 p-lg-5 text-center text-info" id="contact">
         <div class="my-auto">
           <h1 class="mb-4"> CONTACT & ACCÈS</h1>
@@ -20,7 +20,16 @@
           </ul>
 
           <iframe width="70%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=2.3104012012481694%2C48.866031033314144%2C2.317482233047486%2C48.869143366027984&amp;layer=mapnik&amp;marker=48.86758722386852%2C2.313941717147827" style="border: 1px solid black"></iframe><br/><small></small>
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong><br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
           <form
             class="contact-form d-flex flex-column align-items-center"
             action="{{ route('contact') }}"

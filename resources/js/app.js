@@ -4,7 +4,8 @@ require('./stripe');
 
 import $ from 'jquery';
 window.$ = window.jQuery = $;
-
+import { popper } from 'popper.js';
+window.popper = Popper;
 import 'jquery-ui/ui/widgets/datepicker.js';
 
 $( document ).ready(function() {
@@ -29,8 +30,7 @@ $( document ).ready(function() {
           }
       });
     });
-});
-    
+}); 
 
 // window.Vue = require('vue');
 

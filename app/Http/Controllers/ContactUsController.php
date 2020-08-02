@@ -24,13 +24,20 @@ class ContactUsController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
-            'name' => 'string',
-            'email'=>'email',
+        if (Auth::guest()) {
+           $request->validate([
+            'name' => 'required|string',
+            'email'=>'required|email',
             'message' => 'required | string'
-        ]);
+        ]); 
+         $name = $request->name;
+         $email = $request->email;
+        }else{
          $name = $request->name ?? Auth::user()->name;
          $email = $request->email ?? Auth::user()->email;
+        }
+         
+        
         Mail::send('emails.contactText',
        array(
            'name' => $name ,

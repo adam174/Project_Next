@@ -1,4 +1,4 @@
-body { color: #ccc }
+body { color: #ccc; }
 .nav-link{
   color:aliceblue !important;
 }
@@ -41,7 +41,8 @@ color:#d5d5d5;
 }
 #myCarousel .container {max-width: 1430px;  }
 #myCarousel .carousel-item{height:100%; min-height:500px; }
-#myCarousel{position:relative; z-index:1; background:url(https://i.imgur.com/6axE29k.jpg) center center no-repeat; background-size:cover; }
+#myCarousel{position:relative; z-index:1; background: rgb(84,154,214) center center no-repeat;
+background: radial-gradient(circle, rgba(84,154,214,1) 18%, rgba(84,154,214,1) 43%, rgba(41,149,205,1) 64%, rgba(42,184,213,1) 85%) ; background-size:cover; }
 .img-icons{
   width: 64px; height: 64px;
 }
