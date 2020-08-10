@@ -15,6 +15,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('rooms.index') }}">Les Chambres</a>
             </li>
+             <li class="nav-item">
+                <a class="nav-link" href="{{ route('clients.index') }}">Les Clients</a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Réservations de chambres</a>
                 <div class="dropdown-menu">

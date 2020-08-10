@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function bookings() {
         return $this->hasMany('App\Models\Reservation');
     }
+
+    public function countryy() {
+        return $this->belongsTo('App\Models\Country','country');
+    }
 }

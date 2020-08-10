@@ -11,7 +11,7 @@
                 <h2>Détails de réservation</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-darken-cyan" href="{{ route('bookings.index') }}"> page précédente</a>
+                <a class="btn btn-darken-cyan" href="{{ url()->previous()  }}"> page précédente</a>
             </div>
         </div>
     </div>

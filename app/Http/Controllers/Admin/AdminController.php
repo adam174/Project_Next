@@ -231,6 +231,6 @@ class AdminController extends Controller
     {
             $reservation = Reservation::find($id);
             $reservation->delete(); 
-            return redirect('/admin/bookings')->with('success', 'Successfully deleted your reservation!');
+            return redirect()->back()->with('success', 'Successfully deleted your reservation!');
     }
 }
