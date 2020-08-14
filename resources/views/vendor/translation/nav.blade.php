@@ -1,6 +1,6 @@
 <nav class="header">
 
-    <h1 class="text-lg px-6">{{ config('app.name') }}</h1>
+    <h1 class="text-lg px-6">Translation</h1>
 
     <ul class="flex-grow justify-end pr-2">
         <li>

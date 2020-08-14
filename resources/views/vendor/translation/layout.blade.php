@@ -7,11 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name') }}</title>
+    <title>Translation |  Admin : Royal Hotel</title>
+     
     <link rel="stylesheet" href="{{ asset('/vendor/translation/css/main.css') }}">
+    <link rel="stylesheet" href="{{asset('css/admin.css')}}">
+    <link rel="stylesheet" href="https://mladenplavsic.github.io/bootstrap-navbar-sidebar/navbar-fixed-left.min.css">
 </head>
 <body>
-    
+     @include('admin.partials.navbar')
     <div id="app">
         
         @include('translation::nav')
