@@ -165,3 +165,10 @@
 	text-transform: capitalize;
 	border-radius: 3px;
 }
+#navbarAdmin .nav-item.active .nav-link{
+	background-color: rgb(16, 50, 63) !important;
+}
+#navbarAdmin .nav-link:hover {
+    color: #fff !important;
+    background-color: rgb(26, 71, 87) !important;
+}

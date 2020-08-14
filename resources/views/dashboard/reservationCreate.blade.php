@@ -10,7 +10,7 @@
             <input type="hidden" name="room_id" value="{{$option->id}}">
             <input type="hidden" name="num_of_guests" value="{{ $option->occupants }}">
     <div class="row">
-        <div class="col-lg-7">
+        <div class="col-lg-6">
             <div id="carousel-{{$option->id}}" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">

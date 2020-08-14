@@ -31,7 +31,6 @@ $( document ).ready(function() {
       });
     });
 }); 
-
 // window.Vue = require('vue');
 
 // Vue.component('example-component', require('./components/views/Home.vue').default);
