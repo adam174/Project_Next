@@ -11,6 +11,7 @@
      
     <link rel="stylesheet" href="{{ asset('/vendor/translation/css/main.css') }}">
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
+    <link rel="stylesheet" href="{{asset('css/booking.css')}}">
     <link rel="stylesheet" href="https://mladenplavsic.github.io/bootstrap-navbar-sidebar/navbar-fixed-left.min.css">
 </head>
 <body>
