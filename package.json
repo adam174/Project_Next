@@ -29,6 +29,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.13.0",
+        "bootstrap-select": "^1.13.18",
         "bootswatch": "^4.5.0",
         "font-awesome": "^4.7.0",
         "owl.carousel": "^2.3.4",

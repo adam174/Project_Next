@@ -22,6 +22,7 @@ class AdminController extends Controller
     //  {
     //      $this->middleware('admin');
     //  }
+    
     /**
      * Display a listing of the resource.
      *
@@ -35,16 +36,28 @@ class AdminController extends Controller
     }
     /**
      * Display a listing of the resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+       $data = $request->all();
        $users = User::get();
-       $reservations = Reservation::with('room', 'room.hotel')
-                    ->orderBy('arrival', 'asc')
-                    ->paginate(10);
-        return view('admin.reservations', compact('reservations','users'));
+       $rooms = Room::get();
+       $reservations = Reservation::with('room', 'room.hotel')->where(function ($query) use ($request) {
+            if ($request->is_paid) {
+               $is_paid = $request->is_paid == 'true' ? 'succeeded' : Null; 
+                $query->where('is_paid', $is_paid);
+            }
+             if ($request->type && $request->type != '') {
+                 $type = $request->type;
+                $query->where('room_id', $type);
+            }
+        })
+        ->orderBy('arrival', 'asc')
+        ->paginate(10);
+        //dd($reservations);
+        return view('admin.reservations', compact('reservations','users','rooms','data'));
     }
 
     /**

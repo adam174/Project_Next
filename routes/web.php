@@ -44,8 +44,6 @@ Route::group(['prefix' => 'admin','middleware' => 'admin'], function () {
     Route::resource('hotel', 'Admin\AdminHotelController');
     Route::resource('bookings', 'Admin\AdminController');
     Route::resource('photos', 'Admin\AdminPhotoController');
- //   Route::get('bookings/checkout', 'AdminController@create');
- //   Route::post('bookings/checkout', 'AdminController@create')->name('reservations.create');
 });
 Route::get('/contact', 'ContactUsController@index');
 Route::post('/contact', 'ContactUsController@store')->name('contact');

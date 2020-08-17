@@ -1,5 +1,5 @@
 require('./bootstrap');
-
+require('bootstrap-select');
 require('./stripe');
 
 import $ from 'jquery';
