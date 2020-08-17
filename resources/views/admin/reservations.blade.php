@@ -29,7 +29,7 @@
              <select class="selectpicker" data-style="btn-info" name="type" id="">
                  <option value="" disabled>Select a room type</option>
                  @foreach ($rooms as $room)
-                <option value="{{$room->id}}" {{$data['type'] == $room->id ? 'selected' : ''}}>{{$room->type}}</option>
+                <option value="{{$room->id}}" {{($data['type'] ?? Null) == $room->id ? 'selected' : ''}}>{{$room->type}}</option>
                  @endforeach
              </select>
            </div>
