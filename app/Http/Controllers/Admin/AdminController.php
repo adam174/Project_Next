@@ -41,6 +41,10 @@ class AdminController extends Controller
      */
     public function index(Request $request)
     {
+        $validator = $request->validate([
+            'is_paid' => ['nullable','string'],
+            'type' => ['nullable','numeric','exists:rooms,id'],
+            ]);
        $data = $request->all();
        $users = User::get();
        $rooms = Room::get();

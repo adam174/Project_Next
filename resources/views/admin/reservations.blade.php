@@ -10,19 +10,24 @@
     @if(!empty(Session::get('error')))
         <div class="alert alert-danger"> {{ Session::get('error') }}</div>
     @endif
+    @if ($errors->any())
+    <div class="alert alert-primary">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <form action="{{route('bookings.index')}} ">
      <div class="row bg-info p-1">
              <div>
-               <div class="btn-group" data-toggle="buttons">
-                   <label class="btn">Show all
-                       <input type="radio" checked>
-                   </label>
-                   <label class="btn">Paid
-                       <input type="radio" name="is_paid" value="true">
-                   </label>
-                   <label class="btn">Not Paid
-                       <input type="radio" name="is_paid" value="false">
-                   </label>
+               <div class="form-group">
+                 <select class="selectpicker" data-style="btn-info" name="is_paid" id="">
+                   <option value="true">Paid</option>
+                   <option value="false">Not Paid</option>
+    
+                 </select>
                </div>
              </div>     
            <div class="form-group bg-gradient-info">
