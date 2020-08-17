@@ -27,6 +27,17 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dashboard()
+    {
+      
+       $countrycount = Country::withCount('users')->having('users_count', '>=', 1)->get();
+        return view('admin.dashboard', compact('countrycount'));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
        $users = User::get();

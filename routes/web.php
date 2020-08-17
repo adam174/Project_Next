@@ -38,7 +38,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin','middleware' => 'admin'], function () {
-    Route::view('/', 'admin/dashboard');
+    Route::get('/', 'Admin\AdminController@dashboard');
     Route::resource('clients', 'Admin\AdminClientController');
     Route::resource('rooms', 'Admin\AdminRoomController');
     Route::resource('hotel', 'Admin\AdminHotelController');

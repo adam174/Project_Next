@@ -16,7 +16,7 @@
                 <a class="nav-link" href="{{ route('clients.index') }}">Les Clients</a>
             </li>
                <li class="nav-item {{ Route::is('languages.index') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('languages.index') }}">Les Translation</a>
+                <a class="nav-link" href="{{ route('languages.index') }}">Les Translations</a>
             </li>
             <li class="nav-item dropdown {{ Route::is('bookings.index') ? 'active' : '' }}">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Réservations de chambres</a>
