@@ -21,7 +21,8 @@
 @endif
     <form action="{{route('bookings.index')}} ">
      <div class="row bg-info p-1">
-             <div>
+        
+              <div>
                <div class="form-group">
                  <select class="selectpicker" data-style="btn-info" name="is_paid" id="">
                    <option value="true">Paid</option>
@@ -61,7 +62,7 @@
             @foreach ($reservations as $reservation)
             <tr>
                 
-                <td>{{ $users->find($reservation->user_id)->name }} </td>
+                <td><a class="text-dark btn" href="/admin/clients/{{$reservation->user_id}}">{{ $reservation->client->name }}</a> </td>
                 <td>{{ $reservation->arrival }}</td>
                 <td>{{ $reservation->departure }}</td>
                 <td>{{ $reservation->room->type }}</td>

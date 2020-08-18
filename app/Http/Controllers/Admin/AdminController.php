@@ -48,7 +48,7 @@ class AdminController extends Controller
        $data = $request->all();
        $users = User::get();
        $rooms = Room::get();
-       $reservations = Reservation::with('room', 'room.hotel')->where(function ($query) use ($request) {
+       $reservations = Reservation::with('room', 'room.hotel')->with('client')->where(function ($query) use ($request) {
             if ($request->is_paid) {
                $is_paid = $request->is_paid == 'true' ? 'succeeded' : Null; 
                 $query->where('is_paid', $is_paid);

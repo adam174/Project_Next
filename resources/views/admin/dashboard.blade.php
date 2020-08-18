@@ -18,7 +18,7 @@
             <div class="card-body">
                 <h4 class="card-title">{{ __('dashboard.Book') }}</h4>
                 <p class="card-text">{{ __('dashboard.Rooms') }}</p>
-                <a href="/reserver" class="btn btn-lighten-cyan">{{ __('dashboard.Checkout') }}</a>
+                <a href="/reserver" class="btn btn-darken-cyan px-5">{{ __('dashboard.Checkout') }}</a>
             </div>
             </div>
         </div>
