@@ -39,7 +39,7 @@ class AdminRoomController extends Controller
     {
         $request->validate([
             'type' => ['required','string'],
-            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             'price' => ['required','numeric'],
             'n_rooms' => ['required','numeric'],
             'superficie' => ['required','string'],
