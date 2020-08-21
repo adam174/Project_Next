@@ -105,7 +105,7 @@ class AdminController extends Controller
 
         ]);
          // include functions we need
-        include(app_path() . '\functions\n_rooms.php');
+        include(app_path() . '/functions/n_rooms.php');
     
         
        
