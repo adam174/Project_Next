@@ -26,7 +26,7 @@ class HotelController extends Controller
     public function create(Request $request)
     {
         // inluding the function to calculate days of bookings 
-        include(app_path() . '\functions\n_rooms.php'); 
+        include(app_path() . '/functions/n_rooms.php'); 
         // storing form inputs to variables then save to session
         $arrival = $request->arrival;
         $departure = $request->departure;
