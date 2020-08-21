@@ -19,7 +19,7 @@ Route::get('/rooms', 'RoomController@index');
 Route::get('/rooms/{id}', 'RoomController@show'); 
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
-Route::get('locale/{locale}', function ($locale){
+Route::get('/locale/{locale}', function ($locale){
     Session::put('locale', $locale);
     return redirect()->back();
 });
