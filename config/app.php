@@ -85,6 +85,9 @@ return [
         'en' => 'English',
         'fr' => 'Français'
     ],
+    'administrators' =>[
+        'ruth@nachattube.com'
+    ],
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale

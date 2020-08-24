@@ -37,13 +37,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin','middleware' => 'admin'], function () {
-    Route::get('/', 'Admin\AdminController@dashboard');
-    Route::resource('clients', 'Admin\AdminClientController');
-    Route::resource('rooms', 'Admin\AdminRoomController');
-    Route::resource('hotel', 'Admin\AdminHotelController');
-    Route::resource('bookings', 'Admin\AdminController');
-    Route::resource('photos', 'Admin\AdminPhotoController');
-});
 Route::get('/contact', 'ContactUsController@index');
 Route::post('/contact', 'ContactUsController@store')->name('contact');

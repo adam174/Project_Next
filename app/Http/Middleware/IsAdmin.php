@@ -16,8 +16,15 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-         if (Auth::user() &&  1 == Auth::user()->id) {
-            return $next($request);            }
-             return redirect('/');
+        if (auth()->check()) {
+             if (in_array(auth()->user()->email,config('app.administrators'))) 
+             {
+            return $next($request);
+        }else{
+            dd('no access');
+        }
+        }else{
+            dd('please log in');
+        }
     }
 }

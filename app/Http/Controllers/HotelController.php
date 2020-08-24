@@ -12,7 +12,7 @@ use App\Models\Translation;
 class HotelController extends Controller
 {
     public function index() {
-       if (Auth::user() && Auth::user()->id == 1) {
+        if (in_array(auth()->user()->email,config('app.administrators'))) {
            return view('admin.book');
        }
         return view('book');
