@@ -12,7 +12,8 @@ use App\Models\Translation;
 class HotelController extends Controller
 {
     public function index() {
-        if (in_array(auth()->user()->email,config('app.administrators'))) {
+
+        if (auth()->user() && in_array(auth()->user()->email,config('app.administrators'))) {
            return view('admin.book');
        }
         return view('book');
@@ -25,8 +26,8 @@ class HotelController extends Controller
      */
     public function create(Request $request)
     {
-        // inluding the function to calculate days of bookings 
-        include(app_path() . '/functions/n_rooms.php'); 
+        // inluding the function to calculate days of bookings
+        include(app_path() . '/functions/n_rooms.php');
         // storing form inputs to variables then save to session
         $arrival = $request->arrival;
         $departure = $request->departure;
@@ -34,7 +35,7 @@ class HotelController extends Controller
         $request->session()->put('arrival', $request->arrival);
         $request->session()->put('departure', $request->departure);
         $request->session()->put('payment', $request->payment);
-        // get the rooms ids which is reserved in the requested dates  
+        // get the rooms ids which is reserved in the requested dates
         $arrr = Reservation::select('room_id')->whereBetween('arrival',array($arrival,$departure))->orwhereBetween('departure',array($arrival,$departure))
         ->orWhere(function($q) use($arrival, $departure) {
         $q->where('arrival', '<', $arrival)->where('departure', '>', $departure);
@@ -64,7 +65,7 @@ class HotelController extends Controller
         if (Auth::user() && Auth::user()->id == 1) {
             return view('admin.reservationCreate', compact('arrival', 'hotelInfo','departure','payment','services'));
         }
-        
+
         return view('dashboard.reservationCreate', compact('arrival', 'hotelInfo','departure','services'));
     }
 
@@ -75,7 +76,7 @@ class HotelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Hotel $hotel)
-    {   
+    {
 
            $hotel = Hotel::find(1);
              return view('admin.hotelEdit',compact('hotel'));
@@ -95,7 +96,7 @@ class HotelController extends Controller
         ]);
             $hotel = Hotel::find(1);
             $hotel->update($request->all());
-    
+
         return redirect()->route('rooms.index')
                         ->with('success','Hotel updated successfully');
     }

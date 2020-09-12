@@ -12,7 +12,7 @@
             <div class="col-md-5 col-12 order-md-1 order-2">
               <h4>{{ __('home.header_title-1') }} </h4>
               <p>{{ __('home.header_body-1') }}</p>
-            </div> 
+            </div>
             <div class="col-md-7 col-12 order-md-2 order-1"><img src="/img/00b2220430af282d345b1f9a7963a732.jpg" class="mx-auto" alt="slide"></div>
           </div>
         </div>
@@ -25,7 +25,7 @@
             <div class="col-md-5 col-12 order-md-1 order-2">
               <h4>{{ __('home.header_title-2') }}</h4>
               <p>{{ __('home.header_body-2') }}</p>
-               </div> 
+               </div>
             <div class="col-md-7 col-12 order-md-2 order-1"><img src="/img/Maranatha_09552.jpg" class="mx-auto" alt="slide"></div>
           </div>
         </div>
@@ -38,7 +38,7 @@
             <div class="col-md-5 col-12 order-md-1 order-2">
               <h4>{{ __('home.header_title-3') }}</h4>
               <p>{{ __('home.header_body-3') }}</p>
-               </div> 
+               </div>
             <div class="col-md-7 col-12 order-md-2 order-1"><img src="/img/thumbnail-18.jpg" class="mx-auto" alt="slide"></div>
           </div>
         </div>
@@ -46,11 +46,11 @@
     </div>
   </div>
   <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
-<!--slide end--> 
+<!--slide end-->
 <!-- *********************/main/************************* -->
- @if(!empty(Session::get('sent'))) 
+ @if(!empty(Session::get('sent')))
 <h1 class="text-success text-center">{{ Session::get('sent') }}</h1>
- @endif 
+ @endif
 @if(!empty(Session::get('success')))
             <!-- Start success message -->
             <section class="section-wrapper">
@@ -59,7 +59,7 @@
                         <div class="col-md-12">
                             <!-- Start Section Title -->
                             <div class="section-title text-center text-info">
-                        
+
                                 <h4>Booking Confirmed</h4>
                                 <h2>THANK YOU!</h2>
                             </div>
@@ -78,7 +78,7 @@
                     </div>
                 </div>
             </section>
-      
+
             <section class="section-wrapper call-to-action my-5">
                 <div class="container">
                     <div class="row">
@@ -92,7 +92,7 @@
                 </div>
             </section>
             <!-- End success message -->
-        
+
     @endif
     <!--                -->
     <!--Grid column-->
@@ -105,7 +105,7 @@
   <div class="col-md-12 col-lg-6 " >
     <h2 class="text-success">{{ __('home.main_title') }}</h2>
     <p class="text-muted mt-4">{{ __('home.main_body') }}</p>
-    
+
   </div>
   <div class="col-lg-6 col-md-12">
     <div class="row">
@@ -136,17 +136,17 @@
           <p><img alt="DISNEYLAND PARIS" src="/img/disney picto test.png" class="img-icons"/></p>
           <p><h6 class="text-darken-teal">DISNEYLAND PARIS</h6></p>
         </div>
-        
+
       </div>
     </div>
-    
+
   </div>
 </div>
-<div class="row">
+<div class="row d-none d-lg-block">
   <div class="container col-5">
      <div id="cont_NzUwNTZ8NXwzfDF8NHxjYWNhZTN8NHxGRkZGRkZ8Y3wx"><div id="spa_NzUwNTZ8NXwzfDF8NHxjYWNhZTN8NHxGRkZGRkZ8Y3wx"><a id="a_NzUwNTZ8NXwzfDF8NHxjYWNhZTN8NHxGRkZGRkZ8Y3wx" href="https://www.meteocity.com/france/paris_v75056/" target="_blank" style="color:#333;text-decoration:none;">Météo Paris</a> ©<a href="https://www.meteocity.com">meteocity.com</a></div><script type="text/javascript" src="//widget.meteocity.com/js/NzUwNTZ8NXwzfDF8NHxjYWNhZTN8NHxGRkZGRkZ8Y3wx"></script></div>
   </div>
-  
+
 </div>
 <!-- /Services section -->
 

@@ -86,7 +86,7 @@ return [
         'fr' => 'Français'
     ],
     'administrators' =>[
-        'ruth@nachattube.com'
+        'admin@mhanni.dev'
     ],
     /*
     |--------------------------------------------------------------------------
