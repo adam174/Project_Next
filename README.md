@@ -17,11 +17,11 @@ Page d'Acceuil           |
 
 Chambres disponible    |
 :-----------------:|
-![available rooms - screenshoot](screenshots/Create-reservation-Hotel-Manager.png) |
+![available rooms - screenshoot](https://mhanni.dev/assets/Create-reservation-Hotel-Manager.png) |
 
 Chambres d'hotel       |
 :----------------:|
-![reservation - screenshoot](screenshots/rooms-Royal-Hotel.png) |
+![reservation - screenshoot](https://mhanni.dev/assets/rooms-Royal-Hotel.png) |
 
 ### langages utilisées
 * PHP
