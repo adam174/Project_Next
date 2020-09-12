@@ -58,4 +58,4 @@ Chambres d'hotel       |
 Si vous souhaitez contribuer à ce projet et l'améliorer avec de nouvelles idées, votre pull request est le bienvenu.
 Si vous trouvez un problème, mettez-le simplement dans la section des problèmes du référentiel, merci.
 
-.سبحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، أَشْهَدُ أَنْ لا إِلهَ إِلأَ انْتَ أَسْتَغْفِرُكَ وَأَتْوبُ إِلَيْكَ
+وماتوفيقي الا بالله عليه توكلت وهو رب العرش العظيم
