@@ -53,6 +53,9 @@ Chambres d'hotel       |
    > cp .env.example .env
 6. Générez votre clé d’encryption
    > php artisan key:generate
+7. Insertion de données 
+   > php artisan migrate
+   > php artisan db:seed
 
 ### Contributing 🔧
 Si vous souhaitez contribuer à ce projet et l'améliorer avec de nouvelles idées, votre pull request est le bienvenu.
