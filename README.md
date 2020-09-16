@@ -61,7 +61,7 @@ Chambres d'hotel       |
    > php artisan key:generate
 7. Insertion de données 
    > php artisan migrate
-   > php artisan db:seed
+   >> php artisan db:seed
 
 Email : admin@admin.com 
 Mot de passe : password
