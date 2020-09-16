@@ -12,27 +12,27 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('users')->delete();
-        
+
         \DB::table('users')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
-                'name' => 'ruth',
-                'email' => 'ruth@nachattube.com',
+                'name' => 'admin',
+                'email' => 'admin@admin.com',
                 'email_verified_at' => NULL,
                 'mobile' => '06666666',
                 'country' => 37,
-                'password' => '$2y$10$YQPWfR9j6iFHZbIg8KqiL.nJH3qqZpK2IkOcXQbMRUpIN82gDLrVe',
+                'password' => '$2y$12$FZm8yhV61cSMN8IXSfs9eOrZ/xDKsASahgdLve5108vZp8PS2g4oy', //password
                 'remember_token' => NULL,
                 'created_at' => '2020-04-28 17:47:12',
                 'updated_at' => '2020-04-28 17:47:12',
             ),
 
         ));
-        
-        
+
+
     }
 }

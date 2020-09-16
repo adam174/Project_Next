@@ -24,7 +24,7 @@ $factory->define(User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'country' => $faker->randomElement([225, 226, 80, 73, 199]),
         'mobile' => $faker->e164PhoneNumber,
-        'password' => '$2y$10$YQPWfR9j6iFHZbIg8KqiL.nJH3qqZpK2IkOcXQbMRUpIN82gDLrVe', // password
+        'password' => '$2y$12$FZm8yhV61cSMN8IXSfs9eOrZ/xDKsASahgdLve5108vZp8PS2g4oy', // password
         'remember_token' => Str::random(10),
     ];
 });

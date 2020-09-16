@@ -86,7 +86,7 @@ return [
         'fr' => 'Français'
     ],
     'administrators' =>[
-        'admin@mhanni.dev'
+        'admin@admin.com'
     ],
     /*
     |--------------------------------------------------------------------------
