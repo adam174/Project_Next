@@ -39,10 +39,10 @@ Chambres d'hotel       |
 ### Serveur utilisé
 * Apache
 
-### sécurité
+### Sécurité
 * protocole SSL
 
-### plateforme de paiement
+### Plateforme de paiement
 * Stripe
 
 ### Installation 🔌
@@ -62,6 +62,9 @@ Chambres d'hotel       |
 7. Insertion de données 
    > php artisan migrate
    > php artisan db:seed
+
+Email : admin@admin.com 
+Mot de passe : password
 
 ### Contributing 🔧
 Si vous souhaitez contribuer à ce projet et l'améliorer avec de nouvelles idées, votre pull request est le bienvenu.
