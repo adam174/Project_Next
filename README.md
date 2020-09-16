@@ -39,6 +39,12 @@ Chambres d'hotel       |
 ### Serveur utilisé
 * Apache
 
+### sécurité
+* protocole SSL
+
+### plateforme de paiement
+* Stripe
+
 ### Installation 🔌
 1. Appuyez sur le bouton **Fork** (en haut à droite de la page) pour enregistrer une copie de ce projet sur votre compte..
 2. Téléchargez les fichiers du référentiel (projet) à partir de la section de téléchargement ou clonez ce projet en tapant dans le bash la commande suivante:
