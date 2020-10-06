@@ -21,7 +21,7 @@ class RoomsTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'hotel_id' => 1,
-                'type' => 'single',
+                'type' => 'Single',
                 'description' => 'Dotée d’un lit simple et d’une salle de douche, cette chambre est idéale pour accueillir une personne en voyage d’affaire en plein cœur de Paris. Donnant sur la cour intérieure, elle offre un cadre paisible et serein propice au repos. Cosy et délicate, notre  chambre Simple vous ravira par sa douceur et deviendra votre havre de paix le temps de quelques nuits.',
                 'price' => '137.00',
                 'image' => 'https://picsum.photos/200',
@@ -49,7 +49,7 @@ class RoomsTableSeeder extends Seeder
             array (
                 'id' => 3,
                 'hotel_id' => 1,
-                'type' => 'Supérieure',
+                'type' => 'Superieure',
                 'description' => 'Synonyme de raffinement, la plupart de nos chambres Supérieures bénéficient d’une vue sur l\'avenue de Friedland, artère arborée majestueuse dans l\'axe de l\'Arc de Triomphe. Elégante et chaleureuse, la chambre Supérieure vous invite à l’expérience d’un séjour exceptionnel au cœur de Paris.',
                 'price' => '167.00',
                 'image' => 'https://picsum.photos/200',
