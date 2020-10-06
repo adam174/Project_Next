@@ -12,12 +12,12 @@ class RoomsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('rooms')->delete();
-        
+
         \DB::table('rooms')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'hotel_id' => 1,
@@ -29,8 +29,9 @@ class RoomsTableSeeder extends Seeder
                 'superficie' => '9',
                 'couchage' => '1 x Lit simple',
                 'occupants' => 2,
+                'services' => ["22", "23", "25"]
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'hotel_id' => 1,
@@ -42,8 +43,9 @@ class RoomsTableSeeder extends Seeder
                 'superficie' => '13 - 18',
                 'couchage' => '1 x Lit double',
                 'occupants' => 2,
+                'services' => ["22", "23", "25"]
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'hotel_id' => 1,
@@ -55,8 +57,9 @@ class RoomsTableSeeder extends Seeder
                 'superficie' => '	18 - 23',
                 'couchage' => '1 x Lit double',
                 'occupants' => 2,
+                'services' => ["22", "23", "25"]
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
                 'hotel_id' => 1,
@@ -68,8 +71,9 @@ class RoomsTableSeeder extends Seeder
                 'superficie' => '21 - 26',
                 'couchage' => '1 x Lit double + 1 x Lit simple',
                 'occupants' => 3,
+                'services' => ["22", "23", "25"]
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 5,
                 'hotel_id' => 1,
@@ -81,8 +85,9 @@ class RoomsTableSeeder extends Seeder
                 'superficie' => '30',
                 'couchage' => '	1 x Lit simple , 1 x Lit double',
                 'occupants' => 3,
+                'services' => ["22", "23", "25"]
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 6,
                 'hotel_id' => 1,
@@ -94,9 +99,10 @@ class RoomsTableSeeder extends Seeder
                 'superficie' => '32',
                 'couchage' => '1 lit double & 1 canapé convertible double',
                 'occupants' => 4,
+                'services' => ["22", "23", "25"]
             ),
         ));
-        
-        
+
+
     }
 }
