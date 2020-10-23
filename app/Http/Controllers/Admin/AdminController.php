@@ -22,7 +22,7 @@ class AdminController extends Controller
     //  {
     //      $this->middleware('admin');
     //  }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -30,7 +30,7 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
-      
+
        $countrycount = Country::withCount('users')->having('users_count', '>=', 1)->get();
         return view('admin.dashboard', compact('countrycount'));
     }
@@ -48,9 +48,10 @@ class AdminController extends Controller
        $data = $request->all();
        $users = User::get();
        $rooms = Room::get();
+       //getting reservations with filtering option
        $reservations = Reservation::with('room', 'room.hotel')->with('client')->where(function ($query) use ($request) {
             if ($request->is_paid) {
-               $is_paid = $request->is_paid == 'true' ? 'succeeded' : Null; 
+               $is_paid = $request->is_paid == 'true' ? 'succeeded' : Null; // is_paid = if true (succeeded) else (Null)
                 $query->where('is_paid', $is_paid);
             }
              if ($request->type && $request->type != '') {
@@ -71,8 +72,8 @@ class AdminController extends Controller
      */
     public function create(Request $request)
     {
-       
-        //get list of countries 
+
+        //get list of countries
          $countries = Country::all();
         // keep room_id in session and store it in variable
         $request->session()->put('room_id', $request->room_id);
@@ -106,15 +107,15 @@ class AdminController extends Controller
         ]);
          // include functions we need
         include(app_path() . '/functions/n_rooms.php');
-    
-        
-       
+
+
+
         //get the price of the room
         $price = Room::select('price')->where('id',$room_id)->first();
         // calculate price of total days of stay
         $price = $price->price * dateDifference($arrival, $departure);
         $room_type = Room::select('type')->where('id',$room_id)->first();
-       
+
                 $password = Str::random(8);
                 $user = User::firstOrNew(['email' =>  $request->email]);
                 if (!$user->exists) {
@@ -126,10 +127,10 @@ class AdminController extends Controller
                         $user->password = Hash::make($password);
                         $user->save();
                     }
-               
+
                 $user_id = User::where('email',$request->email)->pluck('id')->toArray()[0];
                 $email = $request->email;
-                 // store data to request 
+                 // store data to request
                 $request->request->add(['user_id' => $user_id]);
                 $request->request->add(['arrival' => $arrival]);
                 $request->request->add(['departure' => $departure]);
@@ -148,7 +149,7 @@ class AdminController extends Controller
                 "description" => "Test payment from RoyalHotel.",
                 "receipt_email" => $email,
                             ]);
-                // send request 
+                // send request
                      $request->request->add(['is_paid' => $stripe->status]);
                      $request->request->add(['payment_type' => $stripe->payment_method_details->card->brand]);
                Reservation::create($request->all());
@@ -169,10 +170,10 @@ class AdminController extends Controller
           ->get()
           ->find($reservation);
         // security check : show only user's reservations || admin can see all
-       
+
           $hotel_id = 1;
           $hotelInfo = Hotel::with('rooms')->get()->find($hotel_id);
-      
+
           return view('admin.reservationSingle', compact('reservation', 'hotelInfo'));
     }
 
@@ -208,7 +209,7 @@ class AdminController extends Controller
         {
         $arrival = $request->arrival;
         $departure = $request->departure;
-         // get the rooms ids which is reserved in the requested dates  
+         // get the rooms ids which is reserved in the requested dates
         $arrr = Reservation::select('room_id')->whereBetween('arrival',array($arrival,$departure))->orwhereBetween('departure',array($arrival,$departure))
         ->orWhere(function($q) use($arrival, $departure) {
         $q->where('arrival', '<', $arrival)->where('departure', '>', $departure);
@@ -222,7 +223,7 @@ class AdminController extends Controller
         if(in_array($request->room_id, $dups))
         {
         return redirect()->back()->withErrors(['error' => $reservation->room->type]);
-        }  
+        }
         $reservation->arrival = $request->arrival;
         $reservation->departure = $request->departure;
         }
@@ -242,10 +243,10 @@ class AdminController extends Controller
         {
             $reservation->payment_type = 'en espèces';
         }
-        
+
         $reservation->room_id = $request->room_id;
         $reservation->save();
-      
+
         return redirect('admin/bookings')->with('success', 'Successfully updated your reservation!');
     }
 
@@ -258,7 +259,7 @@ class AdminController extends Controller
     public function destroy($id)
     {
             $reservation = Reservation::find($id);
-            $reservation->delete(); 
+            $reservation->delete();
             return redirect()->back()->with('success', 'Successfully deleted your reservation!');
     }
 }

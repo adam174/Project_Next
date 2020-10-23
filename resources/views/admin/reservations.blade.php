@@ -21,16 +21,16 @@
 @endif
     <form action="{{route('bookings.index')}} ">
      <div class="row bg-info p-1">
-        
+
               <div>
                <div class="form-group">
                  <select class="selectpicker" data-style="btn-info" name="is_paid" id="">
-                   <option value="true">Paid</option>
-                   <option value="false">Not Paid</option>
-    
+                   <option value="true">Payé</option>
+                   <option value="false">Impayé</option>
+
                  </select>
                </div>
-             </div>     
+             </div>
            <div class="form-group bg-gradient-info">
              <select class="selectpicker" data-style="btn-info" name="type" id="">
                  <option value="" disabled>Select a room type</option>
@@ -52,7 +52,7 @@
             <th scope="col">Type</th>
             <th scope="col">Payé</th>
             <th scope="col">Prix</th>
-            <th scope="col">Modifier</th> 
+            <th scope="col">Modifier</th>
             <th scope="col">Effacer</th>
             <th scope="col">Voir</th>
 
@@ -61,27 +61,27 @@
         <tbody>
             @foreach ($reservations as $reservation)
             <tr>
-                
+
                 <td><a class="text-dark btn" href="/admin/clients/{{$reservation->user_id}}">{{ $reservation->client->name }}</a> </td>
                 <td>{{ $reservation->arrival }}</td>
                 <td>{{ $reservation->departure }}</td>
                 <td>{{ $reservation->room->type }}</td>
                 <td>{!! $reservation->is_paid =="succeeded" ? '<i class="fas fa-check text-success fa-2x"></i>' : '<i class="fas fa-times text-primary fa-2x"></i>' !!}</td>
-                <td>€{{ $reservation->price }}</td> 
+                <td>€{{ $reservation->price }}</td>
                 <td><a href="/admin/bookings/{{ $reservation->id }}/edit" class="btn btn-sm btn-success">Modifier</a></td>
                 <form action="{{ route('bookings.destroy', $reservation->id) }}" method="POST">
                     @method('DELETE')
                     @csrf
-               <td> <button type="submit" class="btn btn-sm btn-primary">Suprimer la reservation</button></td>  
+               <td> <button type="submit" class="btn btn-sm btn-primary">Suprimer la reservation</button></td>
                 </form>
-               <td><a name="" id="" class="btn btn-sm btn-lighten-cyan" href="/admin/bookings/{{ $reservation->id }}" role="button">Voir details</a></td> 
-                
+               <td><a name="" id="" class="btn btn-sm btn-lighten-cyan" href="/admin/bookings/{{ $reservation->id }}" role="button">Voir details</a></td>
+
             </tr>
             @endforeach
-          
-               
-           
-           
+
+
+
+
         </tbody>
     </table>
     <div class="container">

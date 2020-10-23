@@ -16,7 +16,7 @@
     <div class="card my-5">
         <div class="card-header">
             <h2>{{ $hotelInfo->name }} - <small class="text-muted">{{ $hotelInfo->location }}</small></h2>
-        </div> 
+        </div>
         <div class="card-body">
            @error('error')
             <p class="alert alert-danger">{{ __('validation.notavailable') }} : {{ $message }}</p>
@@ -45,7 +45,7 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <div class="form-group">
-                              <label for="paid">Payé</label>
+                              <label for="paid">payé</label>
                               <select class="form-control" name="paid">
                                 <option selected>----</option>
                                 <option value="0">Oui</option>

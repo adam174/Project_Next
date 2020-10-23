@@ -15,10 +15,11 @@ class SecuredHttp
      */
     public function handle($request, Closure $next)
     {
+        //if the request is not secure redirect to secure
         if (!$request->secure()) {
       return redirect()->secure($request->path());
             }
-            
+
         return $next($request);
     }
 }

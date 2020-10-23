@@ -31,7 +31,7 @@ class ReservationController extends Controller
                     ->where('user_id', Auth::user()->id)
                     ->orderBy('arrival', 'asc')
                     ->get();
-            
+
         return view('dashboard.reservations', compact('reservations','users'));
     }
 
@@ -48,8 +48,8 @@ class ReservationController extends Controller
         if ( in_array($request->room_id, $notavailable)) {
          return redirect('reserver');
         }
-      
-        //get list of countries 
+
+        //get list of countries
          $countries = Country::all();
         // keep room_id in session and store it in variable
         $request->session()->put('room_id', $request->room_id);
@@ -57,7 +57,7 @@ class ReservationController extends Controller
         // get dates from stored session
         $arrival = $request->session()->get('arrival');
         $departure = $request->session()->get('departure');
-       
+
            return view('dashboard.reservationCheckout', compact('arrival', 'room_id','departure','countries'));
     }
 
@@ -71,12 +71,12 @@ class ReservationController extends Controller
     {
         // include functions we need
         include(app_path() . '\functions\n_rooms.php');
-    
+
         //get info stored in sessions then Convert date format to Y-m-d (supported by mysql)
         $arrival = $request->session()->get('arrival');
         $departure = $request->session()->get('departure');
         $room_id = $request->session()->get('room_id');
-       
+
         //get the price of the room
         $price = Room::select('price')->where('id',$room_id)->first();
         if(!$price){
@@ -84,7 +84,7 @@ class ReservationController extends Controller
         // calculate price of total days of stay
         $price = $price->price * dateDifference($arrival, $departure);
         $room_type = Room::select('type')->where('id',$room_id)->first();
-        // Create the request  
+        // Create the request
         if ( Auth::guest()) {
             $validator = Validator::make($request->all(), [
                 'email' => ['required','unique:users'],
@@ -103,14 +103,14 @@ class ReservationController extends Controller
                 $user->save();
                 $user_id = User::where('email',$request->email)->pluck('id')->toArray()[0];
                 $email = $request->email;
-                
+
             }else{  // store to variables to send email confirmation
                 $user_id = Auth::user()->id;
                 $name = Auth::user()->name;
                 $email = Auth::user()->email;
                 $password = null;
             }
-           
+
             // using Stripe to make transaction and make it optional for admin
                 Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
                $stripe = Stripe\Charge::create ([
@@ -120,7 +120,7 @@ class ReservationController extends Controller
                 "description" => "Test payment from RoyalHotel.",
                 "receipt_email" => $email,
                             ]);
-                             // store data to request 
+                             // store data to request
             $request->request->add(['user_id' => $user_id]);
             $request->request->add(['arrival' => $arrival]);
             $request->request->add(['departure' => $departure]);
@@ -131,7 +131,7 @@ class ReservationController extends Controller
             $request->request->add(['payment_type' => $stripe->payment_method_details->card->brand]);
         // send request
         Reservation::create($request->all());
-            
+
        // send Reservation Confirmation to user
         $details = ['price' => $price,
                     'client' => $name,
@@ -142,7 +142,7 @@ class ReservationController extends Controller
                 ];
 
         \Mail::to($email)->send(new \App\Mail\MyTestMail($details));
-    
+
         return redirect('home')->with('success', 'Your Booking has been confirmed')
                                ->with('name', $name);
     }
@@ -153,19 +153,19 @@ class ReservationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Reservation $reservation) 
+    public function show(Reservation $reservation)
     {
-        // get reservations from database to edit
-        $reservation = Reservation::with('room', 'room.hotel')
-          ->get()
-          ->find($reservation->id);
-        // security check : show only user's reservations || admin can see all
+        // security check : show only user's reservations
         if ($reservation->user_id === Auth::user()->id) {
+            // get reservations from database to edit
+            $reservation = Reservation::with('room', 'room.hotel')
+              ->get()
+              ->find($reservation->id);
           $hotel_id = $reservation->room->hotel_id;
           $hotelInfo = Hotel::with('rooms')->get()->find($hotel_id);
-      
+
           return view('dashboard.reservationSingle', compact('reservation', 'hotelInfo'));
-        } else 
+        } else
           return redirect('dashboard/reservations')->with('error', 'You are not authorized to see that.');
     }
 
@@ -189,9 +189,9 @@ class ReservationController extends Controller
      */
     public function update(Request $request, Reservation $reservation) {
 
-           return redirect('dashboard/reservations')->with('error', 'You are not authorized to update this reservation'); 
-        
-        
+           return redirect('dashboard/reservations')->with('error', 'You are not authorized to update this reservation');
+
+
     }
 
     /**
@@ -202,7 +202,7 @@ class ReservationController extends Controller
      */
     public function destroy(Reservation $reservation)
     {
-    
+
             return redirect('dashboard/reservations')->with('error', 'You are not authorized to delete this reservation');
     }
 }

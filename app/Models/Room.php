@@ -27,4 +27,8 @@ class Room extends Model
     public function photos() {
         return $this->hasMany('App\Models\Photo');
     }
+    
+     public function reservations() {
+        return $this->hasMany('App\Models\Reservation');
+    }
 }

@@ -18,7 +18,7 @@
 
 <!-- //******************** Rooms*******************//  -->
 <div class="how-section1">
-    @foreach($rooms as $room) 
+    @foreach($rooms as $room)
     @if($room->id  % 2 == 0)
        <div class="row">
       <div class="col-md-6">
@@ -42,9 +42,9 @@
       </div>
   </div>
     @endif
-    
+
 @endforeach
-  
+
 </div>
 
 @endsection

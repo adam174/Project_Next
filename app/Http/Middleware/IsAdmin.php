@@ -16,8 +16,9 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
+        // check if the user is administrator 
         if (auth()->check()) {
-             if (in_array(auth()->user()->email,config('app.administrators'))) 
+             if (in_array(auth()->user()->email,config('app.administrators')))
              {
             return $next($request);
         }else{

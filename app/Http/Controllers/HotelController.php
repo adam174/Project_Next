@@ -11,8 +11,10 @@ use App\Models\Translation;
 
 class HotelController extends Controller
 {
-    public function index() {
 
+
+    public function index() {
+        // check if the user is Administrator then redirect to admin booking zone
         if (auth()->user() && in_array(auth()->user()->email,config('app.administrators'))) {
            return view('admin.book');
        }
@@ -42,11 +44,11 @@ class HotelController extends Controller
     })
         ->get('room_id')->toArray();
         $arrr = array_column($arrr, 'room_id');
-      
+
         // declare an empty array then store the roomsid which was booked more than available rooms ( n_rooms)
         $dups = array();
         foreach(array_count_values($arrr) as $val => $c)  if($c >= Room::where('id',$val)->pluck('n_rooms')->toArray()[0] ) $dups[] = $val;
-        $request->session()->put('notavailable', $dups);
+       // $request->session()->put('notavailable', $dups);
 
         //Get available rooms
         $hotelInfo = Room::with('photos')->where('hotel_id',1)->whereNotIn('id', $dups)->get();
@@ -81,13 +83,18 @@ class HotelController extends Controller
      */
     public function update(Request $request, Hotel $hotel)
     {
-        $request->validate([
-            'name' => 'required',
-        ]);
-            $hotel = Hotel::find(1);
-            $hotel->update($request->all());
+             if (auth()->user() && in_array(auth()->user()->email,config('app.administrators')))
+             {
 
-        return redirect()->route('rooms.index')
-                        ->with('success','Hotel updated successfully');
+                    $request->validate([
+                        'name' => 'required',
+                    ]);
+                        $hotel = Hotel::find(1);
+                        $hotel->update($request->all());
+
+                    return redirect()->route('rooms.index')
+                                    ->with('success','Hotel updated successfully');
+
+             }
     }
 }

@@ -1,11 +1,11 @@
 <?php
-   
+
 namespace App\Http\Controllers;
-   
+
 use Illuminate\Http\Request;
 use Session;
 use Stripe;
-   
+
 class StripePaymentController extends Controller
 {
     /**
@@ -17,7 +17,7 @@ class StripePaymentController extends Controller
     {
         return view('stripe');
     }
-  
+
     /**
      * success response method.
      *
@@ -30,11 +30,11 @@ class StripePaymentController extends Controller
                 "amount" => 100 * 100,
                 "currency" => "usd",
                 "source" => $request->stripeToken,
-                "description" => "Test payment from itsolutionstuff.com." 
+                "description" => "Test payment from Royalhotel"
         ]);
-  
+
         Session::flash('success', 'Payment successful!');
-          
+
         return back();
     }
 }

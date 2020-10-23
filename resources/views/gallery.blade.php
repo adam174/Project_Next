@@ -11,23 +11,20 @@
 @endsection
 @section('content')
 
-
 <div class="container-fluid text-darken-purple">
     <h2>Image Gallery</h2>
     <div class="row text-darken-purple">
     @foreach ($photos as $photo)
-       
+
       <div class="col-md-3 mt-4">
       <a href="{{$photo->photo}}" data-toggle="lightbox" data-gallery="image-gallery" data-title="{{$photo->room->type}}">
           <img src="{{$photo->photo}}" class="img-fluid fitness">
         </a>
       </div>
-      
-    
-    @endforeach
-    </div> 
-  </div>
 
+      @endforeach
+    </div>
+  </div>
 
 @endsection
 
